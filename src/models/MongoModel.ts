@@ -1,21 +1,26 @@
-import { Model } from '../interfaces/ModelInterface'
-import { Model as M, Document } from 'mongoose'
+import { Model as M, Document } from 'mongoose';
+import { Model } from '../interfaces/ModelInterface';
+import { Vehicle } from '../interfaces/VehicleInteface';
 
-export class MongoModel<T> implements Model<T> {
-  constructor (protected model: M<T & Document>) {}
-  create = async (obj: T): Promise<T> => await this.model.create({ ...obj })
+class MongoModel implements Model<Vehicle> {
+  constructor(protected model: M<Vehicle & Document>) {}
 
-  read = async (): Promise<T[]> => await this.model.find()
+  create = async (obj: Vehicle):
+  Promise<Vehicle> => this.model.create({ ...obj });
 
-  async readOne (id_: string): Promise<T | null> {
-    return await this.model.findOne({ _id: id_ })
+  read = async (): Promise<Vehicle[]> => this.model.find();
+
+  async readOne(id_: string): Promise<Vehicle | null> {
+    return this.model.findOne({ _id: id_ });
   }
 
-  async update (id_: string, obj: T): Promise<T | null> {
-    return await this.model.findOneAndUpdate({ _id: id_ }, { ...obj })
+  async update(id_: string, obj: Vehicle): Promise<Vehicle | null> {
+    return this.model.findOneAndUpdate({ _id: id_ }, { ...obj });
   }
 
-  async delete (id_: string): Promise<T | null> {
-    return await this.model.findOneAndDelete({ _id: id_ })
+  async delete(id_: string): Promise<Vehicle | null> {
+    return this.model.findOneAndDelete({ _id: id_ });
   }
 }
+
+export default MongoModel;

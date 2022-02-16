@@ -2,7 +2,7 @@ import { Schema, model as createModel, Document } from 'mongoose';
 
 import { Motorcycle } from '../interfaces/MotorcycleInterface';
 
-import { MongoModel } from './MongoModel';
+import MongoModel from './MongoModel';
 
 interface MotorcycleDocument extends Motorcycle, Document {}
 const motorcycleSchema = new Schema<MotorcycleDocument>({
