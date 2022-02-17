@@ -15,7 +15,7 @@ const vehicleSchema = new Schema<VehicleDocument>({
   buyValue: Number,
 });
 
-class VehicleModel extends MongoModel {
+class VehicleModel extends MongoModel<Vehicle> {
   constructor(model = createModel('vehicle', vehicleSchema)) {
     super(model);
   }
