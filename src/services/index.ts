@@ -1,9 +1,9 @@
 import { Model } from '../interfaces/ModelInterface';
 
-abstract class Service<Vehicle> {
-  constructor(protected model: Model<Vehicle>) { }
+abstract class Service<T> {
+  constructor(protected model: Model<T>) { }
 
-  public async create(obj: Vehicle): Promise<Vehicle | null> {
+  public async create(obj: T): Promise<T | null> {
     return this.model.create(obj);
   }
 
@@ -15,7 +15,7 @@ abstract class Service<Vehicle> {
     return this.model.readOne(id);
   }
 
-  public async update(id: string, obj: Vehicle): Promise<Vehicle | null> {
+  public async update(id: string, obj: T): Promise<T | null> {
     return this.model.update(id, obj);
   }
 
