@@ -1,17 +1,27 @@
+import Service from './index';
 import { Vehicle } from '../interfaces/VehicleInteface';
-import  from '';
+import VehicleModel from '../models/VehicleModel';
 
-class LensService extends Vehicle<Lens> {
-  constructor(model = new LensModel()) {
+class VehicleService extends Service<Vehicle> {
+  constructor(model = new VehicleModel()) {
     super(model);
   }
 
-  public async create(obj: Lens): Promise<Lens | null> {
-    if (obj) {
+  yearValidation() {
+    
+  }
+
+  public async create(obj: Vehicle): Promise<Vehicle | null> {
+    if (
+      obj
+      && (
+        obj.type === 'car' || obj.type === 'motorcycle' || obj.type === 'truck'
+      )
+    ) {
       return this.model.create(obj);
     }
     return null;
   }
 }
 
-export default LensService;
+export default VehicleService;
