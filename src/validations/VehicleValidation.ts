@@ -9,7 +9,7 @@ const VehicleSchema = z.object({
     message: 'color must be longer than 3 characters',
   }).nonempty({ message: 'color is required' }),
   status: z.boolean(),
-  buyDate: z.string().transform((val) => new Date(val)),
+  buyDate: z.string(),
   buyValue: z.number(),
   type: z.enum(['Car', 'Motorcycle', 'Truck']),
 });

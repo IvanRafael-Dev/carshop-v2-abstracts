@@ -11,7 +11,7 @@ const vehicleSchema = new Schema<VehicleDocument>({
   year: Number,
   color: String,
   status: Boolean,
-  buyDate: Date,
+  buyDate: String,
   buyValue: Number,
 });
 
