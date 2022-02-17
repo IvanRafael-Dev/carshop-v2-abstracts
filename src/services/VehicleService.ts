@@ -12,10 +12,10 @@ const objIsValid = (obj: Vehicle): boolean => {
   return false;
 };
 
-const typeValidation = (type: string): boolean => {
-  if (type === 'car' || type === 'truck' || type === 'motorcyle') return true;
-  return false;
-};
+// const typeValidation = (type: string): boolean => {
+//   if (type === 'car' || type === 'truck' || type === 'motorcyle') return true;
+//   return false;
+// };
 
 class VehicleService extends Service<Vehicle> {
   constructor(model = new VehicleModel()) {
@@ -25,7 +25,7 @@ class VehicleService extends Service<Vehicle> {
   public async create(obj: Vehicle): Promise<Vehicle | null> {
     if (!objIsValid) return null;
     if (!yearValidation) return null;
-    if (!typeValidation) return null;
+    // if (!typeValidation) return null;
     return this.model.create(obj);
     // if (
     //   obj
