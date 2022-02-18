@@ -8,7 +8,7 @@ interface TruckDocument extends Truck, Document {}
 const truckSchema = new Schema<TruckDocument>({
   axisQty: Number,
   category: String,
-});
+}, { versionKey: false });
 
 class TruckModel extends MongoModel<Truck> {
   constructor(model = createModel('vehicle', truckSchema)) {

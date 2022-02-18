@@ -13,7 +13,7 @@ const vehicleSchema = new Schema<VehicleDocument>({
   status: Boolean,
   buyDate: String,
   buyValue: Number,
-});
+}, { versionKey: false });
 
 class VehicleModel extends MongoModel<Vehicle> {
   constructor(model = createModel('vehicle', vehicleSchema)) {

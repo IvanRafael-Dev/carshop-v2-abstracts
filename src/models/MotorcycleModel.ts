@@ -8,7 +8,7 @@ interface MotorcycleDocument extends Motorcycle, Document {}
 const motorcycleSchema = new Schema<MotorcycleDocument>({
   category: String,
   engineCapacity: Number,
-});
+}, { versionKey: false });
 
 class MotorcycleModel extends MongoModel<Motorcycle> {
   constructor(model = createModel('vehicle', motorcycleSchema)) {
