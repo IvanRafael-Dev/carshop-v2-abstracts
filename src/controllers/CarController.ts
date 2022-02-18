@@ -1,15 +1,15 @@
 import { Request, Response } from 'express';
 import Controller, { ResponseError } from '.';
-import VehicleService from '../services/VehicleService';
-import { Vehicle } from '../interfaces/VehicleInteface';
-import VehicleSchema from '../validations/VehicleValidation';
+import CarService from '../services/CarService';
+import { Car } from '../interfaces/CarInterface';
+import CarSchema from '../validations/CarValidation';
 
-class VehicleController extends Controller<Vehicle> {
+class CarController extends Controller<Car> {
   private $route: string;
 
   constructor(
-    service = new VehicleService(),
-    route = '/vehicles',
+    service = new CarService(),
+    route = '/cars',
   ) {
     super(service);
     this.$route = route;
@@ -18,12 +18,12 @@ class VehicleController extends Controller<Vehicle> {
   get route() { return this.$route; }
 
   create = async (
-    req: Request<Vehicle>,
-    res: Response<Vehicle | ResponseError>,
+    req: Request<Car>,
+    res: Response<Car | ResponseError>,
   ): Promise<typeof res> => {
-    const { body }: { body: Vehicle } = req;
+    const { body }: { body: Car } = req;
 
-    const parsed = VehicleSchema.safeParse(body);
+    const parsed = CarSchema.safeParse(body);
     if (!parsed.success) {
       return res.status(400).json({ error: parsed.error });
     }
@@ -39,7 +39,7 @@ class VehicleController extends Controller<Vehicle> {
 
   readOne = async (
     req: Request<{ id: string; }>,
-    res: Response<Vehicle | ResponseError>,
+    res: Response<Car | ResponseError>,
   ): Promise<typeof res> => {
     const { id } = req.params;
 
@@ -54,13 +54,13 @@ class VehicleController extends Controller<Vehicle> {
 
   update = async (
     req: Request<{ id: string; }>,
-    res: Response<Vehicle | ResponseError>,
+    res: Response<Car | ResponseError>,
   ): Promise<typeof res> => {
     const { id } = req.params;
     if (!id) return res.status(400).json({ error: this.requiredIdError });
 
     const { body } = req;
-    const parsed = VehicleSchema.safeParse(body);
+    const parsed = CarSchema.safeParse(body);
 
     if (!parsed.success) {
       return res.status(400).json({ error: parsed.error });
@@ -76,4 +76,4 @@ class VehicleController extends Controller<Vehicle> {
   };
 }
 
-export default VehicleController;
+export default CarController;
