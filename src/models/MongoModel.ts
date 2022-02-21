@@ -1,6 +1,5 @@
 import { Model as M, Document } from 'mongoose';
 import { Model } from '../interfaces/ModelInterface';
-// import { Vehicle } from '../interfaces/VehicleInteface';
 
 class MongoModel<T> implements Model<T> {
   constructor(protected model: M<T & Document>) {}
