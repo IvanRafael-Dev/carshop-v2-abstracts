@@ -29,9 +29,10 @@ class CarController extends Controller<Car> {
     }
 
     try {
-      const lens = await this.service.create(body);
-      if (!lens) return res.status(404).json({ error: this.notFoundError });
-      return res.json(lens);
+      const cars = await this.service.create(body);
+      console.log(cars);
+      if (!cars) return res.status(404).json({ error: this.notFoundError });
+      return res.json(cars);
     } catch (err) {
       return res.status(500).json({ error: this.internalError });
     }
@@ -44,9 +45,9 @@ class CarController extends Controller<Car> {
     const { id } = req.params;
 
     try {
-      const lens = await this.service.readOne(id);
-      if (!lens) return res.status(404).json({ error: this.notFoundError });
-      return res.json(lens);
+      const cars = await this.service.readOne(id);
+      if (!cars) return res.status(404).json({ error: this.notFoundError });
+      return res.json(cars);
     } catch (error) {
       return res.status(500).json({ error: this.internalError });
     }
