@@ -18,7 +18,5 @@ carRouter.addRoute(carController);
 
 server.addRouter(vehicleRouter.router);
 server.addRouter(carRouter.router);
-// server.addRouter(motorcycleRouter.router);
-// server.addRouter(truckRouter.router);
 
 server.startServer();
