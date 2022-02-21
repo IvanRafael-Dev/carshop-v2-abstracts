@@ -10,7 +10,7 @@ interface CarDocument extends Car, Document {}
 const carSchema = new Schema<CarDocument>({
   ...vehicleSchema.obj,
   seatsQty: Number,
-  doorsQty: Number,
+  doorsQty: Number,  
 }, { versionKey: false });
 class CarModel extends MongoModel<Car> {
   constructor(model = createModel('car', carSchema)) {

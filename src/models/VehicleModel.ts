@@ -6,12 +6,10 @@ import MongoModel from './MongoModel';
 
 interface VehicleDocument extends Vehicle, Document {}
 export const vehicleSchema = new Schema<VehicleDocument>({
-  type: String,
   model: String,
   year: Number,
   color: String,
   status: Boolean,
-  buyDate: String,
   buyValue: Number,
 }, { versionKey: false });
 
