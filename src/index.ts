@@ -17,6 +17,6 @@ const carRouter = new CustomRouter<Car>();
 carRouter.addRoute(carController);
 
 server.addRouter(vehicleRouter.router);
-server.addRouter(vehicleRouter.router);
+server.addRouter(carRouter.router);
 
 server.startServer();

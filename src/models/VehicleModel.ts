@@ -5,7 +5,7 @@ import { Vehicle } from '../interfaces/VehicleInteface';
 import MongoModel from './MongoModel';
 
 interface VehicleDocument extends Vehicle, Document {}
-const vehicleSchema = new Schema<VehicleDocument>({
+export const vehicleSchema = new Schema<VehicleDocument>({
   type: String,
   model: String,
   year: Number,
