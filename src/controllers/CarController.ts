@@ -30,7 +30,6 @@ class CarController extends Controller<Car> {
 
     try {
       const cars = await this.service.create(body);
-      console.log(cars);
       if (!cars) return res.status(404).json({ error: this.notFoundError });
       return res.json(cars);
     } catch (err) {
