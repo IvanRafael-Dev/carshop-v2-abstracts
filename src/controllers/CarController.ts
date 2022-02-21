@@ -4,7 +4,7 @@ import CarService from '../services/CarService';
 import { Car } from '../interfaces/CarInterface';
 import CarSchema from '../validations/CarValidation';
 
-class CarController extends Controller<Car> {
+export default class CarController extends Controller<Car> {
   private $route: string;
 
   constructor(
@@ -21,8 +21,7 @@ class CarController extends Controller<Car> {
     req: Request<Car>,
     res: Response<Car | ResponseError>,
   ): Promise<typeof res> => {
-    const { body }: { body: Car } = req;
-
+    const { body } = req;    
     const parsed = CarSchema.safeParse(body);
     if (!parsed.success) {
       return res.status(400).json({ error: parsed.error });
@@ -75,5 +74,3 @@ class CarController extends Controller<Car> {
     }
   };
 }
-
-export default CarController;
