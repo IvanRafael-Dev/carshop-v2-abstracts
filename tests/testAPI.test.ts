@@ -7,8 +7,6 @@ import server from '../src/index';
 const MONGO_URI = process.env.MONGO_URI
   || 'mongodb://localhost:27017/CarShop';
 
-const URL = 'http://localhost:3002';
-
 describe('Crie a rota /Cars', () => {
   beforeAll(async () => {
     await mongoose.connect(MONGO_URI);
@@ -18,13 +16,13 @@ describe('Crie a rota /Cars', () => {
     await clearDatabase();
   });
 
-  afterAll(async () => {
-    await mongoose.disconnect();
-  });
+  // afterAll(async () => {
+  //   await mongoose.disconnect();
+  // });
 
   it('Não é possível criar um veículo Car com um objeto vazio', async () => {
-    const res = await request(server)
-      .post(`${URL}/cars`)
+    const res = await request(server.getApp())
+      .post('/cars')
       .send({});
     expect(res.statusCode).toEqual(400);
   });
