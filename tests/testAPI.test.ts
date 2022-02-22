@@ -1,4 +1,3 @@
-/* eslint-disable mocha/no-mocha-arrows */
 import mongoose from 'mongoose';
 import request from 'supertest';
 import clearDatabase from './utils/clearDB';

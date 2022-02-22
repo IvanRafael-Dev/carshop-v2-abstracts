@@ -1,6 +1,3 @@
-/* eslint-disable max-lines-per-function */
-/* eslint-disable no-promise-executor-return */
-/* eslint-disable mocha/no-mocha-arrows */
 import TestModel from './utils/TestModel';
 import TestModelType from './utils/TestModelType';
 

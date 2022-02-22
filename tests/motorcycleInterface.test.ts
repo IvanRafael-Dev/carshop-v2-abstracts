@@ -1,4 +1,3 @@
-/* eslint-disable mocha/no-mocha-arrows */
 import { testVehicleInterface } from './utils/vehicleImplementation';
 
 import { Motorcycle } from '../src/interfaces/MotorcycleInterface';

@@ -1,5 +1,3 @@
-/* eslint-disable max-lines-per-function */
-/* eslint-disable mocha/no-mocha-arrows */
 import { Vehicle } from '../src/interfaces/VehicleInteface';
 import { testVehicleInterface } from './utils/vehicleImplementation';
 
