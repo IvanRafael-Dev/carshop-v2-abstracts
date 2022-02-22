@@ -1,9 +1,9 @@
 /* eslint-disable mocha/no-mocha-arrows */
-import request = require('supertest');
 import mongoose from 'mongoose';
+import request from 'supertest';
 import clearDatabase from './utils/clearDB';
 
-import server from '..';
+import server from '../src/index';
 
 const MONGO_URI = process.env.MONGO_URI
   || 'mongodb://localhost:27017/CarShop';
@@ -24,9 +24,9 @@ describe('Crie a rota /Cars', () => {
   });
 
   it('Não é possível criar um veículo Car com um objeto vazio', async () => {
-    const noCar = {};
-    const response = await request(server.getApp())
-      .post(`${URL}/cars`).send(noCar);
-    expect(response.status).toBe(400);
+    const res = await request(server)
+      .post(`${URL}/cars`)
+      .send({});
+    expect(res.statusCode).toEqual(400);
   });
 });

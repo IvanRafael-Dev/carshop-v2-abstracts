@@ -1,7 +1,7 @@
 /* eslint-disable mocha/no-mocha-arrows */
 import { testVehicleInterface } from './utils/vehicleImplementation';
 
-import { Car } from '../interfaces/CarInterface';
+import { Car } from '../src/interfaces/CarInterface';
 
 describe('Crie a Interface Car a partir da Interface Vehicle', () => {
   const testCar: Car = {

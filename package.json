@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node-dev src/index.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test": "jest"
+    "test": "jest --runInBand --detectOpenHandles --forceExit --watch"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",

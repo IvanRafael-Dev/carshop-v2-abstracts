@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-promise-executor-return */
-import { Model } from '../../interfaces/ModelInterface';
+import { Model } from '../../src/interfaces/ModelInterface';
 
 type TestType = {
   testString: string,

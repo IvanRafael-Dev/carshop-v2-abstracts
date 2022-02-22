@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-promise-executor-return */
-import { Model } from '../../interfaces/ModelInterface';
+import { Model } from '../../src/interfaces/ModelInterface';
 
 export default class TestModel implements Model<number> {
   create = async (obj: number): Promise<number> =>
