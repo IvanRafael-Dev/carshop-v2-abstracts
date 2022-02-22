@@ -36,3 +36,5 @@ server.addRouter(motorcycleRouter.router);
 server.addRouter(truckRouter.router);
 
 server.startServer();
+
+export default server;

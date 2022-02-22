@@ -21,6 +21,10 @@ class App {
   public addRouter(router: Router) {
     this.app.use(router);
   }
+
+  public getApp() {
+    return this.app;
+  }
 }
 
 export default App;
