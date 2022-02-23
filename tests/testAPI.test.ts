@@ -29,18 +29,21 @@ describe('Rota /cars', () => {
         .send({});
       expect(res.statusCode).toEqual(400);
     });
+
     it('Não é possível criar um carro com quantidade de assentos inferior a 2', async () => {
       const res = await request(server.getApp())
         .post('/cars')
         .send(vehicleMock.carSeatsLtTwo);
       expect(res.statusCode).toEqual(400);
     });
+
     it('Não é possível criar um carro com quantidade de portas inferior a 2', async () => {
       const res = await request(server.getApp())
         .post('/cars')
         .send(vehicleMock.carDoorsLtTwo);
       expect(res.statusCode).toEqual(400);
     });
+
     it('Não é possível criar um carro sem "model", "year", "color", "status" e "buyValue"', async () => {
       let res = await request(server.getApp())
         .post('/cars')
@@ -63,6 +66,7 @@ describe('Rota /cars', () => {
         .send(vehicleMock.noBuyValueCar);
       expect(res.statusCode).toEqual(400);      
     });
+
     it('Não é possível criar um carro sem "doorsQty" e "seatsQty"', async () => {
       let res = await request(server.getApp())
         .post('/cars')
@@ -73,11 +77,12 @@ describe('Rota /cars', () => {
         .send(vehicleMock.noSeatsCar);
       expect(res.statusCode).toEqual(400);
     });
+
     it('É possível criar um carro se todos os parametros forem passados corretamente', async () => {
       const res = await request(server.getApp())
         .post('/cars')
         .send(vehicleMock.validCar);
-      expect(res.statusCode).toEqual(200);
-    })
+      expect(res.statusCode).toEqual(201);
+    });
   })
 });
