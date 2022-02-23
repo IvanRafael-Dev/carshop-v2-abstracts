@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import request from 'supertest';
 import clearDatabase from './utils/clearDB';
 
-import * as vehicleMock from './utils/vehiclesMock';
+import * as carMock from './utils/CarsMock';
 
 import server from '../src/server';
 
@@ -35,55 +35,55 @@ describe('Rota /cars', () => {
     it('Não é possível criar um carro com quantidade de assentos inferior a 2', async () => {
       const res = await request(server.getApp())
         .post('/cars')
-        .send(vehicleMock.carSeatsLtTwo);
+        .send(carMock.carSeatsLtTwo);
       expect(res.statusCode).toEqual(400);
     });
 
     it('Não é possível criar um carro com quantidade de portas inferior a 2', async () => {
       const res = await request(server.getApp())
         .post('/cars')
-        .send(vehicleMock.carDoorsLtTwo);
+        .send(carMock.carDoorsLtTwo);
       expect(res.statusCode).toEqual(400);
     });
 
     it('Não é possível criar um carro sem "model", "year", "color", "status" e "buyValue"', async () => {
       let res = await request(server.getApp())
         .post('/cars')
-        .send(vehicleMock.noModelCar);
+        .send(carMock.noModelCar);
       expect(res.statusCode).toEqual(400);
       res = await request(server.getApp())
         .post('/cars')
-        .send(vehicleMock.noYearCar);
+        .send(carMock.noYearCar);
       expect(res.statusCode).toEqual(400);
       res = await request(server.getApp())
         .post('/cars')
-        .send(vehicleMock.noColorCar);
+        .send(carMock.noColorCar);
       expect(res.statusCode).toEqual(400);
       res = await request(server.getApp())
         .post('/cars')
-        .send(vehicleMock.noStatusCar);
+        .send(carMock.noStatusCar);
       expect(res.statusCode).toEqual(400);
       res = await request(server.getApp())
         .post('/cars')
-        .send(vehicleMock.noBuyValueCar);
+        .send(carMock.noBuyValueCar);
       expect(res.statusCode).toEqual(400);      
     });
 
     it('Não é possível criar um carro sem "doorsQty" e "seatsQty"', async () => {
       let res = await request(server.getApp())
         .post('/cars')
-        .send(vehicleMock.noDoorsCar);
+        .send(carMock.noDoorsCar);
       expect(res.statusCode).toEqual(400);
       res = await request(server.getApp())
         .post('/cars')
-        .send(vehicleMock.noSeatsCar);
+        .send(carMock.noSeatsCar);
       expect(res.statusCode).toEqual(400);
     });
 
     it('É possível criar um carro se todos os parametros forem passados corretamente', async () => {
       const res = await request(server.getApp())
         .post('/cars')
-        .send(vehicleMock.validCar);
+        .send(carMock.validCar);
       expect(res.statusCode).toEqual(201);
     });
   })
