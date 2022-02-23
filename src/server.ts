@@ -1,30 +1,38 @@
-import express, { Router } from 'express';
-import connectToDatabase from './models/connection';
+import CustomRouter from './routes/Router';
+import App from './app';
 
-class App {
-  private app: express.Application;
+import VehicleController from './controllers/VehicleController';
+import CarController from './controllers/CarController';
+import MotorcycleController from './controllers/MotorcycleController';
+import TruckController from './controllers/TruckController';
 
-  constructor() {
-    this.app = express();
-    this.app.use(express.json());
-  }
+import { Vehicle } from './interfaces/VehicleInteface';
+import { Car } from './interfaces/CarInterface';
+import { Motorcycle } from './interfaces/MotorcycleInterface';
+import { Truck } from './interfaces/TruckInterface';
 
-  public startServer(PORT = 3001) {
-    connectToDatabase();
+const server = new App();
 
-    return this.app.listen(
-      process.env.PORT || PORT,
-      () => console.log(`Server running here 👉 http://localhost:${PORT}`),
-    );
-  }
+const vehicleController = new VehicleController();
+const carController = new CarController();
+const motorcycleController = new MotorcycleController();
+const truckController = new TruckController();
 
-  public addRouter(router: Router) {
-    this.app.use(router);
-  }
+const vehicleRouter = new CustomRouter<Vehicle>();
+vehicleRouter.addRoute(vehicleController);
 
-  public getApp() {
-    return this.app;
-  }
-}
+const carRouter = new CustomRouter<Car>();
+carRouter.addRoute(carController);
 
-export default App;
+const motorcycleRouter = new CustomRouter<Motorcycle>();
+motorcycleRouter.addRoute(motorcycleController);
+
+const truckRouter = new CustomRouter<Truck>();
+truckRouter.addRoute(truckController);
+
+server.addRouter(vehicleRouter.router);
+server.addRouter(carRouter.router);
+server.addRouter(motorcycleRouter.router);
+server.addRouter(truckRouter.router);
+
+export default server;

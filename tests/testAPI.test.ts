@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import request from 'supertest';
 import clearDatabase from './utils/clearDB';
 
-import server from '../src/index';
+import server from '../src/server';
 
 const MONGO_URI = process.env.MONGO_URI
   || 'mongodb://localhost:27017/CarShop';
@@ -18,7 +18,7 @@ describe('Rota /cars', () => {
     });
   
     afterAll(async () => {
-      // await mongoose.disconnect();
+      await mongoose.disconnect();
     });
   
     it('Não é possível criar um veículo Car com um objeto vazio', async () => {
