@@ -1,4 +1,4 @@
-export const validMotorcyle = {
+export const validMotorcycle = {
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
@@ -8,7 +8,7 @@ export const validMotorcyle = {
   engineCapacity: 125
 };
 
-export const noModelMotorcyle = {
+export const noModelMotorcycle = {
   year: 1963,
   color: 'red',
   status: true,
@@ -17,7 +17,7 @@ export const noModelMotorcyle = {
   engineCapacity: 125
 };
 
-export const noYearMotorcyle = {
+export const noYearMotorcycle = {
   model: 'Honda CG Titan 125',
   color: 'red',
   status: true,
@@ -26,7 +26,7 @@ export const noYearMotorcyle = {
   engineCapacity: 125
 }
 
-export const noColorMotorcyle = {
+export const noColorMotorcycle = {
   model: 'Honda CG Titan 125',
   year: 1963,
   status: true,
@@ -35,7 +35,7 @@ export const noColorMotorcyle = {
   engineCapacity: 125
 }
 
-export const noStatusMotorcyle = {
+export const noStatusMotorcycle = {
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
@@ -44,7 +44,7 @@ export const noStatusMotorcyle = {
   engineCapacity: 125
 }
 
-export const noBuyValueMotorcyle = {
+export const noBuyValueMotorcycle = {
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
@@ -53,7 +53,7 @@ export const noBuyValueMotorcyle = {
   engineCapacity: 125
 }
 
-export const noCategoryMotorcyle = {
+export const noCategoryMotorcycle = {
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
@@ -62,7 +62,7 @@ export const noCategoryMotorcyle = {
   engineCapacity: 125
 }
 
-export const noEngineCapacityMotorcyle = {
+export const noEngineCapacityMotorcycle = {
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
@@ -71,7 +71,7 @@ export const noEngineCapacityMotorcyle = {
   category: 'Street',
 }
 
-export const MotorcyleEngineLteTwo = {
+export const MotorcycleEngineLteTwo = {
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
@@ -81,7 +81,7 @@ export const MotorcyleEngineLteTwo = {
   engineCapacity: 0
 }
 
-export const MotorcyleEngineGt2500 = {
+export const MotorcycleEngineGt2500 = {
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
@@ -91,7 +91,7 @@ export const MotorcyleEngineGt2500 = {
   engineCapacity: 2501
 }
 
-export const MotorcyleCategoryNotString = {
+export const MotorcycleCategoryNotString = {
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
@@ -101,7 +101,7 @@ export const MotorcyleCategoryNotString = {
   engineCapacity: 125
 }
 
-export const MotorcyleWrongCategory = {
+export const MotorcycleWrongCategory = {
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
