@@ -13,7 +13,7 @@ const databaseName = 'CarShop';
 const MONGO_URI = process.env.MONGO_URI
   || `mongodb://localhost:27017/${databaseName}`;
 
-describe('1 - Crie a rota /cars', () => {
+describe('4 - Crie um endpoint a criação de carros', () => {
   describe('É possível criar um carro através de uma requisição POST para a rota /cars', () => {
     beforeAll(async () => {
       await mongoose.connect(MONGO_URI);
@@ -104,7 +104,7 @@ describe('1 - Crie a rota /cars', () => {
   })
 });
 
-describe('2 - Crie a rota /motorcycles', () => {
+describe('5 - Crie um endpoint a criação de motos', () => {
   describe('É possível criar um moto através de uma requisição POST para a rota /motorcycles', () => {
     beforeAll(async () => {
       await mongoose.connect(MONGO_URI);
@@ -202,7 +202,7 @@ describe('2 - Crie a rota /motorcycles', () => {
   })
 });
 
-describe('3 - Crie a rota /trucks', () => {
+describe('6 - Crie um endpoint a criação de caminhões', () => {
   describe('É possível criar um moto através de uma requisição POST para a rota /trucks', () => {
     beforeAll(async () => {
       await mongoose.connect(MONGO_URI);
@@ -298,4 +298,10 @@ describe('3 - Crie a rota /trucks', () => {
       expect(res.statusCode).toEqual(201);
     });
   })
+});
+
+describe('7 - Crie um endpoint para a listagem de carros', () => {
+  it('', async () => {
+
+  });
 });
