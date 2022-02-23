@@ -4,6 +4,7 @@ import clearDatabase from './utils/clearDB';
 
 import * as carMock from './utils/CarsMock';
 import * as motorcycleMock from './utils/MotorcyclesMock';
+import * as trucksMock from './utils/TrucksMock';
 
 import server from '../src/server';
 
@@ -159,10 +160,102 @@ describe('2 - Crie a rota /motorcycles', () => {
       expect(res.statusCode).toEqual(400);
     });
 
+    it('Não é possível criar uma moto com categoria diferente de `Street`, `Custom` e `Trail`', async () => {
+      const res = await request(server.getApp())
+        .post('/motorcycles')
+        .send(motorcycleMock.MotorcycleWrongCategory);
+      expect(res.statusCode).toEqual(400);
+    })
+
     it('É possível criar uma moto se todos os parametros forem passados corretamente', async () => {
       const res = await request(server.getApp())
         .post('/motorcycles')
         .send(motorcycleMock.validMotorcycle);
+      expect(res.statusCode).toEqual(201);
+    });
+  })
+});
+
+describe('3 - Crie a rota /trucks', () => {
+  describe('É possível criar um moto através de uma requisição POST para a rota /trucks', () => {
+    beforeAll(async () => {
+      await mongoose.connect(MONGO_URI);
+    });
+  
+    beforeEach(async () => {
+      await clearDatabase();
+    });
+  
+    afterAll(async () => {
+      await mongoose.disconnect();
+    });
+  
+    it('Não é possível criar um veículo Truck com um objeto vazio', async () => {
+      const res = await request(server.getApp())
+        .post('/trucks')
+        .send({});
+      expect(res.statusCode).toEqual(400);
+    });
+
+    it('Não é possível criar um caminhão com eixo inferior a 2', async () => {
+      const res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.TruckAxlesLtTwo);
+      expect(res.statusCode).toEqual(400);
+    });
+
+    it('Não é possível criar um caminhão com eixo superior a 5', async () => {
+      const res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.TruckAxlesGt5);
+      expect(res.statusCode).toEqual(400);
+    });
+
+    it('Não é possível criar um caminhão sem "model", "year", "color", "status" e "buyValue"', async () => {
+      let res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.noModelTruck);
+      expect(res.statusCode).toEqual(400);
+      res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.noYearTruck);
+      expect(res.statusCode).toEqual(400);
+      res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.noColorTruck);
+      expect(res.statusCode).toEqual(400);
+      res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.noStatusTruck);
+      expect(res.statusCode).toEqual(400);
+      res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.noBuyValueTruck);
+      expect(res.statusCode).toEqual(400);      
+    });
+
+    it('Não é possível criar um caminhão sem "category" e "axlesQty"', async () => {
+      let res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.noCategoryTruck);
+      expect(res.statusCode).toEqual(400);
+      res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.noAxlesTruck);
+      expect(res.statusCode).toEqual(400);
+    });
+
+    it('Não é possível criar um caminhão com categoria diferente de `Urbano`, `Semi-Pesado` e `Pesado`', async () => {
+      const res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.TruckWrongCategory);
+      expect(res.statusCode).toEqual(400);
+    });
+
+    it('É possível criar um caminhão se todos os parametros forem passados corretamente', async () => {
+      const res = await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.validTruck);
       expect(res.statusCode).toEqual(201);
     });
   })
