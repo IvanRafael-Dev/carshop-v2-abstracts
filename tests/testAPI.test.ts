@@ -17,9 +17,9 @@ describe('Rota /cars', () => {
       await clearDatabase();
     });
   
-    afterAll(async () => {
-      // await mongoose.disconnect();
-    });
+    // afterAll(async () => {
+    //   await mongoose.disconnect();
+    // });
   
     it('Não é possível criar um veículo Car com um objeto vazio', async () => {
       const res = await request(server.getApp())
@@ -39,7 +39,7 @@ describe('Rota /cars', () => {
           seatsQty: 1,
           doorsQty: 2
         });
-      expect(res.statusCode).toEqual(400)
+      expect(res.statusCode).toEqual(400);
     });
     it('Não é possível criar um carro com quantidade de portas inferior a 2', async () => {
       const res = await request(server.getApp())
@@ -55,6 +55,27 @@ describe('Rota /cars', () => {
         });
       expect(res.statusCode).toEqual(400);
     });
+    it('Não é possível criar um carro sem "model", "year", "color", "status" e "buyValue"', async () => {
+      const res = await request(server.getApp())
+      .post('/cars')
+      .send({
+        seatsQty: 2,
+        doorsQty: 2
+      });
+    expect(res.statusCode).toEqual(400);
+    });
+    it('Não é possível criar um carro sem "doorsQty" e "seatsQty"', async () => {
+      const res = await request(server.getApp())
+        .post('/cars')
+        .send({
+          model: 'Uno da Escada',
+          year: 1963,
+          color: 'red',
+          status: true,
+          buyValue: 3500,
+        });
+      expect(res.statusCode).toEqual(400);
+    });
     it('É possível criar um carro se todos os parametros forem passados corretamente', async () => {
       const res = await request(server.getApp())
         .post('/cars')
@@ -67,7 +88,7 @@ describe('Rota /cars', () => {
           seatsQty: 2,
           doorsQty: 2
         });
-      expect(res.statusCode).toEqual(200);      
+      expect(res.statusCode).toEqual(200);
     })
   })
 });
