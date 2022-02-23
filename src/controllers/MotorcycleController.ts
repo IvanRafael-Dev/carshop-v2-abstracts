@@ -33,7 +33,7 @@ class MotorcycleController extends Controller<Motorcycle> {
       if (!motorcycle) {
         return res.status(404).json({ error: this.notFoundError });
       }
-      return res.json(motorcycle);
+      return res.status(201).json(motorcycle);
     } catch (err) {
       return res.status(500).json({ error: this.internalError });
     }

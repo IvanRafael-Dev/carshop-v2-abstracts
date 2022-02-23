@@ -31,7 +31,7 @@ class TruckController extends Controller<Truck> {
     try {
       const trucks = await this.service.create(body);
       if (!trucks) return res.status(404).json({ error: this.notFoundError });
-      return res.json(trucks);
+      return res.status(201).json(trucks);
     } catch (err) {
       return res.status(500).json({ error: this.internalError });
     }

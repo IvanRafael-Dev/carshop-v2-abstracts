@@ -6,6 +6,7 @@ import { vehicleSchema } from './VehicleModel';
 import MongoModel from './MongoModel';
 
 interface MotorcycleDocument extends Motorcycle, Document {}
+
 const motorcycleSchema = new Schema<MotorcycleDocument>({
   ...vehicleSchema.obj,
   category: String,
