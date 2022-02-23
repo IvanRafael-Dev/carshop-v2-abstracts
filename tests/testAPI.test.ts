@@ -82,6 +82,19 @@ describe('1 - Crie a rota /cars', () => {
       expect(res.statusCode).toEqual(400);
     });
 
+    it('Não é possível criar um carro se os atributos estiverem com tipos errados', async () => {
+      const res = await request(server.getApp())
+        .post('/cars')
+        .send(carMock.validCar);
+      expect(typeof carMock.validCar.model).toBe('string');
+      expect(typeof carMock.validCar.year).toBe('number');
+      expect(typeof carMock.validCar.color).toBe('string');
+      expect(typeof carMock.validCar.status).toBe('boolean');
+      expect(typeof carMock.validCar.buyValue).toBe('number');
+      expect(typeof carMock.validCar.doorsQty).toBe('number');
+      expect(typeof carMock.validCar.seatsQty).toBe('number');
+    });
+
     it('É possível criar um carro se todos os parametros forem passados corretamente', async () => {
       const res = await request(server.getApp())
         .post('/cars')
@@ -165,7 +178,20 @@ describe('2 - Crie a rota /motorcycles', () => {
         .post('/motorcycles')
         .send(motorcycleMock.MotorcycleWrongCategory);
       expect(res.statusCode).toEqual(400);
-    })
+    });
+
+    it('Não é possível criar uma moto se os atributos estiverem com tipos errados', async () => {
+      await request(server.getApp())
+        .post('/motorcycles')
+        .send(motorcycleMock.validMotorcycle);
+      expect(typeof motorcycleMock.validMotorcycle.model).toBe('string');
+      expect(typeof motorcycleMock.validMotorcycle.year).toBe('number');
+      expect(typeof motorcycleMock.validMotorcycle.color).toBe('string');
+      expect(typeof motorcycleMock.validMotorcycle.status).toBe('boolean');
+      expect(typeof motorcycleMock.validMotorcycle.buyValue).toBe('number');
+      expect(typeof motorcycleMock.validMotorcycle.category).toBe('string');
+      expect(typeof motorcycleMock.validMotorcycle.engineCapacity).toBe('number');
+    });
 
     it('É possível criar uma moto se todos os parametros forem passados corretamente', async () => {
       const res = await request(server.getApp())
@@ -250,6 +276,19 @@ describe('3 - Crie a rota /trucks', () => {
         .post('/trucks')
         .send(trucksMock.TruckWrongCategory);
       expect(res.statusCode).toEqual(400);
+    });
+
+    it('Não é possível criar uma moto se os atributos estiverem com tipos errados', async () => {
+      await request(server.getApp())
+        .post('/trucks')
+        .send(trucksMock.validTruck);
+      expect(typeof trucksMock.validTruck.model).toBe('string');
+      expect(typeof trucksMock.validTruck.year).toBe('number');
+      expect(typeof trucksMock.validTruck.color).toBe('string');
+      expect(typeof trucksMock.validTruck.status).toBe('boolean');
+      expect(typeof trucksMock.validTruck.buyValue).toBe('number');
+      expect(typeof trucksMock.validTruck.category).toBe('string');
+      expect(typeof trucksMock.validTruck.axlesQty).toBe('number');
     });
 
     it('É possível criar um caminhão se todos os parametros forem passados corretamente', async () => {
