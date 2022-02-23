@@ -6,8 +6,10 @@ import * as vehicleMock from './utils/vehiclesMock';
 
 import server from '../src/server';
 
+const databaseName = 'CarShop';
+
 const MONGO_URI = process.env.MONGO_URI
-  || 'mongodb://localhost:27017/CarShop';
+  || `mongodb://localhost:27017/${databaseName}`;
 
 describe('Rota /cars', () => {
   describe('É possível criar um carro através de uma requisição POST para a rota /cars', () => {
