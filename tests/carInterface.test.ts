@@ -1,24 +1,14 @@
-import { testVehicleInterface } from './utils/vehicleImplementation';
-
-import { Car } from '../src/interfaces/CarInterface';
-
 describe('Crie a Interface Car a partir da Interface Vehicle', () => {
-  const testCar: Car = {
-    model: 'Fiat Uno',
-    year: 2002,
-    color: 'White',
-    status: true,
-    buyValue: 10000,
-    seatsQty: 5,
-    doorsQty: 2,
-  };
+  it('É possível criar um carro', () => {
+    expect('Cars.ok').toCompile();
+  })
 
-  it('A interface Car estende a Interface Vehicle', () => {
-    expect(testVehicleInterface(testCar)).toBe(true);
-  });
+  // it('A interface Car estende a Interface Vehicle', () => {
+  //   expect(testVehicleInterface(testCar)).toBe(true);
+  // });
 
-  it('A interface possui as propriedades doorsQty e seatsQty', () => {
-    expect(testCar.doorsQty).toBeDefined();
-    expect(testCar.seatsQty).toBeDefined();
+  it('A interface não possui as propriedades doorsQty e seatsQty', () => {
+    expect('Cars.DoorsQty').notToCompile();
+    expect('Cars.SeatsQty').notToCompile();
   });
 });
