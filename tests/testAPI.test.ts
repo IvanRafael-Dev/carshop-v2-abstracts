@@ -16,7 +16,7 @@ const databaseName = 'CarShop';
 const MONGO_URI = process.env.MONGO_URI
   || `mongodb://localhost:27017/${databaseName}`;
 
-describe('4 - Crie um endpoint a criação de carros', () => {
+describe('4 - Crie um endpoint para criação de carros', () => {
   describe('É possível criar um carro através de uma requisição POST para a rota /cars', () => {
     beforeAll(async () => {
       await mongoose.connect(MONGO_URI);
@@ -107,7 +107,7 @@ describe('4 - Crie um endpoint a criação de carros', () => {
   })
 });
 
-describe('5 - Crie um endpoint a criação de motos', () => {
+describe('5 - Crie um endpoint para criação de motos', () => {
   describe('É possível criar um moto através de uma requisição POST para a rota /motorcycles', () => {
     beforeAll(async () => {
       await mongoose.connect(MONGO_URI);
@@ -205,7 +205,7 @@ describe('5 - Crie um endpoint a criação de motos', () => {
   })
 });
 
-describe('6 - Crie um endpoint a criação de caminhões', () => {
+describe('6 - Crie um endpoint para criação de caminhões', () => {
   describe('É possível criar um moto através de uma requisição POST para a rota /trucks', () => {
     beforeAll(async () => {
       await mongoose.connect(MONGO_URI);
@@ -331,5 +331,16 @@ describe('7 - Crie um endpoint para a listagem de carros', () => {
     expect(spy).toHaveBeenCalledTimes(1);
     expect(spyFetchedCars[0].model).toEqual(carListMock.carsListMock[0].model);
     spy.mockReset();
-  })
+  });
+  it('Será verificado que retorna um erro se o carro não for encontrado', async () => {
+    const id = "123";
+    const spy = jest.spyOn(Cars, 'findById').mockReturnValueOnce('Veículo não encontrado' as any);
+    Cars.findById(id);
+    
+    const spyFetchedCars = spy.mock.results[0].value;
+    console.log(spyFetchedCars)
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spyFetchedCars).toEqual('Veículo não encontrado');
+    spy.mockReset();
+  });
 });
