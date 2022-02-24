@@ -2,6 +2,7 @@ import mongoose, { Types } from 'mongoose';
 import request from 'supertest';
 import { clearDatabase, closeDatabase } from './utils/db';
 
+import * as carListMock from './utils/CarsListMock';
 import * as carMock from './utils/CarsMock';
 import * as motorcycleMock from './utils/MotorcyclesMock';
 import * as trucksMock from './utils/TrucksMock';
@@ -303,34 +304,25 @@ describe('6 - Crie um endpoint a criação de caminhões', () => {
 });
 
 describe('7 - Crie um endpoint para a listagem de carros', () => {
-  it('Será verificado que é possível listar os carros', async () => {
-    const mockedCarList = [
-      {
-        model: 'Uno da Escada',
-        year: 2001,
-        color: 'red',
-        status: true,
-        buyValue: 3500,
-        seatsQty: 2,
-        doorsQty: 2
-      },
-      {
-        model: 'VW Gol',
-        year: 2005,
-        color: 'branco',
-        status: true,
-        buyValue: 3500,
-        seatsQty: 2,
-        doorsQty: 2
-      },
-    ];
-
-    const spy = jest.spyOn(Cars, 'find').mockReturnValueOnce(mockedCarList as any);
+  it('Será verificado que é possível listar os carros com sucesso', async () => {
+    const spy = jest.spyOn(Cars, 'find').mockReturnValueOnce(carListMock.carsListMock as any);
     Cars.find({});
 
+    console.log(spy);
     const spyFetchedCars = spy.mock.results[0].value;
     expect(spy).toHaveBeenCalledTimes(1);
     expect(spyFetchedCars).toHaveLength(2);
+    expect(spyFetchedCars).toBe(carListMock.carsListMock);
+    spy.mockReset();
+  });
+  it('Será verificado que retorna uma lista vazia quando não há carros salvos', async () => {
+    const spy = jest.spyOn(Cars, 'find').mockReturnValueOnce([] as any);
+    Cars.find({});
+
+    console.log(spy);
+    const spyFetchedCars = spy.mock.results[0].value;
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spyFetchedCars).toHaveLength(0);
     spy.mockReset();
   });
 });
