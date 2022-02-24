@@ -12,6 +12,11 @@ abstract class Service<T> {
   }
 
   public async readOne(id: string) {
+    if (id.length !== 24) {
+      return {
+        error: 'Id must have 24 hexadecimal characters',
+      };
+    }
     return this.model.readOne(id);
   }
 
