@@ -45,7 +45,7 @@ export default class CarController extends Controller<Car> {
     try {
       const cars = await this.service.readOne(id);
       if (!cars) return res.status(404).json({ error: this.notFoundError });
-      return res.json(cars);
+      return res.status(200).json(cars);
     } catch (error) {
       return res.status(500).json({ error: this.internalError });
     }
