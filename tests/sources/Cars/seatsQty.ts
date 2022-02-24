@@ -1,4 +1,4 @@
-import { Car } from '../../src/interfaces/CarInterface';
+import { Car } from '../../../src/interfaces/CarInterface';
 
 const testCar: Car = {
   model: 'Fiat Uno',
