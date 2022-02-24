@@ -1,4 +1,4 @@
-import { Schema, model as createModel, Document } from 'mongoose';
+import mongoose, { Schema, model as createModel, Document } from 'mongoose';
 
 import { Motorcycle } from '../interfaces/MotorcycleInterface';
 import { vehicleSchema } from './VehicleModel';
@@ -14,9 +14,11 @@ const motorcycleSchema = new Schema<MotorcycleDocument>({
 }, { versionKey: false });
 
 class MotorcycleModel extends MongoModel<Motorcycle> {
-  constructor(model = createModel('motorcycle', motorcycleSchema)) {
+  constructor(model = createModel('motorcycles', motorcycleSchema)) {
     super(model);
   }
 }
+
+export const Motorcycles = mongoose.model('motorcycles', motorcycleSchema);
 
 export default MotorcycleModel;
