@@ -1,10 +1,12 @@
-import mongoose from 'mongoose';
+import mongoose, { Types } from 'mongoose';
 import request from 'supertest';
-import clearDatabase from './utils/clearDB';
+import { clearDatabase, closeDatabase } from './utils/db';
 
 import * as carMock from './utils/CarsMock';
 import * as motorcycleMock from './utils/MotorcyclesMock';
 import * as trucksMock from './utils/TrucksMock';
+
+import { Cars } from '../src/models/CarModel';
 
 import server from '../src/server';
 
@@ -18,13 +20,13 @@ describe('4 - Crie um endpoint a criação de carros', () => {
     beforeAll(async () => {
       await mongoose.connect(MONGO_URI);
     });
-  
+
     beforeEach(async () => {
       await clearDatabase();
     });
   
     afterAll(async () => {
-      await mongoose.disconnect();
+      await closeDatabase();
     });
   
     it('Não é possível criar um veículo Car com um objeto vazio', async () => {
@@ -115,7 +117,7 @@ describe('5 - Crie um endpoint a criação de motos', () => {
     });
   
     afterAll(async () => {
-      await mongoose.disconnect();
+      await closeDatabase();
     });
   
     it('Não é possível criar um veículo Motorcycle com um objeto vazio', async () => {
@@ -213,7 +215,7 @@ describe('6 - Crie um endpoint a criação de caminhões', () => {
     });
   
     afterAll(async () => {
-      await mongoose.disconnect();
+      await closeDatabase();
     });
   
     it('Não é possível criar um veículo Truck com um objeto vazio', async () => {
@@ -301,7 +303,34 @@ describe('6 - Crie um endpoint a criação de caminhões', () => {
 });
 
 describe('7 - Crie um endpoint para a listagem de carros', () => {
-  it('', async () => {
+  it('Será verificado que é possível listar os carros', async () => {
+    const mockedCarList = [
+      {
+        model: 'Uno da Escada',
+        year: 2001,
+        color: 'red',
+        status: true,
+        buyValue: 3500,
+        seatsQty: 2,
+        doorsQty: 2
+      },
+      {
+        model: 'VW Gol',
+        year: 2005,
+        color: 'branco',
+        status: true,
+        buyValue: 3500,
+        seatsQty: 2,
+        doorsQty: 2
+      },
+    ];
 
+    const spy = jest.spyOn(Cars, 'find').mockReturnValueOnce(mockedCarList as any);
+    Cars.find({});
+
+    const spyFetchedCars = spy.mock.results[0].value;
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spyFetchedCars).toHaveLength(2);
+    spy.mockReset();
   });
 });
