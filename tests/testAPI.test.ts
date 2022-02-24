@@ -25,11 +25,11 @@ describe('4 - Crie um endpoint a criação de carros', () => {
     beforeEach(async () => {
       await clearDatabase();
     });
-  
+
     afterAll(async () => {
       await closeDatabase();
     });
-  
+
     it('Não é possível criar um veículo Car com um objeto vazio', async () => {
       const res = await request(server.getApp())
         .post('/cars')
@@ -71,7 +71,7 @@ describe('4 - Crie um endpoint a criação de carros', () => {
       res = await request(server.getApp())
         .post('/cars')
         .send(carMock.noBuyValueCar);
-      expect(res.statusCode).toEqual(400);      
+      expect(res.statusCode).toEqual(400);
     });
 
     it('Não é possível criar um carro sem "doorsQty" e "seatsQty"', async () => {
@@ -112,15 +112,15 @@ describe('5 - Crie um endpoint a criação de motos', () => {
     beforeAll(async () => {
       await mongoose.connect(MONGO_URI);
     });
-  
+
     beforeEach(async () => {
       await clearDatabase();
     });
-  
+
     afterAll(async () => {
       await closeDatabase();
     });
-  
+
     it('Não é possível criar um veículo Motorcycle com um objeto vazio', async () => {
       const res = await request(server.getApp())
         .post('/motorcycles')
@@ -162,7 +162,7 @@ describe('5 - Crie um endpoint a criação de motos', () => {
       res = await request(server.getApp())
         .post('/motorcycles')
         .send(motorcycleMock.noBuyValueMotorcycle);
-      expect(res.statusCode).toEqual(400);      
+      expect(res.statusCode).toEqual(400);
     });
 
     it('Não é possível criar uma moto sem "category" e "engineCapacity"', async () => {
@@ -210,15 +210,15 @@ describe('6 - Crie um endpoint a criação de caminhões', () => {
     beforeAll(async () => {
       await mongoose.connect(MONGO_URI);
     });
-  
+
     beforeEach(async () => {
       await clearDatabase();
     });
-  
+
     afterAll(async () => {
       await closeDatabase();
     });
-  
+
     it('Não é possível criar um veículo Truck com um objeto vazio', async () => {
       const res = await request(server.getApp())
         .post('/trucks')
@@ -260,7 +260,7 @@ describe('6 - Crie um endpoint a criação de caminhões', () => {
       res = await request(server.getApp())
         .post('/trucks')
         .send(trucksMock.noBuyValueTruck);
-      expect(res.statusCode).toEqual(400);      
+      expect(res.statusCode).toEqual(400);
     });
 
     it('Não é possível criar um caminhão sem "category" e "axlesQty"', async () => {
@@ -308,7 +308,6 @@ describe('7 - Crie um endpoint para a listagem de carros', () => {
     const spy = jest.spyOn(Cars, 'find').mockReturnValueOnce(carListMock.carsListMock as any);
     Cars.find({});
 
-    console.log(spy);
     const spyFetchedCars = spy.mock.results[0].value;
     expect(spy).toHaveBeenCalledTimes(1);
     expect(spyFetchedCars).toHaveLength(2);
@@ -319,10 +318,18 @@ describe('7 - Crie um endpoint para a listagem de carros', () => {
     const spy = jest.spyOn(Cars, 'find').mockReturnValueOnce([] as any);
     Cars.find({});
 
-    console.log(spy);
     const spyFetchedCars = spy.mock.results[0].value;
     expect(spy).toHaveBeenCalledTimes(1);
     expect(spyFetchedCars).toHaveLength(0);
     spy.mockReset();
   });
+  it('Será verificado que retorna um carro pelo id', async () => {
+    const spy = jest.spyOn(Cars, 'findById').mockReturnValueOnce(carListMock.carsListMock as any);
+    Cars.findById(carListMock.carsListMock[0]._id);
+    
+    const spyFetchedCars = spy.mock.results[0].value;
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spyFetchedCars[0].model).toEqual(carListMock.carsListMock[0].model);
+    spy.mockReset();
+  })
 });
