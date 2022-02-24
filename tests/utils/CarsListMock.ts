@@ -17,4 +17,4 @@ export const carsListMock = [
     seatsQty: 2,
     doorsQty: 2
   }
-]
+];
