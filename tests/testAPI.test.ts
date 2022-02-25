@@ -1,15 +1,10 @@
-import mongoose, { Types } from 'mongoose';
+import mongoose from 'mongoose';
 import request from 'supertest';
 import { clearDatabase, closeDatabase } from './utils/db';
 
-import * as carListMock from './utils/CarsListMock';
-import * as motorcycleListMock from './utils/MotorcyclesListMock';
 import * as carMock from './utils/CarsMock';
 import * as motorcycleMock from './utils/MotorcyclesMock';
 import * as trucksMock from './utils/TrucksMock';
-
-import { Cars } from '../src/models/CarModel';
-import { Motorcycles } from '../src/models/MotorcycleModel';
 
 import server from '../src/server';
 
@@ -305,86 +300,12 @@ describe('6 - Crie um endpoint para criação de caminhões', () => {
   })
 });
 
-describe('7 - Crie um endpoint para a listagem de carros', () => {
+describe.only('7 - Crie um endpoint para a listagem de carros', () => {
   it('Será verificado que é possível listar os carros com sucesso', async () => {
-    const spy = jest.spyOn(Cars, 'find').mockReturnValueOnce(carListMock.carsListMock as any);
-    Cars.find({});
-
-    const spyFetchedCars = spy.mock.results[0].value;
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spyFetchedCars).toHaveLength(2);
-    expect(spyFetchedCars).toBe(carListMock.carsListMock);
-    spy.mockReset();
-  });
-  it('Será verificado que retorna uma lista vazia quando não há carros salvos', async () => {
-    const spy = jest.spyOn(Cars, 'find').mockReturnValueOnce([] as any);
-    Cars.find({});
-
-    const spyFetchedCars = spy.mock.results[0].value;
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spyFetchedCars).toHaveLength(0);
-    spy.mockReset();
-  });
-  it('Será verificado que retorna um carro pelo id', async () => {
-    const spy = jest.spyOn(Cars, 'findById').mockReturnValueOnce(carListMock.carsListMock as any);
-    Cars.findById(carListMock.carsListMock[0]._id);
-    
-    const spyFetchedCars = spy.mock.results[0].value;
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spyFetchedCars[0].model).toEqual(carListMock.carsListMock[0].model);
-    spy.mockReset();
-  });
-  it('Será verificado que retorna um erro se o carro não for encontrado', async () => {
-    const id = "123";
-    const spy = jest.spyOn(Cars, 'findById').mockReturnValueOnce('Veículo não encontrado' as any);
-    Cars.findById(id);
-    
-    const spyFetchedCars = spy.mock.results[0].value;
-    console.log(spyFetchedCars)
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spyFetchedCars).toEqual('Veículo não encontrado');
-    spy.mockReset();
-  });
-});
-
-describe('8 - Crie um endpoint para a listagem de motos', () => {
-  it('Será verificado que é possível listar as motos com sucesso', async () => {
-    const spy = jest.spyOn(Motorcycles, 'find').mockReturnValueOnce(motorcycleListMock.motorcyclesListMock as any);
-    Motorcycles.find({});
-
-    const spyFetchedMotorcycles = spy.mock.results[0].value;
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spyFetchedMotorcycles).toHaveLength(2);
-    expect(spyFetchedMotorcycles).toBe(motorcycleListMock.motorcyclesListMock);
-    spy.mockReset();
-  });
-  it('Será verificado que retorna uma lista vazia quando não há motos salvas', async () => {
-    const spy = jest.spyOn(Motorcycles, 'find').mockReturnValueOnce([] as any);
-    Motorcycles.find({});
-
-    const spyFetchedMotorcycles = spy.mock.results[0].value;
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spyFetchedMotorcycles).toHaveLength(0);
-    spy.mockReset();
-  });
-  it('Será verificado que retorna uma moto pelo id', async () => {
-    const spy = jest.spyOn(Motorcycles, 'findById').mockReturnValueOnce(motorcycleListMock.motorcyclesListMock as any);
-    Motorcycles.findById(motorcycleListMock.motorcyclesListMock[0]._id);
-    
-    const spyFetchedMotorcycles = spy.mock.results[0].value;
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spyFetchedMotorcycles[0].model).toEqual(motorcycleListMock.motorcyclesListMock[0].model);
-    spy.mockReset();
-  });
-  it('Será verificado que retorna um erro se a moto não for encontrada', async () => {
-    const id = "123";
-    const spy = jest.spyOn(Motorcycles, 'findById').mockReturnValueOnce('Veículo não encontrado' as any);
-    Motorcycles.findById(id);
-    
-    const spyFetchedMotorcycles = spy.mock.results[0].value;
-    console.log(spyFetchedMotorcycles)
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spyFetchedMotorcycles).toEqual('Veículo não encontrado');
-    spy.mockReset();
+    const res = await request(server.getApp())
+      .post('/cars')
+      .send(carMock.validCar);
+    console.log(res)
+    expect(res.status).toEqual(201);
   });
 });
