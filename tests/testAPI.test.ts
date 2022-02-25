@@ -316,10 +316,14 @@ describe.only('7 - Crie um endpoint para a listagem de carros', () => {
   it('Será verificado que é possível listar os carros com sucesso', async () => {
     const res = await request(server.getApp())
       .post('/cars')
-      .send(carMock.validCar);
+      .send(carMock.validCar)
     const result = await request(server.getApp())
       .get('/cars');
-    const resultObj = result.body.find((item: object) => item)
-    expect(resultObj).toEqual(res.body);
+    expect(result.body).toEqual([res.body]);
+  });
+  it('Será verificado que retorna uma lista vazia se não houver carros', async () => {
+    const result = await request(server.getApp())
+      .get('/cars');
+    expect(result.body).toEqual([]);
   });
 });
