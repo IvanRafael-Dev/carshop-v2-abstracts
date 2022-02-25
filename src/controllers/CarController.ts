@@ -45,6 +45,7 @@ export default class CarController extends Controller<Car> {
     try {
       const cars = await this.service.readOne(id);
       if (!cars) return res.status(404).json({ error: this.notFoundError });
+      if ('error' in cars) return res.status(400).json(cars);
       return res.status(200).json(cars);
     } catch (error) {
       return res.status(500).json({ error: this.internalError });
@@ -56,7 +57,7 @@ export default class CarController extends Controller<Car> {
     res: Response<Car | ResponseError>,
   ): Promise<typeof res> => {
     const { id } = req.params;
-    if (!id) return res.status(400).json({ error: this.requiredIdError });
+    // if (!id) return res.status(400).json({ error: this.requiredIdError });
 
     const { body } = req;
     const parsed = CarSchema.safeParse(body);
@@ -68,7 +69,9 @@ export default class CarController extends Controller<Car> {
     try {
       const lens = await this.service.update(id, body);
       if (!lens) return res.status(404).json({ error: this.notFoundError });
-      return res.json(lens);
+      console.log(lens)
+      if ('error' in lens) return res.status(400).json(lens);
+      return res.json(body);
     } catch (err) {
       return res.status(500).json({ error: this.internalError });
     }

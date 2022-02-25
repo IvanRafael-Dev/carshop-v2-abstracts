@@ -11,6 +11,17 @@ export const validCar = {
   doorsQty: 2
 };
 
+export const updatedCar = {
+  _id: new Types.ObjectId(),
+  model: 'Uno da Escada',
+  year: 1966,
+  color: 'blue',
+  status: true,
+  buyValue: 3500,
+  seatsQty: 2,
+  doorsQty: 2
+};
+
 export const noModelCar = {
   year: 1963,
   color: 'red',

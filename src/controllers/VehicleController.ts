@@ -69,7 +69,7 @@ class VehicleController extends Controller<Vehicle> {
     try {
       const lens = await this.service.update(id, body);
       if (!lens) return res.status(404).json({ error: this.notFoundError });
-      return res.json(lens);
+      return res.json(body);
     } catch (err) {
       return res.status(500).json({ error: this.internalError });
     }
