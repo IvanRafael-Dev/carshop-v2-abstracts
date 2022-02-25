@@ -7,6 +7,7 @@ import * as motorcycleMock from './utils/MotorcyclesMock';
 import * as trucksMock from './utils/TrucksMock';
 
 import server from '../src/server';
+import { tuple } from 'zod'
 
 const databaseName = 'CarShop';
 
@@ -301,11 +302,24 @@ describe('6 - Crie um endpoint para criação de caminhões', () => {
 });
 
 describe.only('7 - Crie um endpoint para a listagem de carros', () => {
+  beforeAll(async () => {
+    await mongoose.connect(MONGO_URI);
+  });
+
+  beforeEach(async () => {
+    await clearDatabase();
+  });
+
+  afterAll(async () => {
+    await closeDatabase();
+  });
   it('Será verificado que é possível listar os carros com sucesso', async () => {
     const res = await request(server.getApp())
       .post('/cars')
       .send(carMock.validCar);
-    console.log(res)
-    expect(res.status).toEqual(201);
+    const result = await request(server.getApp())
+      .get('/cars');
+    const resultObj = result.body.find((item: object) => item)
+    expect(resultObj).toEqual(res.body);
   });
 });
