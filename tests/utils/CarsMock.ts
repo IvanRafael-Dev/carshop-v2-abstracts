@@ -1,4 +1,7 @@
+import { Types } from 'mongoose';
+
 export const validCar = {
+  _id: new Types.ObjectId(),
   model: 'Uno da Escada',
   year: 1963,
   color: 'red',
