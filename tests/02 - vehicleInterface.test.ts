@@ -1,5 +1,5 @@
 describe('Crie a Interface Vehicle genérica', () => {
-  it('A Interface Vehicle existe', () => {
+  it('A interface Vehicle existe', () => {
     expect('Vehicle/exists').toCompile();
   });
 

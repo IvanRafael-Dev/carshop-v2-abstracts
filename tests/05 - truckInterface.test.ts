@@ -14,5 +14,6 @@ describe('Crie o tipo Truck a partir da Interface Vehicle', () => {
 
   it('Não é possível criar um objeto do tipo Truck com uma categoria errada', () => {
     expect('Trucks/wrongCategory').notToCompile();
+    expect('Trucks/correctCategory').toCompile();
   });
 });

@@ -14,5 +14,6 @@ describe('Crie o tipo Motorcycle a partir da Interface Vehicle', () => {
 
   it('Não é possível criar um objeto do tipo Motorcycle com uma categoria errada', () => {
     expect('Motorcycles/wrongCategory').notToCompile();
+    expect('Motorcycles/correctCategory').toCompile();
   });
 });

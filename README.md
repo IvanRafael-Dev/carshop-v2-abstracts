@@ -213,15 +213,70 @@ Uma estratégia é pular todos os testes no início e ir implementando um teste 
 
 ## Requisitos Obrigatórios
 
-### 1 - Crie a interface `Model`
+### 1 - Crie a interface `Model` genérica
+
+Crie a interface `Model`, que será usada para fazermos nossa conexão com o banco de dados.
+Ela deverá ter, pelo menos, as funções `create()`, `read()`, `readOne()`, `update()` e `delete()`.
+Por ser genérica, nossa interface deverá receber um tipo `T` qualquer, e ela deve esperar, em cada função, as seguintes especificações:
+ - `create()`: Deve receber um objeto do tipo `T`e retornar uma Promise do tipo `T`.
+ - `read()`: Deve retornar uma Promise contendo um array de objetos do tipo `T`.
+ - `readOne()`: Deve receber uma string e retornar uma Promise do tipo `T` ou nula.
+ - `update()`: Deve receber uma string e um objeto do tipo `T` e retornar uma Promise do tipo `T` ou nula.
+ - `delete()`: Deve receber uma string e retornar uma Promise do tipo `T` ou nula.
+
+Além disso, será verificado que:
+ - Existe a interface Model;
+ - A interface Model possui todas as funções solicitadas;
+ - A interface Model pode ser implementada com qualquer tipo;
 
 ### 2 - Crie a interface `Vehicle`
 
-### 3 - Crie a interface `Car` a partir da interface `Vehicle`
+Crie a interface `Vehicle`, que será usada para criarmos nossos tipos de carro, moto e caminhão.
+Ela deverá ter todos os atributos comuns de todos os veículos que listaremos aqui. São eles:
+ - `model`: Marca e/ou modelo do veículo. Deve ser uma string com, pelo menos, 3 caracteres;
+ - `year`: Ano de fabricação do veículo. Deve ser maior ou igual a 1900, porém menor ou igual a 2022;
+ - `color`: Cor principal do veículo. Deve ser uma string com, pelo menos, 3 caracteres;
+ - `status`: Status que define se um veículo pode ou não ser comprado. Deve receber valores booleanos;
+ - `buyValue`: Valor de compra do veículo. Deve receber apenas números inteiros;
 
-### 4 - Crie a interface `Motorcycle` a partir da interface `Vehicle`
+ Além disso, será verificado que:
+  - A interface Vehicle existe;
+  - A interface possui os atributos solicitados;
 
-### 5 - Crie a interface `Truck` a partir da interface `Vehicle`
+### 3 - Crie o tipo `Car` a partir da interface `Vehicle`
+
+Crie o tipo `Car`, de modo que ele possua todos os atributos da interface `Vehicle` e, também, os atributos:
+ - `doorsQty`: Quantidade de portas de um carro. Deve ser maior ou igual a 2 e menor ou igual a 4;
+ - `seatsQty`: Quantidade de assentos disponíveis no carro. Deve ser maior ou igual a 2 e menor ou igual a 7;
+
+ Além disso, será verificado que:
+ - O tipo `Car` estende a interface `Vehicle`;
+ - É possível criar um objeto do tipo `Car`;
+ - O tipo `Car` possui as propriedades `doorsQty` e `seatsQty`;
+
+### 4 - Crie o tipo `Motorcycle` a partir da interface `Vehicle`
+
+Crie o tipo `Motorcycle`, de modo que ele possua todos os atributos da interface `Vehicle` e, também, os atributos:
+ - `category`: Categoria da moto. Deve poder ser **apenas** `Street`, `Custom` ou `Trail`;
+ - `engineCapacity`: A capacidade do motor. Deve ser um valor inteiro positivo menor ou igual a 2500;
+
+ Além disso, será verificado que:
+ - O tipo `Motorcycle` estende a interface `Vehicle`;
+ - É possível criar um objeto do tipo `Motorcycle`;
+ - O tipo `Motorcycle` possui as propriedades `category` e `engineCapacity`;
+ - Não é possível criar um objeto do tipo `Motorcycle` com uma categoria errada;
+
+### 5 - Crie o tipo `Truck` a partir da interface `Vehicle`
+
+Crie o tipo `Truck`, de modo que ele possua todos os atributos da interface `Vehicle` e, também, os atributos:
+ - `category`: Categoria do caminhão. Deve poder ser **apenas** `Urbano`, `Semi-Pesado` ou `Pesado`;
+ - `axlesQty`: A quantidade de eixos que o caminhão possui. Deve ser um valor inteiro maior ou igual a 2 e menor ou igual a 5;
+
+ Além disso, será verificado que:
+ - O tipo `Truck` estende a interface `Vehicle`;
+ - É possível criar um objeto do tipo `Truck`;
+ - O tipo `Truck` possui as propriedades `category` e `axlesQty`;
+ - Não é possível criar um objeto do tipo `Truck` com uma categoria errada;
 
 ### 6 - Crie o model `Vehicle`
 
