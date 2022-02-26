@@ -12,7 +12,7 @@ export const validCar = {
 };
 
 export const updatedCar = {
-  _id: new Types.ObjectId(),
+  _id: new Types.ObjectId(validCar._id).toString(),
   model: 'Uno da Escada',
   year: 1966,
   color: 'blue',

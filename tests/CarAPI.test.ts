@@ -215,12 +215,10 @@ describe.only('9 - Crie um endpoint para atualizar os valores de um carro regist
     const res = await request(server.getApp())
       .post('/cars')
       .send(carMock.validCar)
-
     const { _id } = res.body;
     const result = await request(server.getApp())
       .put(`/cars/${ _id }`)
       .send(carMock.updatedCar);
-    console.log(result);
 
     const getCar = await request(server.getApp())
       .get(`/cars/${ _id }`);
