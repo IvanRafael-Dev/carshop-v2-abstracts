@@ -261,7 +261,7 @@ describe.only('10 - Crie um endpoint para apagar registros de um carro', () => {
     expect(response.body.error).toBe(errorMsg.error);
   });
 
-  it('Será verificado que um carro é atualizado com sucesso', async () => {
+  it('Será verificado que um carro é removido com sucesso', async () => {
     const res = await request(server.getApp())
       .post('/cars')
       .send(carMock.validCar)
@@ -269,12 +269,9 @@ describe.only('10 - Crie um endpoint para apagar registros de um carro', () => {
     const { _id } = res.body;
 
     const result = await request(server.getApp())
-      .put(`/cars/${_id}`)
-      .send(carMock.updatedCar);
+      .del(`/cars/${_id}`);
 
-    const getCar = await request(server.getApp())
-      .get(`/cars/${_id}`);
-    expect(getCar.body).toEqual(carMock.updatedCar);
-    expect(result.statusCode).toEqual(200);
+    expect(result.statusCode).toEqual(204);
+    expect(result.body).toEqual({});
   })
 });
