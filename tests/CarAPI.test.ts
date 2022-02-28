@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 import request from 'supertest';
-import { clearDatabase, closeDatabase } from './utils/db';
+import { clearDatabase, closeDatabase } from './sources/db';
 
-import * as carMock from './utils/CarsMock';
+import * as carMock from './sources/CarsMock';
 
 import server from '../src/server';
 

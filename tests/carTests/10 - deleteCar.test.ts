@@ -1,17 +1,18 @@
 import mongoose from 'mongoose';
 import request from 'supertest';
-import { clearDatabase, closeDatabase } from './utils/db';
+import { clearDatabase, closeDatabase } from '../sources/db';
 
-import * as carMock from './utils/CarsMock';
+import * as carMock from '../sources/CarsMock';
 
-import server from '../src/server';
+import server from '../../src/server';
 
 const databaseName = 'CarShop';
 
 const MONGO_URI = process.env.MONGO_URI
   || `mongodb://localhost:27017/${databaseName}`;
 
-describe('9 - Atualize os registros de um carro através do seu id, utilizando uma requisição PUT para a rota /cars/id', () => {
+
+describe('10 - Utilize uma requisição DELETE para o endpoint /cars/id para excluir os registros de um carro', () => {
   beforeAll(async () => {
     await mongoose.connect(MONGO_URI);
   });
@@ -24,7 +25,7 @@ describe('9 - Atualize os registros de um carro através do seu id, utilizando u
     await closeDatabase();
   });
 
-  it('Será verificado que é disparado o erro 404 "Object not found" caso o id possua 24 caracteres mas é inválido', async () => {
+  it('Será verificado que é disparado o erro 404 "Object not found" caso o id possua 24 caracteres mas é inválido ', async () => {
     const errorMsg = { error: "Object not found" };
     const response = await request(server.getApp())
       .put('/cars/999999999999999999999999')
@@ -43,13 +44,7 @@ describe('9 - Atualize os registros de um carro através do seu id, utilizando u
     expect(response.body.error).toBe(errorMsg.error);
   });
 
-  it('Será verificado que é disparado o erro 400 caso o body esteja incompleto', async () => {
-    const response = await request(server.getApp())
-      .put('/cars/99999');
-    expect(response.status).toBe(400);
-  })
-
-  it('Será verificado que um carro é atualizado com sucesso', async () => {
+  it('Será verificado que um carro é removido com sucesso', async () => {
     const res = await request(server.getApp())
       .post('/cars')
       .send(carMock.validCar)
@@ -57,12 +52,9 @@ describe('9 - Atualize os registros de um carro através do seu id, utilizando u
     const { _id } = res.body;
 
     const result = await request(server.getApp())
-      .put(`/cars/${_id}`)
-      .send(carMock.updatedCar);
+      .del(`/cars/${_id}`);
 
-    const getCar = await request(server.getApp())
-      .get(`/cars/${_id}`);
-    expect(getCar.body).toEqual(carMock.updatedCar);
-    expect(result.statusCode).toEqual(200);
+    expect(result.statusCode).toEqual(204);
+    expect(result.body).toEqual({});
   })
 });
