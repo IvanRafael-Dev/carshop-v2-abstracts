@@ -229,7 +229,7 @@ describe('9 - Crie um endpoint para atualizar os registros de um carro', () => {
   })
 });
 
-describe.only('10 - Crie um endpoint para apagar registros de um carro', () => {
+describe('10 - Crie um endpoint para apagar registros de um carro', () => {
   beforeAll(async () => {
     await mongoose.connect(MONGO_URI);
   });
