@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node-dev src/index.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test": "jest --runInBand --verbose ./tests"
+    "test": "jest --runInBand --verbose"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
