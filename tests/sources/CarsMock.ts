@@ -22,6 +22,16 @@ export const updatedCar = {
   doorsQty: 2
 };
 
+export const coverageCar = {
+  model: 'Uno da Escada',
+  year: 1963,
+  color: 'red',
+  status: true,
+  buyValue: 3500,
+  seatsQty: 2,
+  doorsQty: 2
+};
+
 export const noModelCar = {
   year: 1963,
   color: 'red',
