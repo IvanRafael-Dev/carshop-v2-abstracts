@@ -6,14 +6,14 @@
   "scripts": {
     "start": "ts-node-dev src/index.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test": "jest --runInBand --verbose"
+    "test": "jest --runInBand",
+    "test:mocha": "nyc --all --include models --include services --include controllers mocha test/unit/**/*.js --exit"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.1",
     "@types/node": "^16.11.7",
-    "@types/sinon": "^10.0.11",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
     "chai": "^4.3.6",
