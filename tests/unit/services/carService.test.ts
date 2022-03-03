@@ -1,11 +1,11 @@
 import { expect } from 'chai';
 import mongoose from 'mongoose';
 
-import { clearDatabase, closeDatabase } from '../../sources/db';
+import { clearDatabase, closeDatabase } from '../../utils/db';
 
 import { Cars } from '../../../src/models/CarModel'
 
-import { validCar, coverageCar } from '../../sources/CarsMock';
+import { validCar, coverageCar } from '../../utils/CarsMock';
 
 const databaseName = 'CarShop';
 
