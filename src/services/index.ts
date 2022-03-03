@@ -1,6 +1,7 @@
 import { Model } from '../interfaces/ModelInterface';
 
 const idLengthError = 'Id must have 24 hexadecimal characters';
+
 abstract class Service<T> {
   constructor(protected model: Model<T>) { }
 
