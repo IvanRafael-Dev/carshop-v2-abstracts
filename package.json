@@ -7,7 +7,7 @@
     "start": "ts-node-dev src/index.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest --runInBand",
-    "test:mocha": "nyc --all --include models --include services --include controllers mocha test/unit/**/*.js --exit"
+    "test:mocha": "nyc --all --include models --include services --include controllers mocha tests/unit/**/*.js --exit"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
