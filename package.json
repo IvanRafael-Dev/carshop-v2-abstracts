@@ -4,10 +4,11 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "ts-node-dev src/index.ts",
+    "dev": "ts-node-dev src/index.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest --runInBand",
-    "test:mocha": "nyc --all --include models --include services --include controllers mocha tests/unit/**/*.js --exit"
+    "pretest:mocha": "tsc",
+    "test:mocha": "nyc --all --include dist/models --include dist/services --include dist/controllers mocha dist/tests/unit/**/*.ts --exit"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
