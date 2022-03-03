@@ -2,12 +2,11 @@ const fs = require('fs').promises;
 const util = require('util');
 const { exec: callbackExec } = require('child_process');
 const path = require('path');
-require('dotenv').config();
 
 const exec = util.promisify(callbackExec);
 
 const NPX_NYC_COMMAND =
-  `npx nyc --all --include services --include models --include controllers --reporter json-summary mocha test/unit/**/*.ts --exit`;
+  `npx nyc --all --include services --include models --include controllers --reporter json-summary mocha tests/unit/**/*.ts --exit`;
 
 function readCoverageFile() {
   const COVERAGE_FILE_PATH = path.join(__dirname, '..', 'coverage', 'coverage-summary.json');
