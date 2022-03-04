@@ -1,22 +1,23 @@
 import { expect } from 'chai';
 import mongoose from 'mongoose';
 
-import { clearDatabase, closeDatabase } from '../../utils/db';
+import { Cars } from '../../../models/CarModel';
 
-import { Cars } from '../../../src/models/CarModel'
+import { validCar, coverageCar } from '../../../../tests/utils/CarsMock';
 
-import { validCar, coverageCar } from '../../utils/CarsMock';
+import { clearDatabase, closeDatabase } from '../../../../tests/utils/db';
 
 const databaseName = 'CarShop';
 
 const MONGO_URI = process.env.MONGO_URI
   || `mongodb://localhost:27017/${databaseName}`;
 
-describe('Realiza testes na camada de services de Carros', () => {
+describe('Realiza testes na model de Carros', () => {
 
   // -----------------------|| CADASTRO DE CARROS ||-----------------------
   describe('Insere novo produto', () => {
     const payloadCar = validCar;
+
     beforeAll(async () => {
       await mongoose.connect(MONGO_URI);
     });
@@ -29,14 +30,10 @@ describe('Realiza testes na camada de services de Carros', () => {
       await closeDatabase();
     });
 
-    describe('Quando o payload é inválido', () => {
-      it('retorna um objeto vazio e statusCode 400', async () => {
-        try {
-          await Cars.create();
-        } catch (error) {
-          expect(error).to.be.an('object');
-          expect(error).to.equal(400);
-        }
+    describe('Quando é inserido com sucesso', () => {
+      it('retorna um objeto', async () => {
+        const response = await Cars.create(payloadCar);
+        expect(response).to.be.an('object');
       });
 
       it('o objeto possui chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
