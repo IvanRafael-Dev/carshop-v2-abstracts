@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import { clearDatabase, closeDatabase } from '../../utils/db';
 import { validCar, coverageCar } from '../../utils/CarsMock';
 
-import carService from '../../../../src/services/CarService';
+import carService from '../../../services/CarService';
 
 const databaseName = 'CarShop';
 
@@ -28,7 +28,7 @@ describe('Realiza testes na camada de services de Carros', () => {
     describe('Quando o payload é inválido', () => {
       it('retorna um objeto vazio e statusCode 400', async () => {
         try {
-          await Cars.create();
+          await carService.create();
         } catch (error) {
           expect(error).to.be.an('object');
           expect(error).to.equal(400);
@@ -36,7 +36,7 @@ describe('Realiza testes na camada de services de Carros', () => {
       });
 
       it('o objeto possui chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
-        const response = await Cars.create(payloadCar);
+        const response = await carService.create(payloadCar);
         expect(response).to.have.a.property('model');
         expect(response).to.have.a.property('year');
         expect(response).to.have.a.property('status');
@@ -62,17 +62,17 @@ describe('Realiza testes na camada de services de Carros', () => {
       });
 
       it('retorna um array com tamanho 2', async () => {
-        await Cars.create(payloadCar);
-        await Cars.create(payloadCar);
-        const response = await Cars.find();
+        await carService.create(payloadCar);
+        await carService.create(payloadCar);
+        const response = await carService.find();
         expect(response).to.be.an('array').to.not.be.empty;
         expect(response).to.have.lengthOf(2);
       });
 
       it('os objetos do array contém as chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
-        await Cars.create(payloadCar);
-        await Cars.create(payloadCar);
-        const response = await Cars.find();
+        await carService.create(payloadCar);
+        await carService.create(payloadCar);
+        const response = await carService.find();
         expect(response[0]).to.have.property('model');
         expect(response[0]).to.have.property('year');
         expect(response[0]).to.have.property('color');
@@ -103,14 +103,14 @@ describe('Realiza testes na camada de services de Carros', () => {
       });
 
       it('retorna um objeto', async () => {
-        await Cars.create(payloadCar);
-        const response = await Cars.findById(validCar._id);
+        await carService.create(payloadCar);
+        const response = await carService.findById(validCar._id);
         expect(response).to.be.an('object')
       });
 
       it('o objeto contém as chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
-        await Cars.create(payloadCar);
-        const response = await Cars.findById(validCar._id);
+        await carService.create(payloadCar);
+        const response = await carService.findById(validCar._id);
         expect(response).to.have.property('model');
         expect(response).to.have.property('year');
         expect(response).to.have.property('color');
@@ -136,14 +136,14 @@ describe('Realiza testes na camada de services de Carros', () => {
 
     describe('Quando é alterado com sucesso', () => {
       it('retorna um objeto', async () => {
-        await Cars.create(payloadCar);
-        const response = await Cars.findOneAndUpdate(validCar._id);
+        await carService.create(payloadCar);
+        const response = await carService.findOneAndUpdate(validCar._id);
         expect(response).to.be.an('object');
       });
 
       it('o objeto possui chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
-        await Cars.create(payloadCar);
-        const response = await Cars.findOneAndUpdate(validCar._id);
+        await carService.create(payloadCar);
+        const response = await carService.findOneAndUpdate(validCar._id);
         expect(response).to.have.property('model');
         expect(response).to.have.property('year');
         expect(response).to.have.property('color');
@@ -170,9 +170,9 @@ describe('Realiza testes na camada de services de Carros', () => {
 
     describe('Quando é deletado com sucesso', () => {
       it('retorna um array vazio', async () => {
-        await Cars.create(payloadCar);
-        await Cars.deleteOne(validCar._id);
-        const response = await Cars.find();
+        await carService.create(payloadCar);
+        await carService.deleteOne(validCar._id);
+        const response = await carService.find();
         expect(response).to.be.an('array');
       });
     });
