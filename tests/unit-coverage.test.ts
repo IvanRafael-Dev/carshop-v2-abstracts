@@ -6,7 +6,7 @@ const path = require('path');
 const exec = util.promisify(callbackExec);
 
 const NPX_NYC_COMMAND =
-  `nyc --all --include dist/models --include dist/services --include dist/controllers mocha dist/__tests__/unit/**/*.ts --exit`;
+  `nyc --all --include dist/models --include dist/services --include dist/controllers mocha dist/__tests__/unit/**/*.js --exit`;
 
 function readCoverageFile() {
   const COVERAGE_FILE_PATH = path.join(__dirname, '..', 'coverage', 'coverage-summary.json');
