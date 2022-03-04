@@ -8,7 +8,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest --runInBand",
     "pretest:mocha": "tsc",
-    "test:mocha": "nyc --all --include dist/models --include dist/services --include dist/controllers mocha dist/tests/unit/**/*.ts --exit"
+    "test:mocha": "nyc --all --include dist/models --include dist/services --include dist/controllers mocha dist/__tests__/unit/**/*.ts --exit"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
