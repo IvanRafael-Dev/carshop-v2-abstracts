@@ -3,9 +3,9 @@ import mongoose from 'mongoose';
 
 import { Cars } from '../../../models/CarModel';
 
-import { validCar, coverageCar } from '../../../../tests/utils/CarsMock';
+import { validCar, coverageCar } from '../../utils/CarsMock';
 
-import { clearDatabase, closeDatabase } from '../../../../tests/utils/db';
+import { clearDatabase, closeDatabase } from '../../utils/db';
 
 const databaseName = 'CarShop';
 
