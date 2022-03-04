@@ -18,15 +18,12 @@ describe('Realiza testes na model de Carros', () => {
   describe('Insere novo produto', () => {
     const payloadCar = validCar;
 
-    beforeAll(async () => {
-      await mongoose.connect(MONGO_URI);
-    });
-  
     beforeEach(async () => {
+      await mongoose.connect(MONGO_URI);
       await clearDatabase();
     });
-  
-    afterAll(async () => {
+    
+    afterEach(async () => {
       await closeDatabase();
     });
 
@@ -53,15 +50,12 @@ describe('Realiza testes na model de Carros', () => {
     const payloadCar = coverageCar;
 
     describe('Buscando todos os carros', () => {
-      beforeAll(async () => {
-        await mongoose.connect(MONGO_URI);
-      });
-    
       beforeEach(async () => {
+        await mongoose.connect(MONGO_URI);
         await clearDatabase();
       });
-    
-      afterAll(async () => {
+
+      afterEach(async () => {
         await closeDatabase();
       });
 
@@ -97,15 +91,12 @@ describe('Realiza testes na model de Carros', () => {
 
     describe('Buscando carro por "id"', () => {
       const payloadCar = validCar;
-      beforeAll(async () => {
-        await mongoose.connect(MONGO_URI);
-      });
-    
       beforeEach(async () => {
+        await mongoose.connect(MONGO_URI);
         await clearDatabase();
       });
     
-      afterAll(async () => {
+      afterEach(async () => {
         await closeDatabase();
       });
 
@@ -132,15 +123,12 @@ describe('Realiza testes na model de Carros', () => {
   describe('Alterando carro', () => {
     const payloadCar = validCar;
 
-    beforeAll(async () => {
-      await mongoose.connect(MONGO_URI);
-    });
-  
     beforeEach(async () => {
+      await mongoose.connect(MONGO_URI);
       await clearDatabase();
     });
   
-    afterAll(async () => {
+    afterEach(async () => {
       await closeDatabase();
     });
 
@@ -169,15 +157,12 @@ describe('Realiza testes na model de Carros', () => {
   describe('Deletando produto', () => {
     const payloadCar = validCar;
 
-    beforeAll(async () => {
-      await mongoose.connect(MONGO_URI);
-    });
-  
     beforeEach(async () => {
+      await mongoose.connect(MONGO_URI);
       await clearDatabase();
     });
   
-    afterAll(async () => {
+    afterEach(async () => {
       await closeDatabase();
     });
 
