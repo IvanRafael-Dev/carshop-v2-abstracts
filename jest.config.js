@@ -5,4 +5,5 @@ module.exports = {
   rootDir: './tests',
   setupFilesAfterEnv: ['./setup.js'],
   testSequencer: './testSequencer.js',
+  testTimeout: 100000,
 };
