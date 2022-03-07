@@ -10,7 +10,8 @@ const PERMANENT_JS_FILES = [
   './tests/setup.js',
   './node_modules/*',
   './tests/testSequencer.js',
-  './tests/*'
+  './tests/*',
+  './dist/*'
 ];
 
 const replaceAll = (text, search, replacement) => {
