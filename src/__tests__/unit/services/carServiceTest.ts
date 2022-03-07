@@ -4,7 +4,9 @@ import mongoose from 'mongoose';
 import { clearDatabase, closeDatabase } from '../../utils/db';
 import { validCar, coverageCar } from '../../utils/CarsMock';
 
-import carService from '../../../services/CarService';
+import CarService from '../../../services/CarService';
+
+const carService = new CarService();
 
 const databaseName = 'CarShop';
 
@@ -28,7 +30,7 @@ describe('Realiza testes na camada de services de Carros', () => {
     describe('Quando o payload é inválido', () => {
       it('retorna um objeto vazio e statusCode 400', async () => {
         try {
-          await carService.create();
+          await carService.create(validCar);
         } catch (error) {
           expect(error).to.be.an('object');
           expect(error).to.equal(400);
@@ -64,7 +66,7 @@ describe('Realiza testes na camada de services de Carros', () => {
       it('retorna um array com tamanho 2', async () => {
         await carService.create(payloadCar);
         await carService.create(payloadCar);
-        const response = await carService.find();
+        const response = await carService.read;
         expect(response).to.be.an('array').to.not.be.empty;
         expect(response).to.have.lengthOf(2);
       });
@@ -72,7 +74,7 @@ describe('Realiza testes na camada de services de Carros', () => {
       it('os objetos do array contém as chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
         await carService.create(payloadCar);
         await carService.create(payloadCar);
-        const response = await carService.find();
+        const response = await carService.read();
         expect(response[0]).to.have.property('model');
         expect(response[0]).to.have.property('year');
         expect(response[0]).to.have.property('color');
@@ -104,13 +106,13 @@ describe('Realiza testes na camada de services de Carros', () => {
 
       it('retorna um objeto', async () => {
         await carService.create(payloadCar);
-        const response = await carService.findById(validCar._id);
+        const response = await carService.readOne((validCar._id).toString());
         expect(response).to.be.an('object')
       });
 
       it('o objeto contém as chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
         await carService.create(payloadCar);
-        const response = await carService.findById(validCar._id);
+        const response = await carService.readOne((validCar._id).toString());
         expect(response).to.have.property('model');
         expect(response).to.have.property('year');
         expect(response).to.have.property('color');
@@ -137,13 +139,13 @@ describe('Realiza testes na camada de services de Carros', () => {
     describe('Quando é alterado com sucesso', () => {
       it('retorna um objeto', async () => {
         await carService.create(payloadCar);
-        const response = await carService.findOneAndUpdate(validCar._id);
+        const response = await carService.update((validCar._id.toString()), validCar);
         expect(response).to.be.an('object');
       });
 
       it('o objeto possui chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
         await carService.create(payloadCar);
-        const response = await carService.findOneAndUpdate(validCar._id);
+        const response = await carService.update((validCar._id).toString(), validCar);
         expect(response).to.have.property('model');
         expect(response).to.have.property('year');
         expect(response).to.have.property('color');
@@ -171,8 +173,8 @@ describe('Realiza testes na camada de services de Carros', () => {
     describe('Quando é deletado com sucesso', () => {
       it('retorna um array vazio', async () => {
         await carService.create(payloadCar);
-        await carService.deleteOne(validCar._id);
-        const response = await carService.find();
+        await carService.delete((validCar._id).toString());
+        const response = await carService.read();
         expect(response).to.be.an('array');
       });
     });
