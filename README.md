@@ -266,18 +266,6 @@ Crie o tipo `Motorcycle`, de modo que ele possua todos os atributos da interface
  - O tipo `Motorcycle` possui as propriedades `category` e `engineCapacity`;
  - Não é possível criar um objeto do tipo `Motorcycle` com uma categoria errada;
 
-### 5 - Crie o tipo `Truck` a partir da interface `Vehicle`
-
-Crie o tipo `Truck`, de modo que ele possua todos os atributos da interface `Vehicle` e, também, os atributos:
- - `category`: Categoria do caminhão. Deve poder ser **apenas** `Urbano`, `Semi-Pesado` ou `Pesado`;
- - `axlesQty`: A quantidade de eixos que o caminhão possui. Deve ser um valor inteiro maior ou igual a 2 e menor ou igual a 5;
-
- Além disso, será verificado que:
- - O tipo `Truck` estende a interface `Vehicle`;
- - É possível criar um objeto do tipo `Truck`;
- - O tipo `Truck` possui as propriedades `category` e `axlesQty`;
- - Não é possível criar um objeto do tipo `Truck` com uma categoria errada;
-
 ### 6 - Crie o model `Vehicle`
 
 ### 7 - Crie a classe `Character`
