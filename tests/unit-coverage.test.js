@@ -59,76 +59,46 @@ describe('Testes das camadas Model, Service e Controller', () => {
     await exec('rm -rf coverage .nyc_output dist');
   });
   
-  describe('1 - Escreva testes para cobrir 35% das camadas da sua aplicação', () => {
+  describe('1 - Escreva testes para cobrir 15% da camada de model', () => {
 
-    it('Será validado que cobertura total das linhas dos arquivos nas pastas `models`, `services` e `controllers` é maior ou igual a 35%', async () => {
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 15%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
       expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
 
       const min = 0;
-      const max = 35;
+      const max = 15;
 
       const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
       expect(modelLayer.total).toBeGreaterThanOrEqual(min);
       expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
-
-      const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
-      expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
-
-      const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
-      expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
   
-  describe('9 - Escreva testes para cobrir 40% das camadas da sua aplicação', () => {
-  
-    it('Será validado que cobertura total das linhas dos arquivos nas pastas `models`, `services` e `controllers` é maior ou igual a 40%', async () => {
+  describe('2 - Escreva testes para cobrir 15% da camada de service', () => {
+
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 15%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
       expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
 
       const min = 0;
-      const max = 40;
-
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
-      expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
+      const max = 15;
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
       expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
       expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
-
-      const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
-      expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
   
-  describe('13 - Escreva testes para cobrir 50% das camadas da sua aplicação', () => {
-  
-    it('Será validado que cobertura total das linhas dos arquivos nas pastas `models`, `services` e `controllers` é maior ou igual a 50%', async () => {
+  describe('3 - Escreva testes para cobrir 15% da camada de controller', () => {
+
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 15%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
       expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
 
       const min = 0;
-      const max = 50;
-
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
-      expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
-
-      const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
-      expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
+      const max = 15;
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
       expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
@@ -137,9 +107,57 @@ describe('Testes das camadas Model, Service e Controller', () => {
     });
   });
 
-  describe('14 - Escreva testes para cobrir 60% das camadas da sua aplicação', () => {
+  describe('4 - Escreva testes para cobrir 30% da camada de model', () => {
+
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 30%', async () => {
+      expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
+      expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
+
+      const min = 0;
+      const max = 30;
+
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
+      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
+      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
+    });
+  });
   
-    it('Será validado que cobertura total das linhas dos arquivos nas pastas `models`, `services` e `controllers` é maior ou igual a 60%', async () => {
+  describe('5 - Escreva testes para cobrir 30% da camada de service', () => {
+
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 30%', async () => {
+      expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
+      expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
+
+      const min = 0;
+      const max = 30;
+
+      const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
+      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
+      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
+      expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
+    });
+  });
+  
+  describe('6 - Escreva testes para cobrir 30% da camada de controller', () => {
+
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 30%', async () => {
+      expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
+      expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
+
+      const min = 0;
+      const max = 30;
+
+      const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
+      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
+      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
+      expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
+    });
+  });
+
+  describe('7 - Escreva testes para cobrir 60% da camada de model', () => {
+
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 60%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
       expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
 
@@ -150,11 +168,33 @@ describe('Testes das camadas Model, Service e Controller', () => {
       expect(modelLayer.total).toBeGreaterThanOrEqual(min);
       expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
+    });
+  });
+  
+  describe('8 - Escreva testes para cobrir 60% da camada de service', () => {
+
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 60%', async () => {
+      expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
+      expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
+
+      const min = 0;
+      const max = 60;
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
       expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
       expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
+    });
+  });
+  
+  describe('9 - Escreva testes para cobrir 60% da camada de controller', () => {
+
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 60%', async () => {
+      expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
+      expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
+
+      const min = 0;
+      const max = 60;
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
       expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
