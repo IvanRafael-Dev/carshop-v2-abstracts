@@ -223,23 +223,53 @@ Uma estratégia é pular todos os testes no início e ir implementando um teste 
 
 ### 5 - Crie a interface `Truck` a partir da interface `Vehicle`
 
-### 6 - Crie o model `Vehicle`
+### 6 - Escreva testes para cobrir 15% da camada de model
 
-### 7 - Crie a classe `Character`
+Escreva testes que cubram, pelo menos, 15% da camada Model. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/model`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 15%;
 
-### 8 - Crie a interface `SimpleFighter`
+### 7 - Escreva testes para cobrir 15% da camada de service
 
-### 9 - Crie a classe `Monster`
+Escreva testes que cubram, pelo menos, 15% da camada Service. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/services`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 15%;
 
-### 10 - Crie a classe `PVP`
+### 8 - Escreva testes para cobrir 15% da camada de controller
+
+Escreva testes que cubram, pelo menos, 15% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/controllers`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 15%;
+
+### 9 - Escreva testes para cobrir 30% da camada de model
+
+Escreva testes que cubram, pelo menos, 30% da camada Model. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/model`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 30%;
+
+### 10 - Escreva testes para cobrir 30% da camada de service
+
+Escreva testes que cubram, pelo menos, 30% da camada Service. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/services`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 30%;
+
+### 11 - Escreva testes para cobrir 30% da camada de controller
+
+Escreva testes que cubram, pelo menos, 30% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/controllers`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 30%;
+
+### 12 - Escreva testes para cobrir 60% da camada de model
+
+Escreva testes que cubram, pelo menos, 60% da camada Model. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/model`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 60%;
+
+### 13 - Escreva testes para cobrir 60% da camada de service
+
+Escreva testes que cubram, pelo menos, 60% da camada Service. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/services`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 60%;
+
+### 14 - Escreva testes para cobrir 60% da camada de controller
+
+Escreva testes que cubram, pelo menos, 60% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/controllers`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 60%;
 
 ## Requisitos Bônus
 
-### 11 - Criar a classe `PVE`
-
-### 12 - Crie a classe `Dragon`
-
-### 13 - Crie objetos no arquivo `index`
 
 ## Depois de terminar o desenvolvimento (opcional)
 
