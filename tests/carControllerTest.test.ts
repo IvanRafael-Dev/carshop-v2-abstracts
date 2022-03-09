@@ -29,10 +29,9 @@ describe('Realizando testes na controller de carController', () => {
         expect(mockResponse.status).toHaveBeenCalledTimes(1);
         expect(mockResponse.status).toHaveBeenCalledWith(201);
         expect(mockResponse.json).toHaveBeenCalledTimes(1);
-        // expect(mockResponse.json).toHaveBeenCalledWith({
-        //   ...coverageCar,
-        //   _id: expect.any(String),
-        // });
+        expect(mockResponse.json).toHaveBeenCalledWith(
+          expect.objectContaining(coverageCar)
+        );
       });
     });
   });
