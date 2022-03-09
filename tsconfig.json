@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "target": "es2019",
     "module": "commonjs",
     "typeRoots": [
       "src/@types",
@@ -10,5 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["src/**/*", "tests/carControllerTest.test.ts"],
+  "exclude": ["node_modules", "tests"]
 }

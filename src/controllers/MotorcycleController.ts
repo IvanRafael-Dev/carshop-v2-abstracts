@@ -50,8 +50,12 @@ class MotorcycleController extends Controller<Motorcycle> {
       if (!motorcycle) {
         return res.status(404).json({ error: this.notFoundError });
       }
-      return res.json(motorcycle);
+      if ('error' in motorcycle) {
+        return res.status(400).json(motorcycle);
+      }
+      return res.status(200).json(motorcycle);
     } catch (error) {
+      console.log(error);
       return res.status(500).json({ error: this.internalError });
     }
   };
@@ -74,7 +78,7 @@ class MotorcycleController extends Controller<Motorcycle> {
       const motorcycle = await this.service.update(id, body);
       if (!motorcycle) {
         return res.status(404).json({ error: this.notFoundError });
-      } return res.json(motorcycle);
+      } return res.json(body);
     } catch (err) {
       return res.status(500).json({ error: this.internalError });
     }

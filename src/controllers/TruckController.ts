@@ -46,6 +46,7 @@ class TruckController extends Controller<Truck> {
     try {
       const trucks = await this.service.readOne(id);
       if (!trucks) return res.status(404).json({ error: this.notFoundError });
+      if ('error' in trucks) return res.status(400).json(trucks);
       return res.json(trucks);
     } catch (error) {
       return res.status(500).json({ error: this.internalError });
@@ -69,7 +70,7 @@ class TruckController extends Controller<Truck> {
     try {
       const trucks = await this.service.update(id, body);
       if (!trucks) return res.status(404).json({ error: this.notFoundError });
-      return res.json(trucks);
+      return res.json(body);
     } catch (err) {
       return res.status(500).json({ error: this.internalError });
     }
