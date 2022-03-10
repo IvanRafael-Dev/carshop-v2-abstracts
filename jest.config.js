@@ -5,11 +5,10 @@ module.exports = {
   rootDir: './__tests__',
   setupFilesAfterEnv: ['./setup.js'],
   testSequencer: './testSequencer.js',
-  testTimeout: 100000,
   modulePathIgnorePatterns: [
-    "<rootDir>/utils",
-    "<rootDir>/sources",
-    "<rootDir>/setup.js",
-    "<rootDir>/testSequencer.js"
-  ]
+    '<rootDir>/utils',
+    '<rootDir>/sources',
+    '<rootDir>/setup.js',
+    '<rootDir>/testSequencer.js',
+  ],
 };
