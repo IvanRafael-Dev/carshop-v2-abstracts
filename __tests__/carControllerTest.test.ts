@@ -1,7 +1,7 @@
-import { coverageCar } from '../src/__tests__/utils/CarsMock';
+import { coverageCar } from './utils/CarsMock';
 import CarControllers from '../src/controllers/CarController';
 import connectToDatabase from '../src/models/connection';
-import { clearDatabase, closeDatabase } from '../src/__tests__/utils/db';
+import { clearDatabase, closeDatabase } from './utils/db';
 
 const carController = new CarControllers();
 
