@@ -6,7 +6,7 @@ const path = require('path');
 const exec = util.promisify(callbackExec);
 
 const NPX_NYC_COMMAND =
-  `nyc --all --reporter=json-summary --include dist/models --include dist/services --include dist/controllers mocha dist/tests/unit/**/*.js --exit`;
+  `nyc --reporter=json-summary --include dist/models --include dist/services --include dist/controllers mocha dist/tests/unit/**/*.js --exit`;
 
 const connectionRegex = /connection/
 const modelRegex = /(\/|\\)models(\/|\\)/;
