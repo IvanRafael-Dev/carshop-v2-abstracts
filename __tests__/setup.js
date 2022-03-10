@@ -7,10 +7,10 @@ const FILES_FOLDER = path.join(__dirname, 'sources');
 
 const PERMANENT_JS_FILES = [
   './jest.config.js',
-  './tests/setup.js',
+  './__tests__/setup.js',
   './node_modules/*',
-  './tests/testSequencer.js',
-  './tests/*',
+  './__tests__/testSequencer.js',
+  './__tests__/*',
   './dist/*'
 ];
 
