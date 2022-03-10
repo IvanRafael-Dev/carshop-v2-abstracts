@@ -13,6 +13,7 @@
     "test:mocha": "nyc --all --include dist/models --include dist/services --include dist/controllers mocha dist/__tests__/unit/**/*.js --exit"
   },
   "devDependencies": {
+    "@jest/test-sequencer": "^27.5.1",
     "@types/chai": "^4.3.0",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.1",
