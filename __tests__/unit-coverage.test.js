@@ -50,7 +50,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
   describe('1 - Escreva testes para cobrir 15% da camada de model', () => {
     
     beforeAll(async() => {
-      await executeTests("models");
+      await executeTests('models');
       coverageResults = await readCoverageFile();
       coverageResultsArr = Object.entries(coverageResults);
     })
@@ -76,7 +76,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
   describe('2 - Escreva testes para cobrir 15% da camada de service', () => {
 
     beforeAll(async() => {
-      await executeTests("services");
+      await executeTests('services');
       coverageResults = await readCoverageFile();
       coverageResultsArr = Object.entries(coverageResults);
     })
@@ -102,7 +102,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
   describe('3 - Escreva testes para cobrir 15% da camada de controller', () => {
 
     beforeAll(async() => {
-      await executeTests("controllers");
+      await executeTests('controllers');
       coverageResults = await readCoverageFile();
       coverageResultsArr = Object.entries(coverageResults);
     })
@@ -128,7 +128,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
   describe('4 - Escreva testes para cobrir 30% da camada de model', () => {
 
     beforeAll(async() => {
-      await executeTests("models");
+      await executeTests('models');
       coverageResults = await readCoverageFile();
       coverageResultsArr = Object.entries(coverageResults);
     })
@@ -154,7 +154,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
   describe('5 - Escreva testes para cobrir 30% da camada de service', () => {
 
     beforeAll(async() => {
-      await executeTests("services");
+      await executeTests('services');
       coverageResults = await readCoverageFile();
       coverageResultsArr = Object.entries(coverageResults);
     })
@@ -180,7 +180,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
   describe('6 - Escreva testes para cobrir 30% da camada de controller', () => {
 
     beforeAll(async() => {
-      await executeTests("controllers");
+      await executeTests('controllers');
       coverageResults = await readCoverageFile();
       coverageResultsArr = Object.entries(coverageResults);
     })
@@ -206,7 +206,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
   describe('7 - Escreva testes para cobrir 60% da camada de model', () => {
 
     beforeAll(async() => {
-      await executeTests("models");
+      await executeTests('models');
       coverageResults = await readCoverageFile();
       coverageResultsArr = Object.entries(coverageResults);
     })
@@ -232,7 +232,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
   describe('8 - Escreva testes para cobrir 60% da camada de service', () => {
 
     beforeAll(async() => {
-      await executeTests("services");
+      await executeTests('services');
       coverageResults = await readCoverageFile();
       coverageResultsArr = Object.entries(coverageResults);
     })
@@ -258,7 +258,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
   describe('9 - Escreva testes para cobrir 60% da camada de controller', () => {
 
     beforeAll(async() => {
-      await executeTests("controllers");
+      await executeTests('controllers');
       coverageResults = await readCoverageFile();
       coverageResultsArr = Object.entries(coverageResults);
     })
