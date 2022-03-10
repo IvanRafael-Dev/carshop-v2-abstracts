@@ -30,7 +30,7 @@ expect.extend({
   toCompile(fileName, emit = true) {
     const filePath = path.join(FILES_FOLDER, `${fileName}.ts`);
 
-    const program = ts.createProgram([filePath], { maxNodeModuleJsDepth: 1, target: ts.ScriptTarget.ES2016, module: ts.ModuleKind.CommonJS, moduleResolution: ts.ModuleResolutionKind.NodeJs });
+    const program = ts.createProgram([filePath], { maxNodeModuleJsDepth: 1, target: ts.ScriptTarget.ES2016, module: ts.ModuleKind.CommonJS, moduleResolution: ts.ModuleResolutionKind.NodeJs, strict: true });
     const diagnostics = ts.getPreEmitDiagnostics(program);
 
     const errorDiagnostic = diagnostics.find(
@@ -52,7 +52,7 @@ expect.extend({
   notToCompile(fileName) {
     const filePath = path.join(FILES_FOLDER, `${fileName}.ts`);
 
-    const program = ts.createProgram([filePath], { maxNodeModuleJsDepth: 1, target: ts.ScriptTarget.ES2016, module: ts.ModuleKind.CommonJS, moduleResolution: ts.ModuleResolutionKind.NodeJs });
+    const program = ts.createProgram([filePath], { maxNodeModuleJsDepth: 1, target: ts.ScriptTarget.ES2016, module: ts.ModuleKind.CommonJS, moduleResolution: ts.ModuleResolutionKind.NodeJs, strict: true });
     const diagnostics = ts.getPreEmitDiagnostics(program);
 
     const errorDiagnostic = diagnostics.find(
@@ -77,7 +77,7 @@ expect.extend({
   toCompileAndBeEqualTo(fileName, expected) {
     let filePath = path.join(FILES_FOLDER, `${fileName}.ts`);
 
-    const program = ts.createProgram([filePath], { maxNodeModuleJsDepth: 1, target: ts.ScriptTarget.ES2016, module: ts.ModuleKind.CommonJS, moduleResolution: ts.ModuleResolutionKind.NodeJs });
+    const program = ts.createProgram([filePath], { maxNodeModuleJsDepth: 1, target: ts.ScriptTarget.ES2016, module: ts.ModuleKind.CommonJS, moduleResolution: ts.ModuleResolutionKind.NodeJs, strict: true });
 
     program.emit();
     filePath = filePath.replace('.ts', '.js');
