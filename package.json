@@ -6,11 +6,10 @@
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test": "jest --runInBand",
-    "pretest:mocha": "tsc",
-    "test:coverage": "nyc --all npm run test",
-    "test:coverage:json": "nyc --all --reporter=json-summary npm run test",
-    "test:mocha": "nyc --all --include dist/models --include dist/services --include dist/controllers mocha dist/tests/unit/**/*.js --exit"
+    "test": "jest -i --forceExit --verbose",
+    "test:dev": "mocha -r ts-node/register src/tests/unit/**/*.ts --exit -t 10000",
+    "test:coverage": "nyc --include src/models --include src/services --include src/controllers npm run test:dev",
+    "test:coverage:json": "nyc --include dist/models --include dist/services --include dist/controllers --reporter=json-summary npm run test:dev"
   },
   "devDependencies": {
     "@jest/test-sequencer": "^27.5.1",
