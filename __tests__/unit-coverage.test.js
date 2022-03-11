@@ -5,7 +5,8 @@ const path = require('path');
 
 const exec = util.promisify(callbackExec);
 
-const NPX_NYC_COMMAND = (context) => `npm run test:coverage:json:${context}`;
+const NPX_NYC_COMMAND = 
+  `npm run test:coverage`;
 
 const connectionRegex = /connection/
 const modelRegex = /(\/|\\)models(\/|\\)/;
@@ -34,14 +35,24 @@ function porcentage({total, covered}) {
   return (covered/total)*100
 }
 
-const executeTests = async (context) => {
+const executeTests = async () => {
   try {
-    await exec(NPX_NYC_COMMAND(context))
+    await exec(NPX_NYC_COMMAND)
   } catch (error) {
     console.log(error)
     throw 'Algum dos seus testes falhou, esse requisito só será avaliado se todos os testes passarem';
   }
 };
+
+beforeAll(async() => {
+  await executeTests(NPX_NYC_COMMAND);
+  coverageResults = await readCoverageFile();
+  coverageResultsArr = Object.entries(coverageResults);
+})
+
+afterAll(async () => {
+  await exec('rm -rf coverage .nyc_output');
+});
 
 describe('Testes das camadas Model, Service e Controller', () => {
   let coverageResults;
@@ -49,19 +60,9 @@ describe('Testes das camadas Model, Service e Controller', () => {
   
   describe('1 - Escreva testes para cobrir 15% da camada de model', () => {
     
-    beforeAll(async() => {
-      await executeTests('models');
-      coverageResults = await readCoverageFile();
-      coverageResultsArr = Object.entries(coverageResults);
-    })
-  
-    afterAll(async () => {
-      await exec('rm -rf coverage .nyc_output');
-    });
-
     it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 15%', async () => {
-      expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(15);
-      expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(5);
+      expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
+      expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
 
       const min = 0;
       const max = 15;
@@ -74,16 +75,6 @@ describe('Testes das camadas Model, Service e Controller', () => {
   });
   
   describe('2 - Escreva testes para cobrir 15% da camada de service', () => {
-
-    beforeAll(async() => {
-      await executeTests('services');
-      coverageResults = await readCoverageFile();
-      coverageResultsArr = Object.entries(coverageResults);
-    })
-  
-    afterAll(async () => {
-      await exec('rm -rf coverage .nyc_output');
-    });
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 15%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -101,16 +92,6 @@ describe('Testes das camadas Model, Service e Controller', () => {
   
   describe('3 - Escreva testes para cobrir 15% da camada de controller', () => {
 
-    beforeAll(async() => {
-      await executeTests('controllers');
-      coverageResults = await readCoverageFile();
-      coverageResultsArr = Object.entries(coverageResults);
-    })
-  
-    afterAll(async () => {
-      await exec('rm -rf coverage .nyc_output');
-    });
-
     it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 15%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
       expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
@@ -126,16 +107,6 @@ describe('Testes das camadas Model, Service e Controller', () => {
   });
 
   describe('4 - Escreva testes para cobrir 30% da camada de model', () => {
-
-    beforeAll(async() => {
-      await executeTests('models');
-      coverageResults = await readCoverageFile();
-      coverageResultsArr = Object.entries(coverageResults);
-    })
-  
-    afterAll(async () => {
-      await exec('rm -rf coverage .nyc_output');
-    });
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 30%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -153,16 +124,6 @@ describe('Testes das camadas Model, Service e Controller', () => {
   
   describe('5 - Escreva testes para cobrir 30% da camada de service', () => {
 
-    beforeAll(async() => {
-      await executeTests('services');
-      coverageResults = await readCoverageFile();
-      coverageResultsArr = Object.entries(coverageResults);
-    })
-  
-    afterAll(async () => {
-      await exec('rm -rf coverage .nyc_output');
-    });
-
     it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 30%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
       expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
@@ -178,16 +139,6 @@ describe('Testes das camadas Model, Service e Controller', () => {
   });
   
   describe('6 - Escreva testes para cobrir 30% da camada de controller', () => {
-
-    beforeAll(async() => {
-      await executeTests('controllers');
-      coverageResults = await readCoverageFile();
-      coverageResultsArr = Object.entries(coverageResults);
-    })
-  
-    afterAll(async () => {
-      await exec('rm -rf coverage .nyc_output');
-    });
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 30%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -205,16 +156,6 @@ describe('Testes das camadas Model, Service e Controller', () => {
 
   describe('7 - Escreva testes para cobrir 60% da camada de model', () => {
 
-    beforeAll(async() => {
-      await executeTests('models');
-      coverageResults = await readCoverageFile();
-      coverageResultsArr = Object.entries(coverageResults);
-    })
-  
-    afterAll(async () => {
-      await exec('rm -rf coverage .nyc_output');
-    });
-
     it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 60%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
       expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
@@ -231,16 +172,6 @@ describe('Testes das camadas Model, Service e Controller', () => {
   
   describe('8 - Escreva testes para cobrir 60% da camada de service', () => {
 
-    beforeAll(async() => {
-      await executeTests('services');
-      coverageResults = await readCoverageFile();
-      coverageResultsArr = Object.entries(coverageResults);
-    })
-  
-    afterAll(async () => {
-      await exec('rm -rf coverage .nyc_output');
-    });
-
     it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 60%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
       expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
@@ -256,16 +187,6 @@ describe('Testes das camadas Model, Service e Controller', () => {
   });
   
   describe('9 - Escreva testes para cobrir 60% da camada de controller', () => {
-
-    beforeAll(async() => {
-      await executeTests('controllers');
-      coverageResults = await readCoverageFile();
-      coverageResultsArr = Object.entries(coverageResults);
-    })
-  
-    afterAll(async () => {
-      await exec('rm -rf coverage .nyc_output');
-    });
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 60%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
