@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import connectToDatabase from './models/connection';
+import connectToDatabase from './connection';
 
 class App {
   public app: express.Application;
