@@ -2,7 +2,7 @@ import { z } from 'zod';
 import VehicleSchema from './VehicleValidation';
 
 const MotorcycleSchema = VehicleSchema.extend({
-  category: z.enum(['Street', 'Custom', 'Trail']),
+  category: z.string(),
   engineCapacity: z.number().gt(0, {
     message: 'Engine capacity cannot be less than or equal to zero',
   }).lte(2500, {
