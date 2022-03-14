@@ -17,6 +17,15 @@ const replaceAll = (text, search, replacement) => {
   return text.replace(new RegExp(search, 'g'), replacement);
 };
 
+const tsConfig = {
+  maxNodeModuleJsDepth: 1,
+  target: ts.ScriptTarget.ES2016,
+  module: ts.ModuleKind.CommonJS,
+  moduleResolution: ts.ModuleResolutionKind.NodeJs,
+  strict: true,
+  skipLibCheck: true
+}
+
 afterEach(() => {
   const findPath = process.platform === 'win32' ? '"C:\\Program Files\\Git\\usr\\bin\\find.exe"' : 'find';
   let execString = `${findPath} . -type f -iname '*.js'`;
@@ -29,13 +38,12 @@ expect.extend({
   toCompile(fileName, emit = true) {
     const filePath = path.join(FILES_FOLDER, `${fileName}.ts`);
 
-    const program = ts.createProgram([filePath], { maxNodeModuleJsDepth: 1, target: ts.ScriptTarget.ES2016, module: ts.ModuleKind.CommonJS, moduleResolution: ts.ModuleResolutionKind.NodeJs, strict: true });
+    const program = ts.createProgram([filePath], tsConfig);
     const diagnostics = ts.getPreEmitDiagnostics(program);
 
     const errorDiagnostic = diagnostics.find(
       (diagnostic) => diagnostic.category === ts.DiagnosticCategory.Error
     );
-
     if (errorDiagnostic) return {
       pass: false,
       message: () => `Expected ${fileName}.ts to compile successfully`,
@@ -51,7 +59,7 @@ expect.extend({
   notToCompile(fileName) {
     const filePath = path.join(FILES_FOLDER, `${fileName}.ts`);
 
-    const program = ts.createProgram([filePath], { maxNodeModuleJsDepth: 1, target: ts.ScriptTarget.ES2016, module: ts.ModuleKind.CommonJS, moduleResolution: ts.ModuleResolutionKind.NodeJs, strict: true });
+    const program = ts.createProgram([filePath], tsConfig);
     const diagnostics = ts.getPreEmitDiagnostics(program);
 
     const errorDiagnostic = diagnostics.find(
@@ -76,7 +84,7 @@ expect.extend({
   toCompileAndBeEqualTo(fileName, expected) {
     let filePath = path.join(FILES_FOLDER, `${fileName}.ts`);
 
-    const program = ts.createProgram([filePath], { maxNodeModuleJsDepth: 1, target: ts.ScriptTarget.ES2016, module: ts.ModuleKind.CommonJS, moduleResolution: ts.ModuleResolutionKind.NodeJs, strict: true });
+    const program = ts.createProgram([filePath], tsConfig);
 
     program.emit();
     filePath = filePath.replace('.ts', '.js');
