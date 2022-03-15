@@ -19,12 +19,12 @@
       "json-summary"
     ],
     "report-dir": "coverage"
-},
+  },
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest -i --forceExit --verbose",
-    "test:dev": "mocha -r ts-node/register src/tests/unit/**/*.test.ts --exit -t 10000",
+    "test:dev": "mocha -r ts-node/register src/tests/unit/**/*.test.ts --exit -t 15000",
     "test:coverage": "nyc --exclude src/tests --exclude src/models/MongoModel.ts --exclude src/models/VehicleModel.ts --exclude src/services/index.ts --include src/models --include src/services npm run test:dev"
   },
   "devDependencies": {
@@ -50,6 +50,7 @@
     "mocha": "^9.2.1",
     "nyc": "^15.1.0",
     "sinon": "^13.0.1",
+    "sinon-chai": "^3.7.0",
     "ts-node": "^10.4.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.3",

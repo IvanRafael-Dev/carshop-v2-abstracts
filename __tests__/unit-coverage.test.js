@@ -36,9 +36,12 @@ function porcentage({total, covered}) {
   return (covered/total)*100
 }
 
+const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
 const executeTests = async () => {
   try {
     await exec(NPX_NYC_COMMAND)
+    await delay(5000)
   } catch (error) {
     console.log(error)
     throw 'Algum dos seus testes falhou, esse requisito só será avaliado se todos os testes passarem';
@@ -56,6 +59,7 @@ afterAll(async () => {
 });
 
 describe('Testes das camadas Model, Service e Controller', () => {
+
   describe('1 - Escreva testes para cobrir 15% da camada de model', () => {
     
     it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 15%', async () => {
