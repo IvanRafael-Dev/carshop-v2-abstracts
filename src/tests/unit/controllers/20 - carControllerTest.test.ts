@@ -1,30 +1,37 @@
-import { coverageCar } from '../__tests__/utils/CarsMock';
-import CarControllers from '../src/controllers/CarController';
-import connectToDatabase from '../src/connection';
-import { clearDatabase, closeDatabase } from '../__tests__/utils/db';
+import * as sinon from 'sinon';
+import * as chai from 'chai';
 
-const carController = new CarControllers();
+const { expect } = chai;
 
-beforeAll(async () => {
-  await connectToDatabase('mongodb://localhost:27017/CarShopTests');
-  await clearDatabase();
+import { coverageCar } from '../../utils/CarsMock';
+// import CarControllers from '../../../controllers/CarController';
+import connectToDatabase from '../../../connection';
+import { clearDatabase, closeDatabase } from '../../utils/db';
+import CarService from '../../../services/CarService';
+
+// const carController = new CarControllers();
+
+let req: any = { body: {} };
+let res: any = { status: 0, json: {} };
+
+before(async () => {
+  req.body = coverageCar;
+  res.status = sinon.stub().returns(201);
+  res.json = sinon.stub().returns({ _id: '6230aa99bb342cb263eec9e5', ...coverageCar });
+  // await connectToDatabase('mongodb://localhost:27017/CarShopTests');
+  // await clearDatabase();
 });
 
-afterAll(async () => {
-  await closeDatabase();
+after(async () => {
+  // await closeDatabase();
 });
 
 describe('Realizando testes na controller de carController', () => {
   describe('Insere novo carro', () => {
     describe('quando é inserido com sucesso', () => {
-      const mockResponse: any = {};
-      mockResponse.json = jest.fn();
-      mockResponse.status = jest.fn().mockReturnValue(mockResponse);
-
-      const mockRequest: any = { body: coverageCar };
 
       it('é retornado o status 201', async () => {
-        await carController.create(mockRequest, mockResponse);
+        await carController.create();
 
         expect(mockResponse.status).toHaveBeenCalledTimes(1);
         expect(mockResponse.status).toHaveBeenCalledWith(201);
