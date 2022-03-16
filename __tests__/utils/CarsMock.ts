@@ -53,15 +53,6 @@ export const noColorCar = {
   doorsQty: 2
 }
 
-export const noStatusCar = {
-  model: 'Uno da Escada',
-  year: 1963,
-  color: 'red',
-  buyValue: 3500,
-  seatsQty: 2,
-  doorsQty: 2
-}
-
 export const noBuyValueCar = {
   model: 'Uno da Escada',
   year: 1963,

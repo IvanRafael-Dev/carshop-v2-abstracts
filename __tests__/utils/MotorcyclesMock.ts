@@ -43,15 +43,6 @@ export const noColorMotorcycle = {
   engineCapacity: 125
 }
 
-export const noStatusMotorcycle = {
-  model: 'Honda CG Titan 125',
-  year: 1963,
-  color: 'red',
-  buyValue: 3500,
-  category: 'Street',
-  engineCapacity: 125
-}
-
 export const noBuyValueMotorcycle = {
   model: 'Honda CG Titan 125',
   year: 1963,
@@ -76,7 +67,7 @@ export const noEngineCapacityMotorcycle = {
   category: 'Street',
 }
 
-export const MotorcycleEngineLteTwo = {
+export const MotorcycleEngineLteZero = {
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
