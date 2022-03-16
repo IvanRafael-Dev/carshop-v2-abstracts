@@ -65,20 +65,18 @@ class MotorcycleController extends Controller<Motorcycle> {
     res: Response<Motorcycle | ResponseError>,
   ): Promise<typeof res> => {
     const { id } = req.params;
-    if (!id) return res.status(400).json({ error: this.requiredIdError });
-
     const { body } = req;
-    const parsed = MotorcycleSchema.safeParse(body);
 
-    if (!parsed.success) {
-      return res.status(400).json({ error: parsed.error });
-    }
+    const parsed = MotorcycleSchema.safeParse(body);
+    if (!parsed.success) return res.status(400).json({ error: parsed.error });
 
     try {
       const motorcycle = await this.service.update(id, body);
       if (!motorcycle) {
         return res.status(404).json({ error: this.notFoundError });
-      } return res.json(body);
+      }
+      if ('error' in motorcycle) return res.status(400).json(motorcycle);
+      return res.json(body);
     } catch (err) {
       return res.status(500).json({ error: this.internalError });
     }
