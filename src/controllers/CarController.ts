@@ -21,7 +21,8 @@ export default class CarController extends Controller<Car> {
     req: Request<Car>,
     res: Response<Car | ResponseError>,
   ): Promise<typeof res> => {
-    const { body }: { body: Car } = req;    
+    const { body }: { body: Car } = req;
+  
     const parsed = CarSchema.safeParse(body);
     if (!parsed.success) {
       return res.status(400).json({ error: parsed.error });
