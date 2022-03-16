@@ -58,13 +58,10 @@ export default class CarController extends Controller<Car> {
     res: Response<Car | ResponseError>,
   ): Promise<typeof res> => {
     const { id } = req.params;
-
     const { body } = req;
-    const parsed = CarSchema.safeParse(body);
 
-    if (!parsed.success) {
-      return res.status(400).json({ error: parsed.error });
-    }
+    const parsed = CarSchema.safeParse(body);
+    if (!parsed.success) return res.status(400).json({ error: parsed.error });
 
     try {
       const cars = await this.service.update(id, body);
