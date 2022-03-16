@@ -10,6 +10,16 @@ export const validMotorcycle = {
   engineCapacity: 125
 };
 
+export const updatedMotorcycle = {
+  _id: validMotorcycle._id.toString(),
+  model: 'Honda CG Titan 125',
+  year: 1963,
+  color: 'black',
+  buyValue: 3500,
+  category: 'Street',
+  engineCapacity: 125
+};
+
 export const coverageMotorcycle = {
   model: 'Honda CG Titan 125',
   year: 1963,
