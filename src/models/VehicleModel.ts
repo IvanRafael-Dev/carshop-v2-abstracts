@@ -9,7 +9,6 @@ export const vehicleSchema = new Schema<VehicleDocument>({
   model: String,
   year: Number,
   color: String,
-  status: Boolean,
   buyValue: Number,
 }, { versionKey: false });
 

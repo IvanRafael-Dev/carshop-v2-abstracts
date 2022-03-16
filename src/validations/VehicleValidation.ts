@@ -8,7 +8,6 @@ const VehicleSchema = z.object({
   color: z.string().min(3, {
     message: 'color must be longer than 3 characters',
   }).nonempty({ message: 'color is required' }),
-  status: z.boolean(),
   buyValue: z.number(),
 });
 

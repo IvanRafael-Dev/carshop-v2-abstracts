@@ -33,11 +33,10 @@ describe('Realiza testes na model de Motos', () => {
         expect(response).to.be.an('object');
       });
 
-      it('o objeto possui chaves: "model", "year" e "color", "status", "buyValue", "category", "engineCapacity"', async () => {
+      it('o objeto possui chaves: "model", "year" e "color", "buyValue", "category", "engineCapacity"', async () => {
         const response = await Motorcycles.create(payloadMotorcycle);
         expect(response).to.have.a.property('model');
         expect(response).to.have.a.property('year');
-        expect(response).to.have.a.property('status');
         expect(response).to.have.a.property('buyValue');
         expect(response).to.have.a.property('category');
         expect(response).to.have.a.property('engineCapacity');
@@ -67,21 +66,19 @@ describe('Realiza testes na model de Motos', () => {
         expect(response).to.have.lengthOf(2);
       });
 
-      it('os objetos do array contém as chaves: "model", "year" e "color", "status", "buyValue", "category", "engineCapacity"', async () => {
+      it('os objetos do array contém as chaves: "model", "year" e "color", "buyValue", "category", "engineCapacity"', async () => {
         await Motorcycles.create(payloadMotorcycle);
         await Motorcycles.create(payloadMotorcycle);
         const response = await Motorcycles.find();
         expect(response[0]).to.have.property('model');
         expect(response[0]).to.have.property('year');
         expect(response[0]).to.have.property('color');
-        expect(response[0]).to.have.property('status');
         expect(response[0]).to.have.property('buyValue');
         expect(response[0]).to.have.property('category');
         expect(response[0]).to.have.property('engineCapacity');
         expect(response[1]).to.have.property('model');
         expect(response[1]).to.have.property('year');
         expect(response[1]).to.have.property('color');
-        expect(response[1]).to.have.property('status');
         expect(response[1]).to.have.property('buyValue');
         expect(response[1]).to.have.property('category');
         expect(response[1]).to.have.property('engineCapacity');
@@ -106,13 +103,12 @@ describe('Realiza testes na model de Motos', () => {
         expect(response).to.be.an('object')
       });
 
-      it('o objeto contém as chaves: "model", "year" e "color", "status", "buyValue", "category", "engineCapacity"', async () => {
+      it('o objeto contém as chaves: "model", "year" e "color", "buyValue", "category", "engineCapacity"', async () => {
         await Motorcycles.create(payloadMotorcycle);
         const response = await Motorcycles.findById(validMotorcycle._id);
         expect(response).to.have.property('model');
         expect(response).to.have.property('year');
         expect(response).to.have.property('color');
-        expect(response).to.have.property('status');
         expect(response).to.have.property('buyValue');
         expect(response).to.have.property('category');
         expect(response).to.have.property('engineCapacity');
@@ -139,13 +135,12 @@ describe('Realiza testes na model de Motos', () => {
         expect(response).to.be.an('object');
       });
 
-      it('o objeto possui chaves: "model", "year" e "color", "status", "buyValue", "category", "engineCapacity"', async () => {
+      it('o objeto possui chaves: "model", "year" e "color", "buyValue", "category", "engineCapacity"', async () => {
         await Motorcycles.create(payloadMotorcycle);
         const response = await Motorcycles.findOneAndUpdate(validMotorcycle._id);
         expect(response).to.have.property('model');
         expect(response).to.have.property('year');
         expect(response).to.have.property('color');
-        expect(response).to.have.property('status');
         expect(response).to.have.property('buyValue');
         expect(response).to.have.property('category');
         expect(response).to.have.property('engineCapacity');

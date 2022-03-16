@@ -60,10 +60,6 @@ describe('6 - Crie um carro através de uma requisição POST para a rota /cars'
     expect(res.statusCode).toEqual(400);
     res = await request(server.getApp())
       .post('/cars')
-      .send(carMock.noStatusCar);
-    expect(res.statusCode).toEqual(400);
-    res = await request(server.getApp())
-      .post('/cars')
       .send(carMock.noBuyValueCar);
     expect(res.statusCode).toEqual(400);
   });
@@ -86,7 +82,6 @@ describe('6 - Crie um carro através de uma requisição POST para a rota /cars'
     expect(typeof carMock.validCar.model).toBe('string');
     expect(typeof carMock.validCar.year).toBe('number');
     expect(typeof carMock.validCar.color).toBe('string');
-    expect(typeof carMock.validCar.status).toBe('boolean');
     expect(typeof carMock.validCar.buyValue).toBe('number');
     expect(typeof carMock.validCar.doorsQty).toBe('number');
     expect(typeof carMock.validCar.seatsQty).toBe('number');

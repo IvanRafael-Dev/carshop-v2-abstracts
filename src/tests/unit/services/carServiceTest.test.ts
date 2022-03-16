@@ -37,11 +37,10 @@ describe('Realiza testes na camada de services de Carros', () => {
         }
       });
 
-      it('o objeto possui chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
+      it('o objeto possui chaves: "model", "year" e "color", "buyValue", "seatsQty", "doorsQty"', async () => {
         const response = await carService.create(payloadCar);
         expect(response).to.have.a.property('model');
         expect(response).to.have.a.property('year');
-        expect(response).to.have.a.property('status');
         expect(response).to.have.a.property('buyValue');
         expect(response).to.have.a.property('seatsQty');
         expect(response).to.have.a.property('doorsQty');
@@ -71,21 +70,19 @@ describe('Realiza testes na camada de services de Carros', () => {
       //   expect(response).to.have.lengthOf(2);
       // });
 
-      it('os objetos do array contém as chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
+      it('os objetos do array contém as chaves: "model", "year" e "color", "buyValue", "seatsQty", "doorsQty"', async () => {
         await carService.create(payloadCar);
         await carService.create(payloadCar);
         const response = await carService.read();
         expect(response[0]).to.have.property('model');
         expect(response[0]).to.have.property('year');
         expect(response[0]).to.have.property('color');
-        expect(response[0]).to.have.property('status');
         expect(response[0]).to.have.property('buyValue');
         expect(response[0]).to.have.property('seatsQty');
         expect(response[0]).to.have.property('doorsQty');
         expect(response[1]).to.have.property('model');
         expect(response[1]).to.have.property('year');
         expect(response[1]).to.have.property('color');
-        expect(response[1]).to.have.property('status');
         expect(response[1]).to.have.property('buyValue');
         expect(response[1]).to.have.property('seatsQty');
         expect(response[1]).to.have.property('doorsQty');
@@ -110,13 +107,12 @@ describe('Realiza testes na camada de services de Carros', () => {
         expect(response).to.be.an('object')
       });
 
-      it('o objeto contém as chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
+      it('o objeto contém as chaves: "model", "year" e "color", "buyValue", "seatsQty", "doorsQty"', async () => {
         await carService.create(payloadCar);
         const response = await carService.readOne((validCar._id).toString());
         expect(response).to.have.property('model');
         expect(response).to.have.property('year');
         expect(response).to.have.property('color');
-        expect(response).to.have.property('status');
         expect(response).to.have.property('buyValue');
         expect(response).to.have.property('seatsQty');
         expect(response).to.have.property('doorsQty');
@@ -143,13 +139,12 @@ describe('Realiza testes na camada de services de Carros', () => {
         expect(response).to.be.an('object');
       });
 
-      it('o objeto possui chaves: "model", "year" e "color", "status", "buyValue", "seatsQty", "doorsQty"', async () => {
+      it('o objeto possui chaves: "model", "year" e "color", "buyValue", "seatsQty", "doorsQty"', async () => {
         await carService.create(payloadCar);
         const response = await carService.update((validCar._id).toString(), validCar);
         expect(response).to.have.property('model');
         expect(response).to.have.property('year');
         expect(response).to.have.property('color');
-        expect(response).to.have.property('status');
         expect(response).to.have.property('buyValue');
         expect(response).to.have.property('seatsQty');
         expect(response).to.have.property('doorsQty');

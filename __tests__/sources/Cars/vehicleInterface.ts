@@ -7,7 +7,6 @@ const testCar: Car = {
   model: 'Uno da Escada',
   year: 1963,
   color: 'red',
-  status: true,
   buyValue: 3500,
   seatsQty: 2,
   doorsQty: 2

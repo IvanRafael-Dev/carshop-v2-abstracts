@@ -4,7 +4,6 @@ const testCar: Car = {
   model: 'Fiat Uno',
   year: 2002,
   color: 'White',
-  status: true,
   buyValue: 10000,
   seatsQty: 5,
   doorsQty: 2,
