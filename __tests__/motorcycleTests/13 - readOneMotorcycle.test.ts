@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import request from 'supertest';
 import { clearDatabase, closeDatabase } from '../utils/db';
 
-import * as carMock from '../utils/CarsMock';
+import * as motorcycleMock from '../utils/MotorcyclesMock';
 
 import server from '../../src/server';
 
@@ -11,7 +11,7 @@ const databaseName = 'CarShop';
 const MONGO_URI = process.env.MONGO_URI
   || `mongodb://localhost:27017/${databaseName}`;
 
-describe('8 - Liste um único carro através do seu id utilizando uma requisição GET para a rota /cars/id', () => {
+describe('13 - Liste uma única moto através do seu id utilizando uma requisição GET para a rota /motorcycles/id', () => {
   beforeAll(async () => {
     await mongoose.connect(MONGO_URI);
   });
@@ -23,13 +23,13 @@ describe('8 - Liste um único carro através do seu id utilizando uma requisiç�
   afterAll(async () => {
     await closeDatabase();
   });
-  it('Será verificado que é possível listar um carro com sucesso através do id', async () => {
+  it('Será verificado que é possível listar uma moto com sucesso através do id', async () => {
     const res = await request(server.getApp())
-      .post('/cars')
-      .send(carMock.validCar)
+      .post('/motorcycles')
+      .send(motorcycleMock.validMotorcycle)
     const { _id } = res.body;
     const result = await request(server.getApp())
-      .get(`/cars/${_id}`);
+      .get(`/motorcycles/${_id}`);
     expect(result.body).toEqual(res.body);
     expect(result.statusCode).toEqual(200);
   });
@@ -39,7 +39,7 @@ describe('8 - Liste um único carro através do seu id utilizando uma requisiç�
       error: "Id must have 24 hexadecimal characters",
     };
     const result = await request(server.getApp())
-      .get('/cars/999');
+      .get('/motorcycles/999');
     expect(result.body).toEqual(messageError);
     expect(result.statusCode).toEqual(400);
   });
@@ -49,7 +49,7 @@ describe('8 - Liste um único carro através do seu id utilizando uma requisiç�
       error: "Object not found",
     };
     const result = await request(server.getApp())
-      .get('/cars/999999999999999999999999');
+      .get('/motorcycles/999999999999999999999999');
     expect(result.body).toEqual(messageError);
     expect(result.statusCode).toEqual(404);
   });
