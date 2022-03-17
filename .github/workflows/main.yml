@@ -57,7 +57,8 @@ jobs:
   evaluator:
     runs-on: self-hosted
     needs: linter
-    services:
+
+  services:
       mongodb:
         image: mongo
         ports:
@@ -82,6 +83,7 @@ jobs:
           ref: v5.1
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/mongodb-query-evaluator
+
 
       - name: Fetch Jest evaluator
         uses: actions/checkout@v2

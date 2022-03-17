@@ -36,13 +36,11 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
     - [5 - Crie a interface `Truck` a partir da interface `Vehicle`](#5---crie-a-interface-truck-a-partir-da-interface-vehicle)
     - [6 - Crie o model `Vehicle`](#6---crie-o-model-vehicle)
     - [7 - Crie a classe `Character`](#7---crie-a-classe-character)
-    - [8 - Crie a interface `SimpleFighter`](#8---crie-a-interface-simplefighter)
-    - [9 - Crie a classe `Monster`](#9---crie-a-classe-monster)
-    - [10 - Crie a classe `PVP`](#10---crie-a-classe-pvp)
+    - [8 - Crie a rota para a criação de `Cars`, `Motorcycles` e `Trucks`](#8---crie-a-rota-para-a-criação-de-cars-motorcycles-e-trucks)
+    - [9 - Crie a rota para a leitura de `Cars`, `Motorcycles` e `Trucks`](#9---crie-a-rota-para-a-leitura-de-cars-motorcycles-e-trucks)
+    - [10 - Crie a rota para a atualização de `Cars`, `Motorcycles` e `Trucks`](#10---crie-a-rota-para-a-atualização-de-cars-motorcycles-e-trucks)
+    - [11 - Crie a rota para a remoção de `Cars`, `Motorcycles` e `Trucks`](#11---crie-a-rota-para-a-remoção-de-cars-motorcycles-e-trucks)
   - [Requisitos Bônus](#requisitos-bônus)
-    - [11 - Criar a classe `PVE`](#11---criar-a-classe-pve)
-    - [12 - Crie a classe `Dragon`](#12---crie-a-classe-dragon)
-    - [13 - Crie objetos no arquivo `index`](#13---crie-objetos-no-arquivo-index)
   - [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
 - [Revisando um pull request](#revisando-um-pull-request)
 - [Avisos finais](#avisos-finais)
@@ -310,6 +308,7 @@ Escreva testes que cubram, pelo menos, 60% da camada Service. Seus arquivos de t
 
 Escreva testes que cubram, pelo menos, 60% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/controllers`. Além disso, será verificado que:
  - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 60%;
+
 
 ## Requisitos Bônus
 
