@@ -24,7 +24,7 @@
     "dev": "ts-node-dev src/index.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest -i --forceExit --verbose",
-    "test:dev": "mocha -r ts-node/register src/tests/unit/**/*.test.ts --exit -t 15000",
+    "test:dev": "mocha -r ts-node/register src/tests/unit/**/*.test.ts --exit -t 25000",
     "test:coverage": "nyc --exclude src/tests --exclude src/models/MongoModel.ts --exclude src/models/VehicleModel.ts --exclude src/services/index.ts --include src/models --include src/services npm run test:dev"
   },
   "devDependencies": {

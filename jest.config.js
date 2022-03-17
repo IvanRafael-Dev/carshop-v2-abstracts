@@ -11,5 +11,5 @@ module.exports = {
     '<rootDir>/setup.js',
     '<rootDir>/testSequencer.js',
   ],
-  testTimeout: 15000,
+  testTimeout: 25000,
 };
