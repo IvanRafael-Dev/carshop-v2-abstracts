@@ -81,6 +81,24 @@ class MotorcycleController extends Controller<Motorcycle> {
       return res.status(500).json({ error: this.internalError });
     }
   };
+
+  delete = async (
+    req: Request<{ id: string; }>,
+    res: Response<Motorcycle | ResponseError>,
+  ): Promise<typeof res> => {
+    const { id } = req.params;
+
+    try {
+      const motorcycles = await this.service.delete(id);
+      if (!motorcycles) {
+        return res.status(404).json({ error: this.notFoundError });
+      }
+      if ('error' in motorcycles) return res.status(400).json(motorcycles);
+      return res.status(204).json(motorcycles);
+    } catch (err) {
+      return res.status(500).json({ error: this.internalError });
+    }
+  };
 }
 
 export default MotorcycleController;
