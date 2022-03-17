@@ -4,6 +4,7 @@ import chai from 'chai';
 import CarService from '../../../services/CarService';
 import CarController from '../../../controllers/CarController';
 import { coverageCar } from '../../utils/CarsMock';
+import { Car } from '../../../interfaces/CarInterface'
 
 const carController = new CarController();
 
@@ -24,13 +25,18 @@ describe('Seu teste', () => {
   })
 
   it('Cria um novo carro', async () => {
-    chaiHttpResponse = await chai
-      .request(app)
-      .post('/cars')
-      .send(coverageCar)
+    const req: any = {
+      get: coverageCar
+    }
+    const res: any = {
+      status: 0,
+      send: coverageCar
+    }
 
-    expect(chaiHttpResponse).to.have.status(201)
-    expect(chaiHttpResponse.body).to.contain(coverageCar)
+    await carController.create(req, res)
+
+    expect(res.status).to.have.status(201)
+    expect(res.body).to.contain(coverageCar)
   });
 
   // it('Seu sub-teste', () => {

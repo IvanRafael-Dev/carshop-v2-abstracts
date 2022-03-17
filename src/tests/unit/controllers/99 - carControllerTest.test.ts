@@ -23,7 +23,7 @@ server.addRouter(carRouter.router);
 
 const app = server.app;
 
-describe('Seu teste', () => {
+describe('Realiza testes na camada de controller', () => {
 
   let chaiHttpResponse;
 
@@ -47,7 +47,17 @@ describe('Seu teste', () => {
     expect(chaiHttpResponse.body).to.contain(coverageCar)
   });
 
-  // it('Seu sub-teste', () => {
-  //   expect(false).to.be.eq(true);
-  // });
+  it('Realiza a leitura dos carros no banco', async () => {
+    chaiHttpResponse = await chai
+      .request(app)
+      .post('/cars')
+      .send(coverageCar)
+
+      const result = await chai
+      .request(app)
+      .get('/cars')
+
+    expect(result).to.have.status(200)
+    expect(result.body).to.contain([])
+  });
 });
