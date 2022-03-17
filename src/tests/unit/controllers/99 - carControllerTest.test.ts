@@ -47,17 +47,17 @@ describe('Realiza testes na camada de controller', () => {
     expect(chaiHttpResponse.body).to.contain(coverageCar)
   });
 
-  it('Realiza a leitura dos carros no banco', async () => {
-    chaiHttpResponse = await chai
-      .request(app)
-      .post('/cars')
-      .send(coverageCar)
+  // it('Realiza a leitura dos carros no banco', async () => {
+  //   chaiHttpResponse = await chai
+  //     .request(app)
+  //     .post('/cars')
+  //     .send(coverageCar)
 
-      const result = await chai
-      .request(app)
-      .get('/cars')
+  //     const result = await chai
+  //     .request(app)
+  //     .get('/cars')
 
-    expect(result).to.have.status(200)
-    expect(result.body).to.contain([])
-  });
+  //   expect(result).to.have.status(200)
+  //   expect(result.body).to.contain([])
+  // });
 });

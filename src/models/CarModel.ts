@@ -1,7 +1,7 @@
 import mongoose, { Schema, model as createModel, Document } from 'mongoose';
 
 import { Car } from '../interfaces/CarInterface';
-import { vehicleSchema } from './VehicleModel';
+import vehicleSchema from '../schemas/VehicleSchema';
 
 import MongoModel from './MongoModel';
 
