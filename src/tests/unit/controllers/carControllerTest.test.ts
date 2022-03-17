@@ -25,39 +25,35 @@ const app = server.app;
 
 describe('Realiza testes na camada de controller', () => {
 
-  let chaiHttpResponse;
-
   before(async () => {
     sinon
       .stub(CarService.prototype, 'create')
       .resolves(coverageCar as Car);
+      sinon
+      .stub(CarService.prototype, 'read')
+      .resolves([coverageCar] as Car[]);
   });
 
   after(()=>{
     (CarService.prototype.create as sinon.SinonStub).restore();
+    (CarService.prototype.read as sinon.SinonStub).restore();
   })
 
   it('Cria um novo carro', async () => {
-    chaiHttpResponse = await chai
+    const req = await chai
       .request(app)
       .post('/cars')
       .send(coverageCar)
 
-    expect(chaiHttpResponse).to.have.status(201)
-    expect(chaiHttpResponse.body).to.contain(coverageCar)
+    expect(req).to.have.status(201)
+    expect(req.body).to.contain(coverageCar)
   });
 
-  // it('Realiza a leitura dos carros no banco', async () => {
-  //   chaiHttpResponse = await chai
-  //     .request(app)
-  //     .post('/cars')
-  //     .send(coverageCar)
-
-  //     const result = await chai
-  //     .request(app)
-  //     .get('/cars')
-
-  //   expect(result).to.have.status(200)
-  //   expect(result.body).to.contain([])
-  // });
+  it('Realiza a leitura dos carros no banco', async () => {
+    const result = await chai
+    .request(app)
+    .get('/cars')
+    // deep.include found here => https://www.chaijs.com/api/bdd/#method_deep
+    expect(result.body).to.deep.include(coverageCar)
+  });
 });
