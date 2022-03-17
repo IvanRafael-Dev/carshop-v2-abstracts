@@ -29,17 +29,19 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - [Contextualizando](#contextualizando)
 - [Requisitos do projeto](#requisitos-do-projeto)
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
-    - [1 - Crie a interface `Model`](#1---crie-a-interface-model)
+    - [1 - Crie a interface `Model` genérica](#1---crie-a-interface-model-genérica)
     - [2 - Crie a interface `Vehicle`](#2---crie-a-interface-vehicle)
-    - [3 - Crie a interface `Car` a partir da interface `Vehicle`](#3---crie-a-interface-car-a-partir-da-interface-vehicle)
-    - [4 - Crie a interface `Motorcycle` a partir da interface `Vehicle`](#4---crie-a-interface-motorcycle-a-partir-da-interface-vehicle)
-    - [5 - Crie a interface `Truck` a partir da interface `Vehicle`](#5---crie-a-interface-truck-a-partir-da-interface-vehicle)
-    - [6 - Crie o model `Vehicle`](#6---crie-o-model-vehicle)
-    - [7 - Crie a classe `Character`](#7---crie-a-classe-character)
-    - [8 - Crie a rota para a criação de `Cars`, `Motorcycles` e `Trucks`](#8---crie-a-rota-para-a-criação-de-cars-motorcycles-e-trucks)
-    - [9 - Crie a rota para a leitura de `Cars`, `Motorcycles` e `Trucks`](#9---crie-a-rota-para-a-leitura-de-cars-motorcycles-e-trucks)
-    - [10 - Crie a rota para a atualização de `Cars`, `Motorcycles` e `Trucks`](#10---crie-a-rota-para-a-atualização-de-cars-motorcycles-e-trucks)
-    - [11 - Crie a rota para a remoção de `Cars`, `Motorcycles` e `Trucks`](#11---crie-a-rota-para-a-remoção-de-cars-motorcycles-e-trucks)
+    - [3 - Crie o tipo `Car` a partir da interface `Vehicle`](#3---crie-o-tipo-car-a-partir-da-interface-vehicle)
+    - [4 - Crie o tipo `Motorcycle` a partir da interface `Vehicle`](#4---crie-o-tipo-motorcycle-a-partir-da-interface-vehicle)
+    - [6 - Escreva testes para cobrir 15% da camada de model](#6---escreva-testes-para-cobrir-15-da-camada-de-model)
+    - [7 - Escreva testes para cobrir 15% da camada de service](#7---escreva-testes-para-cobrir-15-da-camada-de-service)
+    - [8 - Escreva testes para cobrir 15% da camada de controller](#8---escreva-testes-para-cobrir-15-da-camada-de-controller)
+    - [9 - Escreva testes para cobrir 30% da camada de model](#9---escreva-testes-para-cobrir-30-da-camada-de-model)
+    - [10 - Escreva testes para cobrir 30% da camada de service](#10---escreva-testes-para-cobrir-30-da-camada-de-service)
+    - [11 - Escreva testes para cobrir 30% da camada de controller](#11---escreva-testes-para-cobrir-30-da-camada-de-controller)
+    - [12 - Escreva testes para cobrir 60% da camada de model](#12---escreva-testes-para-cobrir-60-da-camada-de-model)
+    - [13 - Escreva testes para cobrir 60% da camada de service](#13---escreva-testes-para-cobrir-60-da-camada-de-service)
+    - [14 - Escreva testes para cobrir 60% da camada de controller](#14---escreva-testes-para-cobrir-60-da-camada-de-controller)
   - [Requisitos Bônus](#requisitos-bônus)
   - [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
 - [Revisando um pull request](#revisando-um-pull-request)
@@ -309,9 +311,7 @@ Escreva testes que cubram, pelo menos, 60% da camada Service. Seus arquivos de t
 Escreva testes que cubram, pelo menos, 60% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/_tests_/unit/controllers`. Além disso, será verificado que:
  - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 60%;
 
-
 ## Requisitos Bônus
-
 
 ## Depois de terminar o desenvolvimento (opcional)
 

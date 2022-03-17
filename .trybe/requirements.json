@@ -1,47 +1,47 @@
 {
   "requirements": [
     {
-      "description": "Crie a Interface Model genérica",
+      "description": "01 - Crie a Interface Model genérica",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "Crie a Interface Vehicle genérica",
+      "description": "02 - Crie a Interface Vehicle genérica",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "Crie o tipo Car a partir da Interface Vehicle",
+      "description": "03 - Crie o tipo Car a partir da Interface Vehicle",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "Crie um carro através de uma requisição POST para a rota /cars",
+      "description": "04 - Crie um carro através de uma requisição POST para a rota /cars",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "Liste todos os carros cadastrados através de uma requisição GET para a rota /cars",
+      "description": "05 - Liste todos os carros cadastrados através de uma requisição GET para a rota /cars",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "Liste um único carro através do seu id utilizando uma requisição GET para a rota /cars/id",
+      "description": "06 - Liste um único carro através do seu id utilizando uma requisição GET para a rota /cars/id",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "Atualize os registros de um carro através do seu id, utilizando uma requisição PUT para a rota /cars/id",
+      "description": "07 - Atualize os registros de um carro através do seu id, utilizando uma requisição PUT para a rota /cars/id",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "Utilize uma requisição DELETE para o endpoint /cars/id para excluir os registros de um carro",
+      "description": "08 - Utilize uma requisição DELETE para o endpoint /cars/id para excluir os registros de um carro",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "Crie o tipo Motorcycle a partir da Interface Vehicle",
+      "description": "09 - Crie o tipo Motorcycle a partir da Interface Vehicle",
       "bonus": true,
       "skill_ids": []
     }
