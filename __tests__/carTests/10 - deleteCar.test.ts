@@ -12,7 +12,7 @@ const MONGO_URI = process.env.MONGO_URI
   || `mongodb://localhost:27017/${databaseName}`;
 
 
-describe('10 - Utilize uma requisição DELETE para o endpoint /cars/id para excluir os registros de um carro', () => {
+describe('Utilize uma requisição DELETE para o endpoint /cars/id para excluir os registros de um carro', () => {
   beforeAll(async () => {
     await mongoose.connect(MONGO_URI);
   });

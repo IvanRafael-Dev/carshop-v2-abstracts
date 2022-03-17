@@ -11,7 +11,7 @@ const databaseName = 'CarShop';
 const MONGO_URI = process.env.MONGO_URI
   || `mongodb://localhost:27017/${databaseName}`;
 
-describe('6 - Crie um carro através de uma requisição POST para a rota /cars', () => {
+describe('Crie um carro através de uma requisição POST para a rota /cars', () => {
   beforeAll(async () => {
     await mongoose.connect(MONGO_URI);
   });
