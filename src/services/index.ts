@@ -1,5 +1,7 @@
 import { Model } from '../interfaces/ModelInterface';
 
+const idLengthError = 'Id must have 24 hexadecimal characters';
+
 abstract class Service<T> {
   constructor(protected model: Model<T>) { }
 
@@ -12,14 +14,29 @@ abstract class Service<T> {
   }
 
   public async readOne(id: string) {
+    if (id.length !== 24) {
+      return {
+        error: idLengthError,
+      };
+    }
     return this.model.readOne(id);
   }
 
-  public async update(id: string, obj: T): Promise<T | null> {
+  public async update(id: string, obj: T): Promise<T | null | object> {
+    if (id.length !== 24) {
+      return {
+        error: idLengthError,
+      };
+    }
     return this.model.update(id, obj);
   }
 
   public async delete(id: string) {
+    if (id.length !== 24) {
+      return {
+        error: idLengthError,
+      };
+    }
     return this.model.delete(id);
   }
 }

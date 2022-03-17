@@ -1,26 +1,24 @@
-import express, { Router } from 'express';
-import connectToDatabase from './models/connection';
+import CustomRouter from './routes/Router';
+import App from './app';
 
-class App {
-  private app: express.Application;
+import CarController from './controllers/CarController';
+import MotorcycleController from './controllers/MotorcycleController';
 
-  constructor() {
-    this.app = express();
-    this.app.use(express.json());
-  }
+import { Car } from './interfaces/CarInterface';
+import { Motorcycle } from './interfaces/MotorcycleInterface';
 
-  public startServer(port = 3001) {
-    connectToDatabase();
+const server = new App();
 
-    return this.app.listen(
-      process.env.PORT || port,
-      () => console.log('estamos online'),
-    );
-  }
+const carController = new CarController();
+const motorcycleController = new MotorcycleController();
 
-  public addRouter(router: Router) {
-    this.app.use(router);
-  }
-}
+const carRouter = new CustomRouter<Car>();
+carRouter.addRoute(carController);
 
-export default App;
+const motorcycleRouter = new CustomRouter<Motorcycle>();
+motorcycleRouter.addRoute(motorcycleController);
+
+server.addRouter(carRouter.router);
+server.addRouter(motorcycleRouter.router);
+
+export default server;
