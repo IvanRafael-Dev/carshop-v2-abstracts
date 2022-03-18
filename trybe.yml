@@ -1,11 +1,12 @@
 
 ignore_files:
-  - tests/
+  - __tests__/
   - .eslintignore
   - .eslintrc.json
   - jest.config.js
   - jest.d.ts
   - tsconfig.json
+  - nyc.config.js
   # tsconfig ignorado pois algumas configs estão espelhadas nos testes
   # mudar o tsconfig sem poder mudar os testes pode levar a erros no avaliador
   - package.json
