@@ -115,7 +115,7 @@ jobs:
         uses: ./.github/actions/mongodb-query-evaluator  
         id: mongodb_evaluator
         env:
-          DBNAME: 'car-shop'
+          DBNAME: 'CarShop'
         with:
           db_restore_dir: 'assets'
           challenges_dir: 'challenges'
