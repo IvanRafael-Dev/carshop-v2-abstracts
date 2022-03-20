@@ -31,29 +31,25 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
     - [01 - Crie a interface `Model` genérica](#01---crie-a-interface-model-genérica)
     - [02 - Crie a interface `Vehicle`](#02---crie-a-interface-vehicle)
-    - [03 - Crie o tipo `Car` a partir da interface `Vehicle`](#03---crie-o-tipo-car-a-partir-da-interface-vehicle)
+    - [03 - Crie a interface `Car` a partir da interface `Vehicle`](#03---crie-a-interface-car-a-partir-da-interface-vehicle)
     - [04 - Crie uma rota para o endpoint `/cars` onde seja possível cadastrar um novo carro](#04---crie-uma-rota-para-o-endpoint-cars-onde-seja-possível-cadastrar-um-novo-carro)
-    - [05 - Crie uma rota para o endpoint `/cars` onde seja possível listar todos os carros registrados](#05---crie-uma-rota-para-o-endpoint-cars-onde-seja-possível-listar-todos-os-carros-registrados)
-    - [06 - Crie uma rota para o endpoint `/cars/id` onde seja possível listar um único carro através do seu id](#06---crie-uma-rota-para-o-endpoint-carsid-onde-seja-possível-listar-um-único-carro-através-do-seu-id)
-    - [07 - Crie uma rota para o endpoint `/cars/id`, onde é possível atualizar o registro de um carro através do seu id](#07---crie-uma-rota-para-o-endpoint-carsid-onde-é-possível-atualizar-o-registro-de-um-carro-através-do-seu-id)
-    - [08 - Crie uma rota para o endpoint `/cars/id` para excluir os registros de um carro](#08---crie-uma-rota-para-o-endpoint-carsid-para-excluir-os-registros-de-um-carro)
-    - [09 - Escreva testes para cobrir 15% da camada de model](#09---escreva-testes-para-cobrir-15-da-camada-de-model)
-    - [10 - Escreva testes para cobrir 15% da camada de service](#10---escreva-testes-para-cobrir-15-da-camada-de-service)
-    - [11 - Escreva testes para cobrir 15% da camada de controller](#11---escreva-testes-para-cobrir-15-da-camada-de-controller)
-    - [12 - Escreva testes para cobrir 30% da camada de model](#12---escreva-testes-para-cobrir-30-da-camada-de-model)
-    - [13 - Escreva testes para cobrir 30% da camada de service](#13---escreva-testes-para-cobrir-30-da-camada-de-service)
-    - [14 - Escreva testes para cobrir 30% da camada de controller](#14---escreva-testes-para-cobrir-30-da-camada-de-controller)
-    - [15 - Escreva testes para cobrir 60% da camada de model](#15---escreva-testes-para-cobrir-60-da-camada-de-model)
-    - [16 - Escreva testes para cobrir 60% da camada de service](#16---escreva-testes-para-cobrir-60-da-camada-de-service)
-    - [17 - Escreva testes para cobrir 60% da camada de controller](#17---escreva-testes-para-cobrir-60-da-camada-de-controller)
+    - [05 - Escreva testes para cobrir 15% da camada de model](#05---escreva-testes-para-cobrir-15-da-camada-de-model)
+    - [06 - Escreva testes para cobrir 15% da camada de service](#06---escreva-testes-para-cobrir-15-da-camada-de-service)
+    - [07 - Escreva testes para cobrir 15% da camada de controller](#07---escreva-testes-para-cobrir-15-da-camada-de-controller)
+    - [08 - Crie uma rota para o endpoint `/cars` onde seja possível listar todos os carros registrados](#08---crie-uma-rota-para-o-endpoint-cars-onde-seja-possível-listar-todos-os-carros-registrados)
+    - [09 - Crie uma rota para o endpoint `/cars/id` onde seja possível listar um único carro através do seu id](#09---crie-uma-rota-para-o-endpoint-carsid-onde-seja-possível-listar-um-único-carro-através-do-seu-id)
+    - [10 - Escreva testes para cobrir 30% da camada de model](#10---escreva-testes-para-cobrir-30-da-camada-de-model)
+    - [11 - Escreva testes para cobrir 30% da camada de service](#11---escreva-testes-para-cobrir-30-da-camada-de-service)
+    - [12 - Escreva testes para cobrir 30% da camada de controller](#12---escreva-testes-para-cobrir-30-da-camada-de-controller)
+    - [13 - Crie uma rota para o endpoint `/cars/id`, onde é possível atualizar o registro de um carro através do seu id](#13---crie-uma-rota-para-o-endpoint-carsid-onde-é-possível-atualizar-o-registro-de-um-carro-através-do-seu-id)
+    - [14 - Escreva testes para cobrir 60% da camada de model](#14---escreva-testes-para-cobrir-60-da-camada-de-model)
+    - [15 - Escreva testes para cobrir 60% da camada de service](#15---escreva-testes-para-cobrir-60-da-camada-de-service)
+    - [16 - Escreva testes para cobrir 60% da camada de controller](#16---escreva-testes-para-cobrir-60-da-camada-de-controller)
+    - [17 - Crie uma rota para o endpoint `/cars/id` para excluir os registros de um carro](#17---crie-uma-rota-para-o-endpoint-carsid-para-excluir-os-registros-de-um-carro)
   - [Requisitos Bônus](#requisitos-bônus)
-    - [18 - Crie o tipo `Motorcycle` a partir da interface `Vehicle`](#18---crie-o-tipo-motorcycle-a-partir-da-interface-vehicle)
-    - [19 - Crie uma rota para o endpoint `/motorcycles` onde seja possível cadastrar uma nova moto](#19---crie-uma-rota-para-o-endpoint-motorcycles-onde-seja-possível-cadastrar-uma-nova-moto)
-    - [20 - Crie uma rota para o endpoint `/motorcycles` onde seja possível listar todas as motos registradas](#20---crie-uma-rota-para-o-endpoint-motorcycles-onde-seja-possível-listar-todas-as-motos-registradas)
-    - [21 - Crie uma rota para o endpoint `/motorcycles/id` onde seja possível listar uma única moto através do seu id](#21---crie-uma-rota-para-o-endpoint-motorcyclesid-onde-seja-possível-listar-uma-única-moto-através-do-seu-id)
-    - [22 - Crie uma rota para o endpoint `/motorcycles/id`, onde é possível atualizar o registro de uma moto através do seu id](#22---crie-uma-rota-para-o-endpoint-motorcyclesid-onde-é-possível-atualizar-o-registro-de-uma-moto-através-do-seu-id)
-    - [23 - Crie uma rota para o endpoint `/motorcycles/id` para excluir os registros de uma moto](#23---crie-uma-rota-para-o-endpoint-motorcyclesid-para-excluir-os-registros-de-uma-moto)
-    - [24 - Escreva testes para cobrir 100% da camada de controller](#24---escreva-testes-para-cobrir-100-da-camada-de-controller)
+    - [18 - Escreva testes para cobrir 100% da camada de model](#18---escreva-testes-para-cobrir-100-da-camada-de-model)
+    - [19 - Escreva testes para cobrir 100% da camada de service](#19---escreva-testes-para-cobrir-100-da-camada-de-service)
+    - [20 - Escreva testes para cobrir 100% da camada de controller](#20---escreva-testes-para-cobrir-100-da-camada-de-controller)
   - [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
 - [Revisando um pull request](#revisando-um-pull-request)
 - [Avisos finais](#avisos-finais)
@@ -254,16 +250,16 @@ Ela deverá ter todos os atributos comuns de todos os veículos que listaremos a
   - A interface Vehicle existe;
   - A interface possui os atributos solicitados;
 
-### 03 - Crie o tipo `Car` a partir da interface `Vehicle`
+### 03 - Crie a interface `Car` a partir da interface `Vehicle`
 
-Crie o tipo `Car`, de modo que ele possua todos os atributos da interface `Vehicle` e, também, os atributos:
+Crie a interface `Car`, de modo que ela possua todos os atributos da interface `Vehicle` e, também, os atributos:
  - `doorsQty`: Quantidade de portas de um carro. Deve ser maior ou igual a 2 e menor ou igual a 4;
  - `seatsQty`: Quantidade de assentos disponíveis no carro. Deve ser maior ou igual a 2 e menor ou igual a 7;
 
  Além disso, será verificado que:
- - O tipo `Car` estende a interface `Vehicle`;
+ - A interface `Car` estende a interface `Vehicle`;
  - É possível criar um objeto do tipo `Car`;
- - O tipo `Car` possui as propriedades `doorsQty` e `seatsQty`;
+ - A interface `Car` possui as propriedades `doorsQty` e `seatsQty`;
 
 ### 04 - Crie uma rota para o endpoint `/cars` onde seja possível cadastrar um novo carro
 
@@ -276,20 +272,50 @@ Crie uma rota que receba uma requisição `POST` para cadastrar um veículo do t
  - Não é possível criar um carro se os atributos estiverem com tipos errados;
  - É possível criar um carro se todos os parametros forem passados corretamente;
 
-### 05 - Crie uma rota para o endpoint `/cars` onde seja possível listar todos os carros registrados
+### 05 - Escreva testes para cobrir 15% da camada de model
+
+Escreva testes que cubram, pelo menos, 15% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/model`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 15%;
+
+### 06 - Escreva testes para cobrir 15% da camada de service
+
+Escreva testes que cubram, pelo menos, 15% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 15%;
+
+### 07 - Escreva testes para cobrir 15% da camada de controller
+
+Escreva testes que cubram, pelo menos, 15% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 15%;
+
+### 08 - Crie uma rota para o endpoint `/cars` onde seja possível listar todos os carros registrados
 
 Crie uma rota que receba uma requisição `GET` para receber todos os veículos do tipo carro registrados no banco de dados. Será verificado que:
  - É possível listar os carros com sucesso;
  - Retorna uma lista vazia se não houver carros;
 
-### 06 - Crie uma rota para o endpoint `/cars/id` onde seja possível listar um único carro através do seu id
+### 09 - Crie uma rota para o endpoint `/cars/id` onde seja possível listar um único carro através do seu id
 
 Crie uma rota que receba uma requisição `GET` para receber determinado veículo do tipo carro que possua o `id` passado como parâmetro na rota. Será verificado que:
  - É possível listar um carro com sucesso através do id;
  - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
  - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
 
-### 07 - Crie uma rota para o endpoint `/cars/id`, onde é possível atualizar o registro de um carro através do seu id
+### 10 - Escreva testes para cobrir 30% da camada de model
+
+Escreva testes que cubram, pelo menos, 30% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/model`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 30%;
+
+### 11 - Escreva testes para cobrir 30% da camada de service
+
+Escreva testes que cubram, pelo menos, 30% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 30%;
+
+### 12 - Escreva testes para cobrir 30% da camada de controller
+
+Escreva testes que cubram, pelo menos, 30% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 30%;
+
+### 13 - Crie uma rota para o endpoint `/cars/id`, onde é possível atualizar o registro de um carro através do seu id
 
 Crie uma rota que receba uma requisição `PUT` para atualizar determinado veículo do tipo carro que possua o `id` passado como parâmetro na rota. Será verificado que:
  - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
@@ -297,116 +323,46 @@ Crie uma rota que receba uma requisição `PUT` para atualizar determinado veíc
  - É disparado o erro `400` caso o `body` esteja incompleto;
  - Será verificado que um carro é atualizado com sucesso;
 
-### 08 - Crie uma rota para o endpoint `/cars/id` para excluir os registros de um carro
+### 14 - Escreva testes para cobrir 60% da camada de model
+
+Escreva testes que cubram, pelo menos, 60% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/model`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 60%;
+
+### 15 - Escreva testes para cobrir 60% da camada de service
+
+Escreva testes que cubram, pelo menos, 60% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 60%;
+
+### 16 - Escreva testes para cobrir 60% da camada de controller
+
+Escreva testes que cubram, pelo menos, 60% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`. Além disso, será verificado que:
+ - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 60%;
+
+### 17 - Crie uma rota para o endpoint `/cars/id` para excluir os registros de um carro
 
 Crie uma rota que receba uma requisição `DELETE` para excluirr determinado veículo do tipo carro que possua o `id` passado como parâmetro na rota. Será verificado que:
  - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
  - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
  - Será verificado que um carro é removido com sucesso;
 
-### 09 - Escreva testes para cobrir 15% da camada de model
-
-Escreva testes que cubram, pelo menos, 15% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/model`. Além disso, será verificado que:
- - Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 15%;
-
-### 10 - Escreva testes para cobrir 15% da camada de service
-
-Escreva testes que cubram, pelo menos, 15% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`. Além disso, será verificado que:
- - Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 15%;
-
-### 11 - Escreva testes para cobrir 15% da camada de controller
-
-Escreva testes que cubram, pelo menos, 15% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`. Além disso, será verificado que:
- - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 15%;
-
-### 12 - Escreva testes para cobrir 30% da camada de model
-
-Escreva testes que cubram, pelo menos, 30% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/model`. Além disso, será verificado que:
- - Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 30%;
-
-### 13 - Escreva testes para cobrir 30% da camada de service
-
-Escreva testes que cubram, pelo menos, 30% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`. Além disso, será verificado que:
- - Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 30%;
-
-### 14 - Escreva testes para cobrir 30% da camada de controller
-
-Escreva testes que cubram, pelo menos, 30% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`. Além disso, será verificado que:
- - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 30%;
-
-### 15 - Escreva testes para cobrir 60% da camada de model
-
-Escreva testes que cubram, pelo menos, 60% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/model`. Além disso, será verificado que:
- - Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 60%;
-
-### 16 - Escreva testes para cobrir 60% da camada de service
-
-Escreva testes que cubram, pelo menos, 60% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`. Além disso, será verificado que:
- - Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 60%;
-
-### 17 - Escreva testes para cobrir 60% da camada de controller
-
-Escreva testes que cubram, pelo menos, 60% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`. Além disso, será verificado que:
- - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 60%;
 
 ## Requisitos Bônus
 
-### 18 - Crie o tipo `Motorcycle` a partir da interface `Vehicle`
 
-Crie o tipo `Motorcycle`, de modo que ele possua todos os atributos da interface `Vehicle` e, também, os atributos:
- - `category`: Categoria da moto. Deve poder ser **apenas** `Street`, `Custom` ou `Trail`;
- - `engineCapacity`: A capacidade do motor. Deve ser um valor inteiro positivo menor ou igual a 2500;
 
- Além disso, será verificado que:
- - O tipo `Motorcycle` estende a interface `Vehicle`;
- - É possível criar um objeto do tipo `Motorcycle`;
- - O tipo `Motorcycle` possui as propriedades `category` e `engineCapacity`;
- - Não é possível criar um objeto do tipo `Motorcycle` com uma categoria errada;
+### 18 - Escreva testes para cobrir 100% da camada de model
 
-### 19 - Crie uma rota para o endpoint `/motorcycles` onde seja possível cadastrar uma nova moto
+Escreva testes que cubram 100% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/models`.
+ - Será validado que cobertura total das linhas dos arquivos na pasta `models` é igual a 100%;
 
-Crie uma rota que receba uma requisição `POST` para cadastrar um veículo do tipo moto. Será verificado que:
- - A rota retorna erro `400` caso a requisição receba um objeto vazio;
- - A rota retorna erro `400` ao tentar criar uma moto com `category` diferente de `Street`, `Custom` ou `Trail`;
- - A rota retorna erro `400` ao tentar criar uma moto com `category` diferente de `string`;
- - A rota retorna erro `400` ao tentar criar uma moto com `engineCapacity` menor ou igual a zero;
- - A rota retorna erro `400` ao tentar criar uma moto com `engineCapacity` maior que 2500;
- - A rota retorna erro `400` ao tentar criar um moto sem `model`, `year`, `color` e `buyValue`;
- - A rota retorna erro `400` ao tentar criar um moto sem `category` e `engineCapacity`;
- - Não é possível criar uma moto se os atributos estiverem com tipos errados;
- - É possível criar uma moto se todos os parametros forem passados corretamente;
+### 19 - Escreva testes para cobrir 100% da camada de service
 
-### 20 - Crie uma rota para o endpoint `/motorcycles` onde seja possível listar todas as motos registradas
+Escreva testes que cubram 100% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`.
+ - Será validado que cobertura total das linhas dos arquivos na pasta `services` é igual a 100%;
 
-Crie uma rota que receba uma requisição `GET` para receber todos os veículos do tipo moto registrados no banco de dados. Será verificado que:
- - É possível listar as motos com sucesso;
- - Retorna uma lista vazia se não houver motos;
+### 20 - Escreva testes para cobrir 100% da camada de controller
 
-### 21 - Crie uma rota para o endpoint `/motorcycles/id` onde seja possível listar uma única moto através do seu id
-
-Crie uma rota que receba uma requisição `GET` para receber determinado veículo do tipo moto que possua o `id` passado como parâmetro na rota. Será verificado que:
- - É possível listar uma moto com sucesso através do id;
- - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
- - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
-
-### 22 - Crie uma rota para o endpoint `/motorcycles/id`, onde é possível atualizar o registro de uma moto através do seu id
-
-Crie uma rota que receba uma requisição `PUT` para atualizar determinado veículo do tipo moto que possua o `id` passado como parâmetro na rota. Será verificado que:
- - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
- - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
- - É disparado o erro `400` caso o `body` esteja incompleto;
- - Será verificado que uma moto é atualizada com sucesso;
-
-### 23 - Crie uma rota para o endpoint `/motorcycles/id` para excluir os registros de uma moto
-
-Crie uma rota que receba uma requisição `DELETE` para excluirr determinado veículo do tipo moto que possua o `id` passado como parâmetro na rota. Será verificado que:
- - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
- - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
- - Será verificado que uma moto é removida com sucesso;
-
-### 24 - Escreva testes para cobrir 100% da camada de controller
-
-Escreva testes que cubram 100% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`. Além disso, será verificado que:
+Escreva testes que cubram 100% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`.
  - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é igual a 100%;
 
 ## Depois de terminar o desenvolvimento (opcional)
