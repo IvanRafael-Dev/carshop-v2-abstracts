@@ -60,7 +60,7 @@ afterAll(async () => {
 
 describe('Testes das camadas Model, Service e Controller', () => {
 
-  describe('09 - Escreva testes para cobrir 15% da camada de model', () => {
+  describe('05 - Escreva testes para cobrir 15% da camada de model', () => {
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 15%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -76,7 +76,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
     });
   });
 
-  describe('10 - Escreva testes para cobrir 15% da camada de service', () => {
+  describe('06 - Escreva testes para cobrir 15% da camada de service', () => {
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 15%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -92,7 +92,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
     });
   });
 
-  describe('11 - Escreva testes para cobrir 15% da camada de controller', () => {
+  describe('07 - Escreva testes para cobrir 15% da camada de controller', () => {
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 15%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -108,7 +108,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
     });
   });
 
-  describe('12 - Escreva testes para cobrir 30% da camada de model', () => {
+  describe('10 - Escreva testes para cobrir 30% da camada de model', () => {
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 30%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -124,7 +124,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
     });
   });
 
-  describe('13 - Escreva testes para cobrir 30% da camada de service', () => {
+  describe('11 - Escreva testes para cobrir 30% da camada de service', () => {
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 30%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -140,7 +140,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
     });
   });
 
-  describe('14 - Escreva testes para cobrir 30% da camada de controller', () => {
+  describe('12 - Escreva testes para cobrir 30% da camada de controller', () => {
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 30%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -156,7 +156,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
     });
   });
 
-  describe('15 - Escreva testes para cobrir 60% da camada de model', () => {
+  describe('14 - Escreva testes para cobrir 60% da camada de model', () => {
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 60%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -172,7 +172,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
     });
   });
 
-  describe('16 - Escreva testes para cobrir 60% da camada de service', () => {
+  describe('15 - Escreva testes para cobrir 60% da camada de service', () => {
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 60%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -188,7 +188,7 @@ describe('Testes das camadas Model, Service e Controller', () => {
     });
   });
 
-  describe('17 - Escreva testes para cobrir 60% da camada de controller', () => {
+  describe('16 - Escreva testes para cobrir 60% da camada de controller', () => {
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 60%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
@@ -204,7 +204,39 @@ describe('Testes das camadas Model, Service e Controller', () => {
     });
   });
 
-  describe('24 - Escreva testes para cobrir 100% da camada de controller', () => {
+  describe('18 - Escreva testes para cobrir 100% da camada de model', () => {
+
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `models` é maior ou igual a 100%', async () => {
+      expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
+      expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
+
+      const min = 0;
+      const max = 100;
+
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
+      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
+      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
+    });
+  });
+
+  describe('19 - Escreva testes para cobrir 100% da camada de service', () => {
+
+    it('Será validado que cobertura total das linhas dos arquivos na pasta `services` é maior ou igual a 100%', async () => {
+      expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
+      expect(coverageResults.total.lines.covered).toBeGreaterThanOrEqual(0);
+
+      const min = 0;
+      const max = 100;
+
+      const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
+      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
+      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
+      expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
+    });
+  });
+
+  describe('20 - Escreva testes para cobrir 100% da camada de controller', () => {
 
     it('Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é igual a 100%', async () => {
       expect(coverageResults.total.lines.pct).toBeGreaterThanOrEqual(0);
