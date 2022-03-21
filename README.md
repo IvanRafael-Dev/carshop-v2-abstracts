@@ -27,6 +27,8 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [Linter](#linter)
   - [Testes](#testes)
     - [Dica: desativando testes](#dica-desativando-testes)
+    - [Atenção à estrutura das pastas dentro de `src`](#atenção-à-estrutura-das-pastas-dentro-de-src)
+    - [Arquivos prontos para uso](#arquivos-prontos-para-uso)
 - [Requisitos do projeto](#requisitos-do-projeto)
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
     - [01 - Crie a interface `Model` genérica](#01---crie-a-interface-model-genérica)
@@ -227,11 +229,47 @@ Especialmente no início, quando a maioria dos testes está falhando, a saída a
 
 ```typescript
 describe.skip('...', () => {})
+
+```
+___
+
+### Atenção à estrutura das pastas dentro de `src`
+
+⚠️ É muito importante que essa estrutura seja mantida para que os testes funcionem da maneira desejada e utilize os arquivos contidos como base para o seu desenvolvimento ⚠️
+
+![Estrutura de arquivos](./public/folder_structure.png)
+
+___
+
+### Arquivos prontos para uso
+
+ - O arquivo `src/connection.ts` possui o código necessário para realizar a conexão com banco
+
+```typescript
+import mongoose from 'mongoose';
+
+const connectToDatabase = (
+  mongoDatabaseURI = process.env.MONGO_URI
+    || 'mongodb://localhost:27017/CarShop',
+) => mongoose.connect(mongoDatabaseURI);
+
+export default connectToDatabase;
+
 ```
 
-Uma estratégia é pular todos os testes no início e ir implementando um teste de cada vez, removendo dele a função `skip`.
+ - O arquivo `src/app.ts` contém o código necessário para subir o servidor.
 
-![Testando um arquivo específico](./public/skip-tests.jpeg)
+```typescript
+public startServer(PORT: string | number = 3001): void {
+    connectToDatabase();
+    this.app.listen(
+      PORT,
+      () => console.log(`Server running here 👉 http://localhost:${PORT}`),
+    );
+  }
+```
+
+___
 
 ⚠️ Lembre-se de não entregar o projeto com nenhum teste ignorado. **Testes ignorados serão tratados como testes falhando**. ⚠️
 
