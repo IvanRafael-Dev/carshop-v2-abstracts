@@ -11,7 +11,7 @@ const databaseName = 'CarShop';
 const MONGO_URI = process.env.MONGO_URI
   || `mongodb://localhost:27017/${databaseName}`;
 
-describe('06 - Crie uma rota para o endpoint /cars/id onde seja possível listar um único carro através do seu id', () => {
+describe('09 - Crie uma rota para o endpoint /cars/id onde seja possível listar um único carro através do seu id', () => {
   beforeAll(async () => {
     await mongoose.connect(MONGO_URI);
   });
