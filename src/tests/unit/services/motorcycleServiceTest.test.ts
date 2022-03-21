@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import mongoose from 'mongoose';
 
-import { clearDatabase, closeDatabase } from '../../utils/db';
-import { validMotorcycle, coverageMotorcycle } from '../../utils/MotorcyclesMock';
+import { validMotorcycle, coverageMotorcycle } from '../../../../__tests__/utils/MotorcyclesMock';
+import { clearDatabase, closeDatabase } from '../../../../__tests__/utils/db';
 
 import MotorcycleService from '../../../services/MotorcycleService';
 

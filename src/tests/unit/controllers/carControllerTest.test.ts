@@ -5,7 +5,7 @@ import chaiHttp = require('chai-http');
 import App from '../../../app';
 import CarService from '../../../services/CarService';
 import CarController from '../../../controllers/CarController';
-import { coverageCar } from '../../utils/CarsMock';
+import { coverageCar } from '../../../../__tests__/utils/CarsMock';
 import { Car } from '../../../interfaces/CarInterface';
 import CustomRouter from '../../../routes/Router'
 
