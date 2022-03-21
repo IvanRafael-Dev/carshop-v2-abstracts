@@ -84,7 +84,6 @@ jobs:
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/mongodb-query-evaluator
 
-
       - name: Fetch Jest evaluator
         uses: actions/checkout@v2
         with:

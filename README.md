@@ -26,7 +26,6 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [Linter](#linter)
   - [Testes](#testes)
     - [Dica: desativando testes](#dica-desativando-testes)
-- [Contextualizando](#contextualizando)
 - [Requisitos do projeto](#requisitos-do-projeto)
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
     - [01 - Crie a interface `Model` genérica](#01---crie-a-interface-model-genérica)
@@ -47,9 +46,15 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
     - [16 - Escreva testes para cobrir 60% da camada de controller](#16---escreva-testes-para-cobrir-60-da-camada-de-controller)
     - [17 - Crie uma rota para o endpoint `/cars/id` para excluir os registros de um carro](#17---crie-uma-rota-para-o-endpoint-carsid-para-excluir-os-registros-de-um-carro)
   - [Requisitos Bônus](#requisitos-bônus)
-    - [18 - Escreva testes para cobrir 100% da camada de model](#18---escreva-testes-para-cobrir-100-da-camada-de-model)
-    - [19 - Escreva testes para cobrir 100% da camada de service](#19---escreva-testes-para-cobrir-100-da-camada-de-service)
-    - [20 - Escreva testes para cobrir 100% da camada de controller](#20---escreva-testes-para-cobrir-100-da-camada-de-controller)
+    - [18 - Crie a interface `Motorcycle` a partir da interface `Vehicle`](#18---crie-a-interface-motorcycle-a-partir-da-interface-vehicle)
+    - [19 - Crie uma rota para o endpoint `/motorcycles` onde seja possível cadastrar uma nova moto](#19---crie-uma-rota-para-o-endpoint-motorcycles-onde-seja-possível-cadastrar-uma-nova-moto)
+    - [20 - Crie uma rota para o endpoint `/motorcycles` onde seja possível listar todas as motos registradas](#20---crie-uma-rota-para-o-endpoint-motorcycles-onde-seja-possível-listar-todas-as-motos-registradas)
+    - [21 - Crie uma rota para o endpoint `/motorcycles/id` onde seja possível listar uma única moto através do seu id](#21---crie-uma-rota-para-o-endpoint-motorcyclesid-onde-seja-possível-listar-uma-única-moto-através-do-seu-id)
+    - [22 - Crie uma rota para o endpoint `/motorcycles/id`, onde é possível atualizar o registro de uma moto através do seu id](#22---crie-uma-rota-para-o-endpoint-motorcyclesid-onde-é-possível-atualizar-o-registro-de-uma-moto-através-do-seu-id)
+    - [23 - Crie uma rota para o endpoint `/motorcycles/id` para excluir os registros de uma moto](#23---crie-uma-rota-para-o-endpoint-motorcyclesid-para-excluir-os-registros-de-uma-moto)
+    - [24 - Escreva testes para cobrir 100% da camada de model](#24---escreva-testes-para-cobrir-100-da-camada-de-model)
+    - [25 - Escreva testes para cobrir 100% da camada de service](#25---escreva-testes-para-cobrir-100-da-camada-de-service)
+    - [26 - Escreva testes para cobrir 100% da camada de controller](#26---escreva-testes-para-cobrir-100-da-camada-de-controller)
   - [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
 - [Revisando um pull request](#revisando-um-pull-request)
 - [Avisos finais](#avisos-finais)
@@ -202,17 +207,11 @@ describe.skip('...', () => {})
 
 Uma estratégia é pular todos os testes no início e ir implementando um teste de cada vez, removendo dele a função `skip`.
 
-<!-- ![Testando um arquivo específico](./public/skip-tests.jpeg) -->
+![Testando um arquivo específico](./public/skip-tests.jpeg)
 
 ⚠️ Lembre-se de não entregar o projeto com nenhum teste ignorado. **Testes ignorados serão tratados como testes falhando**. ⚠️
 
 ⚠️ **Não apague, em hipótese alguma, qualquer teste ou arquivo deste repositório**. ⚠️
-
----
-
-# Contextualizando
-
- <!-- Colocar aqui o contexto do projeto -->
 
 ---
 
@@ -345,22 +344,72 @@ Crie uma rota que receba uma requisição `DELETE` para excluirr determinado ve�
  - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
  - Será verificado que um carro é removido com sucesso;
 
-
 ## Requisitos Bônus
 
+### 18 - Crie a interface `Motorcycle` a partir da interface `Vehicle`
 
+Crie a interface `Motorcycle`, de modo que ela possua todos os atributos da interface `Vehicle` e, também, os atributos:
+ - `category`: Categoria da moto. Deve poder ser **apenas** `Street`, `Custom` ou `Trail`;
+ - `engineCapacity`: A capacidade do motor. Deve ser um valor inteiro positivo menor ou igual a 2500;
 
-### 18 - Escreva testes para cobrir 100% da camada de model
+ Além disso, será verificado que:
+ - A interface `Motorcycle` estende a interface `Vehicle`;
+ - É possível criar um objeto do tipo `Motorcycle`;
+ - A interface `Motorcycle` possui as propriedades `category` e `engineCapacity`;
+ - Não é possível criar um objeto do tipo `Motorcycle` com uma categoria errada;
+
+### 19 - Crie uma rota para o endpoint `/motorcycles` onde seja possível cadastrar uma nova moto
+
+Crie uma rota que receba uma requisição `POST` para cadastrar um veículo do tipo moto. Será verificado que:
+ - A rota retorna erro `400` caso a requisição receba um objeto vazio;
+ - A rota retorna erro `400` ao tentar criar uma moto com `category` diferente de `Street`, `Custom` ou `Trail`;
+ - A rota retorna erro `400` ao tentar criar uma moto com `category` diferente de `string`;
+ - A rota retorna erro `400` ao tentar criar uma moto com `engineCapacity` menor ou igual a zero;
+ - A rota retorna erro `400` ao tentar criar uma moto com `engineCapacity` maior que 2500;
+ - A rota retorna erro `400` ao tentar criar um moto sem `model`, `year`, `color` e `buyValue`;
+ - A rota retorna erro `400` ao tentar criar um moto sem `category` e `engineCapacity`;
+ - Não é possível criar uma moto se os atributos estiverem com tipos errados;
+ - É possível criar uma moto se todos os parametros forem passados corretamente;
+
+### 20 - Crie uma rota para o endpoint `/motorcycles` onde seja possível listar todas as motos registradas
+
+Crie uma rota que receba uma requisição `GET` para receber todos os veículos do tipo moto registrados no banco de dados. Será verificado que:
+ - É possível listar as motos com sucesso;
+ - Retorna uma lista vazia se não houver motos;
+
+### 21 - Crie uma rota para o endpoint `/motorcycles/id` onde seja possível listar uma única moto através do seu id
+
+Crie uma rota que receba uma requisição `GET` para receber determinado veículo do tipo moto que possua o `id` passado como parâmetro na rota. Será verificado que:
+ - É possível listar uma moto com sucesso através do id;
+ - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
+ - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
+
+### 22 - Crie uma rota para o endpoint `/motorcycles/id`, onde é possível atualizar o registro de uma moto através do seu id
+
+Crie uma rota que receba uma requisição `PUT` para atualizar determinado veículo do tipo moto que possua o `id` passado como parâmetro na rota. Será verificado que:
+ - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
+ - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
+ - É disparado o erro `400` caso o `body` esteja incompleto;
+ - Será verificado que uma moto é atualizada com sucesso;
+
+### 23 - Crie uma rota para o endpoint `/motorcycles/id` para excluir os registros de uma moto
+
+Crie uma rota que receba uma requisição `DELETE` para excluirr determinado veículo do tipo moto que possua o `id` passado como parâmetro na rota. Será verificado que:
+ - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
+ - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
+ - Será verificado que uma moto é removida com sucesso;
+
+### 24 - Escreva testes para cobrir 100% da camada de model
 
 Escreva testes que cubram 100% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/models`.
  - Será validado que cobertura total das linhas dos arquivos na pasta `models` é igual a 100%;
 
-### 19 - Escreva testes para cobrir 100% da camada de service
+### 25 - Escreva testes para cobrir 100% da camada de service
 
 Escreva testes que cubram 100% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`.
  - Será validado que cobertura total das linhas dos arquivos na pasta `services` é igual a 100%;
 
-### 20 - Escreva testes para cobrir 100% da camada de controller
+### 26 - Escreva testes para cobrir 100% da camada de controller
 
 Escreva testes que cubram 100% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`.
  - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é igual a 100%;
