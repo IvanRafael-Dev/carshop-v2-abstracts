@@ -12,7 +12,7 @@ const MONGO_URI = process.env.MONGO_URI
   || `mongodb://localhost:27017/${databaseName}`;
 
 
-describe('08 - Crie uma rota para o endpoint /cars/id para excluir os registros de um carro', () => {
+describe('17 - Crie uma rota para o endpoint /cars/id para excluir os registros de um carro', () => {
   beforeAll(async () => {
     await mongoose.connect(MONGO_URI);
   });
