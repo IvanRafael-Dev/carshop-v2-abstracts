@@ -23,6 +23,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
   - [Durante o desenvolvimento](#durante-o-desenvolvimento)
 - [Como desenvolver](#como-desenvolver)
+  - [Subir o banco do MongoDB usando Docker](#subir-o-banco-do-mongodb-usando-docker)
   - [Linter](#linter)
   - [Testes](#testes)
     - [Dica: desativando testes](#dica-desativando-testes)
@@ -181,6 +182,29 @@ Para este projeto, você deverá aplicar os princípios de `POO` para a contruç
 
 ---
 
+## Subir o banco do MongoDB usando Docker
+
+Caso não tenha o MongoDB instalado em sua máquina e deseje usar o Docker, é só seguir os passos a seguir:
+
+ - Baixe a imagem do MongoDB:
+
+```sh
+docker pull mongo
+```
+
+ - Crie o contêiner do MongoDB:
+
+```sh
+docker run --name <nome-do-conteiner> -p 27017:27017 -d mongo
+```
+
+ - Confira se o contêiner está rodando:
+
+```sh
+docker ps
+```
+___
+
 ## Linter
 
 Usaremos o [ESLint](https://eslint.org/) para fazer a análise estática do seu código.
@@ -195,7 +219,7 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em _exte
 
 ## Testes
 
-Para executar os testes localmente, digite no terminal o comando `npm test`.
+Para executar os testes localmente, digite no terminal o comando `npm run dev`.
 
 ### Dica: desativando testes
 
