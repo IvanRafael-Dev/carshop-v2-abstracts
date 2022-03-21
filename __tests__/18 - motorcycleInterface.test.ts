@@ -1,4 +1,4 @@
-describe('18 - Crie o tipo Motorcycle a partir da Interface Vehicle', () => {
+describe('18 - Crie a interface Motorcycle a partir da Interface Vehicle', () => {
   it('O tipo Motorcycle estende a Interface Vehicle', () => {
     expect('Motorcycles/vehicleInterface').toCompile();
   });
@@ -7,7 +7,7 @@ describe('18 - Crie o tipo Motorcycle a partir da Interface Vehicle', () => {
     expect('Motorcycles/ok').toCompile();
   })
 
-  it('O tipo Motorcycle possui as propriedades category e engineCapacity', () => {
+  it('Não é possível criar um objeto do tipo Motorcycle sem as propriedades category e engineCapacity', () => {
     expect('Motorcycles/category').notToCompile();
     expect('Motorcycles/engineCapacity').notToCompile();
   });

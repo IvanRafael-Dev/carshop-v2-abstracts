@@ -11,7 +11,7 @@
       "skill_ids": []
     },
     {
-      "description": "03 - Crie o tipo Car a partir da Interface Vehicle",
+      "description": "03 - Crie a interface Car a partir da Interface Vehicle",
       "bonus": false,
       "skill_ids": []
     },
@@ -86,7 +86,7 @@
       "skill_ids": []
     },
     {
-      "description": "18 - Crie o tipo Motorcycle a partir da Interface Vehicle",
+      "description": "18 - Crie a interface Motorcycle a partir da Interface Vehicle",
       "bonus": true,
       "skill_ids": []
     },

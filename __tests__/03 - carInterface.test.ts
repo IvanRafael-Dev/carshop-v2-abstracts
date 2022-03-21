@@ -1,4 +1,4 @@
-describe('03 - Crie o tipo Car a partir da Interface Vehicle', () => {
+describe('03 - Crie a interface Car a partir da Interface Vehicle', () => {
   it('O tipo Car estende a Interface Vehicle', () => {
     expect('Cars/vehicleInterface').toCompile();
   });
@@ -7,7 +7,7 @@ describe('03 - Crie o tipo Car a partir da Interface Vehicle', () => {
     expect('Cars/ok').toCompile();
   })
 
-  it('O tipo Car possui as propriedades doorsQty e seatsQty', () => {
+  it('Não é possível criar um  tipo Car sem as propriedades doorsQty e seatsQty', () => {
     expect('Cars/doorsQty').notToCompile();
     expect('Cars/seatsQty').notToCompile();
   });

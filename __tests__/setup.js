@@ -7,11 +7,11 @@ const FILES_FOLDER = path.join(__dirname, 'sources');
 
 const PERMANENT_JS_FILES = [
   './jest.config.js',
-  './__tests__/setup.js',
+  './nyc.config.js',
   './node_modules/*',
+  './__tests__/setup.js',
   './__tests__/testSequencer.js',
-  './__tests__/unit-coverage.test.js',
-  './nyc.config.js'
+  './__tests__/unit-coverage.test.js'
 ];
 
 const replaceAll = (text, search, replacement) => {
