@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import mongoose from 'mongoose';
 
-import { Cars } from '../../../models/CarModel';
+import { Motorcycles } from '../../../models/MotorcycleModel';
 
-import { validCar, coverageCar } from '../../utils/CarsMock';
+import { validMotorcycle, coverageMotorcycle } from '../../utils/MotorcyclesMock';
 
 import { clearDatabase, closeDatabase } from '../../utils/db';
 
@@ -12,11 +12,11 @@ const databaseName = 'CarShop';
 const MONGO_URI = process.env.MONGO_URI
   || `mongodb://localhost:27017/${databaseName}`;
 
-describe('Realiza testes na model de Carros', () => {
+describe('Realiza testes na model de Motos', () => {
 
-  // -----------------------|| CADASTRO DE CARROS ||-----------------------
+  // -----------------------|| CADASTRO DE MOTOS ||-----------------------
   describe('Insere novo produto', () => {
-    const payloadCar = validCar;
+    const payloadMotorcycle = validMotorcycle;
 
     beforeEach(async () => {
       await mongoose.connect(MONGO_URI);
@@ -29,26 +29,26 @@ describe('Realiza testes na model de Carros', () => {
 
     describe('Quando é inserido com sucesso', () => {
       it('retorna um objeto', async () => {
-        const response = await Cars.create(payloadCar);
+        const response = await Motorcycles.create(payloadMotorcycle);
         expect(response).to.be.an('object');
       });
 
-      it('o objeto possui chaves: "model", "year" e "color", "buyValue", "seatsQty", "doorsQty"', async () => {
-        const response = await Cars.create(payloadCar);
+      it('o objeto possui chaves: "model", "year" e "color", "buyValue", "category", "engineCapacity"', async () => {
+        const response = await Motorcycles.create(payloadMotorcycle);
         expect(response).to.have.a.property('model');
         expect(response).to.have.a.property('year');
         expect(response).to.have.a.property('buyValue');
-        expect(response).to.have.a.property('seatsQty');
-        expect(response).to.have.a.property('doorsQty');
+        expect(response).to.have.a.property('category');
+        expect(response).to.have.a.property('engineCapacity');
       });
     });
   });
 
-  // -----------------------|| LISTA CARROS ||-----------------------
+  // -----------------------|| LISTA MOTOS ||-----------------------
   describe('Busca carros', () => {
-    const payloadCar = coverageCar;
+    const payloadMotorcycle = coverageMotorcycle;
 
-    describe('Buscando todos os carros', () => {
+    describe('Buscando todos as motos', () => {
       beforeEach(async () => {
         await mongoose.connect(MONGO_URI);
         await clearDatabase();
@@ -59,35 +59,35 @@ describe('Realiza testes na model de Carros', () => {
       });
 
       it('retorna um array com tamanho 2', async () => {
-        await Cars.create(payloadCar);
-        await Cars.create(payloadCar);
-        const response = await Cars.find();
+        await Motorcycles.create(payloadMotorcycle);
+        await Motorcycles.create(payloadMotorcycle);
+        const response = await Motorcycles.find();
         expect(response).to.be.an('array').to.not.be.empty;
         expect(response).to.have.lengthOf(2);
       });
 
-      it('os objetos do array contém as chaves: "model", "year" e "color", "buyValue", "seatsQty", "doorsQty"', async () => {
-        await Cars.create(payloadCar);
-        await Cars.create(payloadCar);
-        const response = await Cars.find();
+      it('os objetos do array contém as chaves: "model", "year" e "color", "buyValue", "category", "engineCapacity"', async () => {
+        await Motorcycles.create(payloadMotorcycle);
+        await Motorcycles.create(payloadMotorcycle);
+        const response = await Motorcycles.find();
         expect(response[0]).to.have.property('model');
         expect(response[0]).to.have.property('year');
         expect(response[0]).to.have.property('color');
         expect(response[0]).to.have.property('buyValue');
-        expect(response[0]).to.have.property('seatsQty');
-        expect(response[0]).to.have.property('doorsQty');
+        expect(response[0]).to.have.property('category');
+        expect(response[0]).to.have.property('engineCapacity');
         expect(response[1]).to.have.property('model');
         expect(response[1]).to.have.property('year');
         expect(response[1]).to.have.property('color');
         expect(response[1]).to.have.property('buyValue');
-        expect(response[1]).to.have.property('seatsQty');
-        expect(response[1]).to.have.property('doorsQty');
+        expect(response[1]).to.have.property('category');
+        expect(response[1]).to.have.property('engineCapacity');
       });
     });
   });
 
-    describe('Buscando carro por "id"', () => {
-      const payloadCar = validCar;
+    describe('Buscando moto por "id"', () => {
+      const payloadMotorcycle = validMotorcycle;
       beforeEach(async () => {
         await mongoose.connect(MONGO_URI);
         await clearDatabase();
@@ -98,26 +98,26 @@ describe('Realiza testes na model de Carros', () => {
       });
 
       it('retorna um objeto', async () => {
-        await Cars.create(payloadCar);
-        const response = await Cars.findById(validCar._id);
+        await Motorcycles.create(payloadMotorcycle);
+        const response = await Motorcycles.findById(validMotorcycle._id);
         expect(response).to.be.an('object')
       });
 
-      it('o objeto contém as chaves: "model", "year" e "color", "buyValue", "seatsQty", "doorsQty"', async () => {
-        await Cars.create(payloadCar);
-        const response = await Cars.findById(validCar._id);
+      it('o objeto contém as chaves: "model", "year" e "color", "buyValue", "category", "engineCapacity"', async () => {
+        await Motorcycles.create(payloadMotorcycle);
+        const response = await Motorcycles.findById(validMotorcycle._id);
         expect(response).to.have.property('model');
         expect(response).to.have.property('year');
         expect(response).to.have.property('color');
         expect(response).to.have.property('buyValue');
-        expect(response).to.have.property('seatsQty');
-        expect(response).to.have.property('doorsQty');
+        expect(response).to.have.property('category');
+        expect(response).to.have.property('engineCapacity');
       });
     });
 
-  // -----------------------|| ALTERANDO CARROS ||-----------------------
-  describe('Alterando carro', () => {
-    const payloadCar = validCar;
+  // -----------------------|| ALTERANDO MOTOS ||-----------------------
+  describe('Alterando moto', () => {
+    const payloadMotorcycle = validMotorcycle;
 
     beforeEach(async () => {
       await mongoose.connect(MONGO_URI);
@@ -130,27 +130,27 @@ describe('Realiza testes na model de Carros', () => {
 
     describe('Quando é alterado com sucesso', () => {
       it('retorna um objeto', async () => {
-        await Cars.create(payloadCar);
-        const response = await Cars.findOneAndUpdate(validCar._id);
+        await Motorcycles.create(payloadMotorcycle);
+        const response = await Motorcycles.findOneAndUpdate(validMotorcycle._id);
         expect(response).to.be.an('object');
       });
 
-      it('o objeto possui chaves: "model", "year" e "color", "buyValue", "seatsQty", "doorsQty"', async () => {
-        await Cars.create(payloadCar);
-        const response = await Cars.findOneAndUpdate(validCar._id);
+      it('o objeto possui chaves: "model", "year" e "color", "buyValue", "category", "engineCapacity"', async () => {
+        await Motorcycles.create(payloadMotorcycle);
+        const response = await Motorcycles.findOneAndUpdate(validMotorcycle._id);
         expect(response).to.have.property('model');
         expect(response).to.have.property('year');
         expect(response).to.have.property('color');
         expect(response).to.have.property('buyValue');
-        expect(response).to.have.property('seatsQty');
-        expect(response).to.have.property('doorsQty');
+        expect(response).to.have.property('category');
+        expect(response).to.have.property('engineCapacity');
       });
     });
   });
 
-  // -----------------------|| DELETANDO CARROS ||-----------------------
-  describe('Deletando produto', () => {
-    const payloadCar = validCar;
+  // -----------------------|| DELETANDO MOTOS ||-----------------------
+  describe('Deletando moto', () => {
+    const payloadMotorcycle = validMotorcycle;
 
     beforeEach(async () => {
       await mongoose.connect(MONGO_URI);
@@ -163,9 +163,9 @@ describe('Realiza testes na model de Carros', () => {
 
     describe('Quando é deletado com sucesso', () => {
       it('retorna um array vazio', async () => {
-        await Cars.create(payloadCar);
-        await Cars.deleteOne(validCar._id);
-        const response = await Cars.find();
+        await Motorcycles.create(payloadMotorcycle);
+        await Motorcycles.deleteOne(validMotorcycle._id);
+        const response = await Motorcycles.find();
         expect(response).to.be.an('array');
       });
     });
