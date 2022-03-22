@@ -13,6 +13,8 @@ on:
       pr_number:
         description: 'Pull Request number that dispatched the workflow'
         required: true
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   linter:
@@ -22,14 +24,6 @@ jobs:
       - name: Fetch project repository
         uses: actions/checkout@v2
 
-      - name: Fetch ESLint evaluator
-        uses: actions/checkout@v2
-        with:
-          repository: betrybe/eslint-linter-action
-          ref: v3.1
-          token: ${{ secrets.GIT_HUB_PAT }}
-          path: .github/actions/eslint-evaluator
-
       - name: Fetch Blocked Files Checkout action
         uses: actions/checkout@v2
         with:
@@ -37,6 +31,14 @@ jobs:
           ref: v2
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/blocked-files-checkout
+
+      - name: Fetch ESLint evaluator
+        uses: actions/checkout@v2
+        with:
+          repository: betrybe/eslint-linter-action
+          ref: v3
+          token: ${{ secrets.GIT_HUB_PAT }}
+          path: .github/actions/eslint-evaluator
 
       - name: Setup NodeJS
         uses: actions/setup-node@v1.4.4
@@ -56,7 +58,7 @@ jobs:
 
   evaluator:
     runs-on: self-hosted
-    needs: linter
+    needs: [linter]
 
   services:
       mongodb:
@@ -96,14 +98,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: betrybe/store-evaluation-action
-          ref: v4
+          ref: v4.2
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/store-evaluation
 
-      - name: Setup NodeJS
-        uses: actions/setup-node@v1.4.4
-        with:
-          node-version: '14'
+      # - name: Setup NodeJS
+      #   uses: actions/setup-node@v1.4.4
+      #   with:
+      #     node-version: '14'
 
       - name: Restore protected files
         uses: ./.github/actions/blocked-files-checkout
