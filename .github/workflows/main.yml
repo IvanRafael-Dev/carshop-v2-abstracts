@@ -19,6 +19,7 @@ on:
 jobs:
   linter:
     runs-on: self-hosted
+    name: linter
 
     steps:
       - name: Fetch project repository
@@ -58,6 +59,7 @@ jobs:
 
   evaluator:
     runs-on: self-hosted
+    name: evaluator
     needs: [linter]
 
   services:
