@@ -1,4 +1,18 @@
 on:
+  workflow_dispatch:
+    inputs:
+      dispatch_token:
+        description: 'Token that authorize the dispatch'
+        required: true
+      head_sha:
+        description: 'Head commit SHA that dispatched the workflow'
+        required: true
+      pr_author_username:
+        description: 'Pull Request author username'
+        required: true
+      pr_number:
+        description: 'Pull Request number that dispatched the workflow'
+        required: true
   pull_request:
     types: [opened, synchronize]
 
