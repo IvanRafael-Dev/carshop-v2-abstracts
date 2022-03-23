@@ -17,7 +17,6 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - [Habilidades](#habilidades)
 - [Entregáveis](#entregáveis)
   - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-  - [Desenvolvimento](#desenvolvimento)
   - [Data de Entrega](#data-de-entrega)
 - [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
   - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
@@ -29,6 +28,8 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
     - [Dica: desativando testes](#dica-desativando-testes)
     - [Atenção à estrutura das pastas dentro de `src`](#atenção-à-estrutura-das-pastas-dentro-de-src)
     - [Arquivos prontos para uso](#arquivos-prontos-para-uso)
+  - [Arquivos de exemplo](#arquivos-de-exemplo)
+  - [**🔥⚠️ Muita atenção à próxima instrução ⚠️🔥**](#️-muita-atenção-à-próxima-instrução-️)
 - [Requisitos do projeto](#requisitos-do-projeto)
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
     - [01 - Crie a interface `Model` genérica](#01---crie-a-interface-model-genérica)
@@ -86,25 +87,14 @@ Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://
 
 ## O que deverá ser desenvolvido
 
-Para este projeto, você deverá aplicar os princípios de `POO` para a contrução de uma API com `CRUD` para gerenciar uma concessionária e veículos utilizando o banco de dados `MongoDB`.
-
----
-
-## Desenvolvimento
-
-⚠️ **Dicas Importantes** ⚠️:
-
-- Durante a execução dos testes, serão criados arquivos `.ts` no repositório do projeto
-  - Ao final da execução de cada teste é rodado um script que apaga todos os arquivos `.ts` do repositório (com exceção dos que já vão com o projeto)
-  - O script utiliza o binário `find` do linux
-  - Em ambiente Windows, o `find` utilizado é o que vem na instalação do git (`C:/Program Files/Git/usr/bin/find.exe`)
+Para este projeto, você deverá aplicar os princípios de `POO` para a contrução de uma API com `CRUD` para gerenciar uma concessionária de veículos utilizando o banco de dados `MongoDB`.
 
 ---
 
 ## Data de Entrega
 
     - Serão `X` dias de projeto.
-    - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
+    - Data de entrega para avaliação final do projeto: `DD/MM/AAAA 14:00`.
 
 ---
 
@@ -118,7 +108,7 @@ Para este projeto, você deverá aplicar os princípios de `POO` para a contruç
 - Entre na pasta do repositório que você acabou de clonar:
   - `cd sd-0x-project-car-shop`
 
-2. Instale as dependências
+1. Instale as dependências
 
 - `npm install`
 
@@ -130,7 +120,7 @@ Para este projeto, você deverá aplicar os princípios de `POO` para a contruç
   - Exemplo: `git checkout main`
 - Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
   - Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-  - Exemplo: `git checkout -b joaozinho-sd-0x-project-car-shop`
+  - Exemplo: `git checkout -b joaozinho-sd-0X-project-car-shop`
 
 4. Adicione as mudanças ao _stage_ do Git e faça um `commit`
 
@@ -147,7 +137,7 @@ Para este projeto, você deverá aplicar os princípios de `POO` para a contruç
 
 5. Adicione a sua branch com o novo `commit` ao repositório remoto
 
-- Usando o exemplo anterior: `git push -u origin joaozinho-sd-0x-project-car-shop`
+- Usando o exemplo anterior: `git push -u origin joaozinho-sd-0X-project-car-shop`
 
 6. Crie um novo `Pull Request` _(PR)_
 
@@ -248,9 +238,12 @@ ___
 ```typescript
 import mongoose from 'mongoose';
 
+const MONGO_DB_URL = 'mongodb://localhost:27017/CarShop';
+const MONGO_DB_URL = 'mongodb://mongodb:27017/CarShop';
+
 const connectToDatabase = (
   mongoDatabaseURI = process.env.MONGO_URI
-    || 'mongodb://localhost:27017/CarShop',
+    || MONGO_DB_URL,
 ) => mongoose.connect(mongoDatabaseURI);
 
 export default connectToDatabase;
@@ -267,6 +260,33 @@ public startServer(PORT: string | number = 3001): void {
       () => console.log(`Server running here 👉 http://localhost:${PORT}`),
     );
   }
+```
+
+___
+
+## Arquivos de exemplo
+
+Dentro da pasta `src` foram deixados alguns arquivos de exemplo sendo eles:
+
+ - `src/controllers/controller.example.ts`
+ - `src/index.example.ts`
+ - `src/server.example.ts`
+
+**⚠️ É muito importante que o arquivo `server.example.ts` seja renomeado para `server.ts` para que os testes funcionem. ⚠️**
+
+___
+
+## **🔥⚠️ Muita atenção à próxima instrução ⚠️🔥**
+
+ - A conexão do banco local contida no arquivo `src/connection.ts` deverá conter o seguinte parâmetro:
+
+```typescript
+const MONGO_DB_URL = 'mongodb://localhost:27017/CarShop';
+```
+ - Para o avaliador funcionar altere a conexão do banco contida no arquivo `src/connection.ts` para:
+
+```typescript
+const MONGO_DB_URL = 'mongodb://mongodb:27017/CarShop';
 ```
 
 ___
