@@ -1,19 +1,15 @@
-import mongoose from 'mongoose';
 import request from 'supertest';
+
+import connection from '../../src/connection';
 import { clearDatabase, closeDatabase } from '../utils/db';
 
 import * as carMock from '../utils/CarsMock';
 
 import server from '../../src/server';
 
-const databaseName = 'CarShop';
-
-const MONGO_URI = process.env.MONGO_URI
-  || `mongodb://localhost:27017/${databaseName}`;
-
 describe('13 - Crie uma rota para o endpoint /cars/id, onde é possível atualizar o registro de um carro através do seu id', () => {
   beforeAll(async () => {
-    await mongoose.connect(MONGO_URI);
+    await connection();
   });
 
   beforeEach(async () => {

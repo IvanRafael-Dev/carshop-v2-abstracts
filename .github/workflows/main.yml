@@ -1,34 +1,14 @@
 on:
-  workflow_dispatch:
-    inputs:
-      dispatch_token:
-        description: 'Token that authorize the dispatch'
-        required: true
-      head_sha:
-        description: 'Head commit SHA that dispatched the workflow'
-        required: true
-      pr_author_username:
-        description: 'Pull Request author username'
-        required: true
-      pr_number:
-        description: 'Pull Request number that dispatched the workflow'
-        required: true
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
-  linter:
+  ESLint-Evaluator:
     runs-on: self-hosted
-
+    name: ESLint
     steps:
       - name: Fetch project repository
         uses: actions/checkout@v2
-
-      - name: Fetch ESLint evaluator
-        uses: actions/checkout@v2
-        with:
-          repository: betrybe/eslint-linter-action
-          ref: v3.1
-          token: ${{ secrets.GIT_HUB_PAT }}
-          path: .github/actions/eslint-evaluator
 
       - name: Fetch Blocked Files Checkout action
         uses: actions/checkout@v2
@@ -37,6 +17,14 @@ jobs:
           ref: v2
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/blocked-files-checkout
+
+      - name: Fetch ESLint evaluator
+        uses: actions/checkout@v2
+        with:
+          repository: betrybe/eslint-linter-action
+          ref: v3.1
+          token: ${{ secrets.GIT_HUB_PAT }}
+          path: .github/actions/eslint-evaluator
 
       - name: Setup NodeJS
         uses: actions/setup-node@v1.4.4
@@ -52,13 +40,13 @@ jobs:
         uses: ./.github/actions/eslint-evaluator
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          pr_number: ${{ github.event.inputs.pr_number }}
+          pr_number: ${{ github.event.pull_request.number }}
 
   evaluator:
     runs-on: self-hosted
-    needs: linter
-
-  services:
+    name: Evaluator
+    needs: [ESLint-Evaluator]
+    services:
       mongodb:
         image: mongo
         ports:
@@ -76,59 +64,41 @@ jobs:
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/blocked-files-checkout
 
-      - name: Fetch MongoDB Query evaluator
-        uses: actions/checkout@v2
-        with:
-          repository: betrybe/mongodb-query-evaluator-action
-          ref: v5.1
-          token: ${{ secrets.GIT_HUB_PAT }}
-          path: .github/actions/mongodb-query-evaluator
-
       - name: Fetch Jest evaluator
         uses: actions/checkout@v2
         with:
           repository: betrybe/jest-evaluator-action
+          ref: v9.1
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/jest-evaluator
-          ref: v9
 
       - name: Fetch Store evaluation
         uses: actions/checkout@v2
         with:
           repository: betrybe/store-evaluation-action
-          ref: v4
+          ref: v4.2
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/store-evaluation
 
       - name: Setup NodeJS
-        uses: actions/setup-node@v1.4.4
+        uses: actions/setup-node@v1.4.6
         with:
-          node-version: '14'
+          node-version: '16'
 
       - name: Restore protected files
         uses: ./.github/actions/blocked-files-checkout
         with:
           restore_branch: 'main'
 
-      - name: Run MongoDB Query evaluator
-        uses: ./.github/actions/mongodb-query-evaluator  
-        id: mongodb_evaluator
-        env:
-          DBNAME: 'CarShop'
-        with:
-          db_restore_dir: 'assets'
-          challenges_dir: 'challenges'
-          pr_author_username: ${{ github.event.inputs.pr_author_username }}
-
-      - name: Run Jest evaluation
+      - name: Run Jest evaluator
         id: evaluator
         uses: ./.github/actions/jest-evaluator
         with:
-          pr_author_username: ${{ github.event.inputs.pr_author_username }}
+          pr_author_username: ${{ github.event.pull_request.user.login }}
 
       - name: Run Store evaluation
         uses: ./.github/actions/store-evaluation
         with:
           evaluation-data: ${{ steps.evaluator.outputs.result }}
-          environment: staging
-          pr-number: ${{ github.event.inputs.pr_number }}
+          environment: production
+          pr-number: ${{ github.event.pull_request.number }}
