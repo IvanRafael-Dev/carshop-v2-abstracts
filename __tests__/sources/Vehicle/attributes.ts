@@ -1,4 +1,4 @@
-import { Vehicle } from "../../../src/interfaces/VehicleInteface";
+import { Vehicle } from "../../../src/interfaces/VehicleInterface";
 
 const testVehicle: Vehicle = {
   model: 'Fiat Uno',

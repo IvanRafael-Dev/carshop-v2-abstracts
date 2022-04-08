@@ -1,5 +1,5 @@
 import { Car } from '../../../src/interfaces/CarInterface';
-import { Vehicle } from '../../../src/interfaces/VehicleInteface';
+import { Vehicle } from '../../../src/interfaces/VehicleInterface';
 
 const testVehicleInterface = (obj: Vehicle): boolean => true;
 

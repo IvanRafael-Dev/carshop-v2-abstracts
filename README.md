@@ -212,7 +212,7 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em _exte
 
 ## Testes
 
-Para executar os testes localmente, digite no terminal o comando `npm run dev`.
+Para executar os testes localmente, digite no terminal o comando `npm test`.
 
 ### Dica: desativando testes
 
@@ -296,6 +296,10 @@ ___
 
 ⚠️ **Não apague, em hipótese alguma, qualquer teste ou arquivo deste repositório**. ⚠️
 
+⚠️ **`src/models`, `src/services`, `src/controllers`, `src/interfaces` e seus respectivos arquivos criados durante a excecução do projeto, devem seguir a risca os nomes informados no README**. ⚠️
+
+⚠️ **Não altere/instale novas dependências no arquivo packages.json, pois o mesmo está travado para essa avaliação** ⚠️
+
 ---
 
 # Requisitos do projeto
@@ -312,11 +316,14 @@ Por ser genérica, nossa interface deverá receber um tipo `T` qualquer, e ela d
  - `readOne()`: Deve receber uma string e retornar uma Promise do tipo `T` ou nula.
  - `update()`: Deve receber uma string e um objeto do tipo `T` e retornar uma Promise do tipo `T` ou nula.
  - `delete()`: Deve receber uma string e retornar uma Promise do tipo `T` ou nula.
+ - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `ModelInterface.ts`.
+ - A interface deve ser exportada com o nome de `Model` e **não deve** ser exportada de forma padrão.
 
 Além disso, será verificado que:
  - Existe a interface Model;
  - A interface Model possui todas as funções solicitadas;
  - A interface Model pode ser implementada com qualquer tipo;
+ - A interface esta no local correto, com o nome correto e com a forma de exportação correta;
 
 ### 02 - Crie a interface `Vehicle`
 
@@ -325,23 +332,29 @@ Ela deverá ter todos os atributos comuns de todos os veículos que listaremos a
  - `model`: Marca e/ou modelo do veículo. Deve ser uma string com, pelo menos, 3 caracteres;
  - `year`: Ano de fabricação do veículo. Deve ser maior ou igual a 1900, porém menor ou igual a 2022;
  - `color`: Cor principal do veículo. Deve ser uma string com, pelo menos, 3 caracteres;
- - `status`: Status que define se um veículo pode ou não ser comprado. Deve receber valores booleanos;
+ - `status`: Status que define se um veículo pode ou não ser comprado. Deve receber valores booleanos e deve ser opcional;
  - `buyValue`: Valor de compra do veículo. Deve receber apenas números inteiros;
+ - O arquivo deve ficar no diretório `/src/interfaces/` e ter o nome de `VehicleInterface.ts`.
+ - A interface deve ser exportada com o nome de `Vehicle` e **não deve** ser exportada de forma padrão.
 
  Além disso, será verificado que:
   - A interface Vehicle existe;
   - A interface possui os atributos solicitados;
+  - A interface esta no local correto, com o nome correto e com a forma de exportação correta;
 
 ### 03 - Crie a interface `Car` a partir da interface `Vehicle`
 
 Crie a interface `Car`, de modo que ela possua todos os atributos da interface `Vehicle` e, também, os atributos:
  - `doorsQty`: Quantidade de portas de um carro. Deve ser maior ou igual a 2 e menor ou igual a 4;
  - `seatsQty`: Quantidade de assentos disponíveis no carro. Deve ser maior ou igual a 2 e menor ou igual a 7;
+ - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `CarInterface.ts`.
+ - A interface deve ser exportada com o nome de `Car` e **não deve** ser exportada de forma padrão.
 
  Além disso, será verificado que:
  - A interface `Car` estende a interface `Vehicle`;
  - É possível criar um objeto do tipo `Car`;
  - A interface `Car` possui as propriedades `doorsQty` e `seatsQty`;
+ - A interface esta no local correto, com o nome correto e com a forma de exportação correta;
 
 ### 04 - Crie uma rota para o endpoint `/cars` onde seja possível cadastrar um novo carro
 
@@ -353,6 +366,16 @@ Crie uma rota que receba uma requisição `POST` para cadastrar um veículo do t
  - A rota retorna erro `400` ao tentar criar um carro sem `doorsQty` e `seatsQty`;
  - Não é possível criar um carro se os atributos estiverem com tipos errados;
  - É possível criar um carro se todos os parametros forem passados corretamente;
+ - Sua API deve responder com status http `201` e o seguinte body:
+ ```JSON
+    _id: "4edd40c86762e0fb12000003",
+    model: "Ferrari Maranello",
+    year: 1963,
+    color: "red",
+    buyValue: 3500000,
+    seatsQty: 2,
+    doorsQty: 2
+ ```
 
 ### 05 - Escreva testes para cobrir 15% da camada de model
 
@@ -404,6 +427,16 @@ Crie uma rota que receba uma requisição `PUT` para atualizar determinado veíc
  - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
  - É disparado o erro `400` caso o `body` esteja incompleto;
  - Será verificado que um carro é atualizado com sucesso;
+ - Sua API deve responder com status http `200` e o seguinte body:
+ ```JSON
+    _id: "4edd40c86762e0fb12000003",
+    model: "Fiat Uno",
+    year: 1963,
+    color: "blue",
+    buyValue: 3500,
+    seatsQty: 4,
+    doorsQty: 4
+ ```
 
 ### 14 - Escreva testes para cobrir 60% da camada de model
 
@@ -426,6 +459,7 @@ Crie uma rota que receba uma requisição `DELETE` para excluirr determinado ve�
  - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
  - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
  - Será verificado que um carro é removido com sucesso;
+ - Sua API deve responder com status http `204` sem body;
 
 ## Requisitos Bônus
 
@@ -434,12 +468,15 @@ Crie uma rota que receba uma requisição `DELETE` para excluirr determinado ve�
 Crie a interface `Motorcycle`, de modo que ela possua todos os atributos da interface `Vehicle` e, também, os atributos:
  - `category`: Categoria da moto. Deve poder ser **apenas** `Street`, `Custom` ou `Trail`;
  - `engineCapacity`: A capacidade do motor. Deve ser um valor inteiro positivo menor ou igual a 2500;
+ - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `MotorcycleInterface.ts`.
+ - A interface deve ser exportada com o nome de `Motorcycle` e **não deve** ser exportada de forma padrão.
 
  Além disso, será verificado que:
  - A interface `Motorcycle` estende a interface `Vehicle`;
  - É possível criar um objeto do tipo `Motorcycle`;
  - A interface `Motorcycle` possui as propriedades `category` e `engineCapacity`;
  - Não é possível criar um objeto do tipo `Motorcycle` com uma categoria errada;
+ - A interface esta no local correto, com o nome correto e com a forma de exportação correta;
 
 ### 19 - Crie uma rota para o endpoint `/motorcycles` onde seja possível cadastrar uma nova moto
 
@@ -453,6 +490,16 @@ Crie uma rota que receba uma requisição `POST` para cadastrar um veículo do t
  - A rota retorna erro `400` ao tentar criar um moto sem `category` e `engineCapacity`;
  - Não é possível criar uma moto se os atributos estiverem com tipos errados;
  - É possível criar uma moto se todos os parametros forem passados corretamente;
+ - Sua API deve responder com status http `201` e o seguinte body:
+ ```JSON
+    _id: "4edd40c86762e0fb12000003",
+    model: "Honda CG Titan 125",
+    year: 1963,
+    color: "red",
+    buyValue: 3500,
+    category: "Street",
+    engineCapacity: 125
+ ```
 
 ### 20 - Crie uma rota para o endpoint `/motorcycles` onde seja possível listar todas as motos registradas
 
@@ -474,6 +521,16 @@ Crie uma rota que receba uma requisição `PUT` para atualizar determinado veíc
  - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
  - É disparado o erro `400` caso o `body` esteja incompleto;
  - Será verificado que uma moto é atualizada com sucesso;
+ - Sua API deve responder com status http `200` e o seguinte body:
+ ```JSON
+    _id: "4edd40c86762e0fb12000003",
+    model: "Honda CG Titan 125",
+    year: 1963,
+    color: "black",
+    buyValue: 3500,
+    category: "Street",
+    engineCapacity: 125
+ ```
 
 ### 23 - Crie uma rota para o endpoint `/motorcycles/id` para excluir os registros de uma moto
 
@@ -481,6 +538,7 @@ Crie uma rota que receba uma requisição `DELETE` para excluirr determinado ve�
  - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
  - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
  - Será verificado que uma moto é removida com sucesso;
+ - Sua API deve responder com status http `204` sem body;
 
 ## Requisitos não avaliativos
 
