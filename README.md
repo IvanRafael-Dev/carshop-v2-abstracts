@@ -333,7 +333,7 @@ Ela deverá ter todos os atributos comuns de todos os veículos que listaremos a
  - `color`: Cor principal do veículo. Deve ser uma string com, pelo menos, 3 caracteres;
  - `status`: Status que define se um veículo pode ou não ser comprado. Deve receber valores booleanos e deve ser opcional;
  - `buyValue`: Valor de compra do veículo. Deve receber apenas números inteiros;
- - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `VehicleInterface.ts`.
+ - O arquivo deve ficar no diretório `/src/interfaces/` e ter o nome de `VehicleInterface.ts`.
  - A interface deve ser exportada com o nome de `Vehicle` e **não deve** ser exportada de forma padrão.
 
  Além disso, será verificado que:
