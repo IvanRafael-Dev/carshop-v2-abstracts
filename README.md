@@ -56,6 +56,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
     - [21 - Crie uma rota para o endpoint `/motorcycles/id` onde seja possível listar uma única moto através do seu id](#21---crie-uma-rota-para-o-endpoint-motorcyclesid-onde-seja-possível-listar-uma-única-moto-através-do-seu-id)
     - [22 - Crie uma rota para o endpoint `/motorcycles/id`, onde é possível atualizar o registro de uma moto através do seu id](#22---crie-uma-rota-para-o-endpoint-motorcyclesid-onde-é-possível-atualizar-o-registro-de-uma-moto-através-do-seu-id)
     - [23 - Crie uma rota para o endpoint `/motorcycles/id` para excluir os registros de uma moto](#23---crie-uma-rota-para-o-endpoint-motorcyclesid-para-excluir-os-registros-de-uma-moto)
+  - [Requisitos não avaliativos](#requisitos-não-avaliativos)
     - [24 - Escreva testes para cobrir 100% da camada de model](#24---escreva-testes-para-cobrir-100-da-camada-de-model)
     - [25 - Escreva testes para cobrir 100% da camada de service](#25---escreva-testes-para-cobrir-100-da-camada-de-service)
     - [26 - Escreva testes para cobrir 100% da camada de controller](#26---escreva-testes-para-cobrir-100-da-camada-de-controller)
@@ -480,6 +481,8 @@ Crie uma rota que receba uma requisição `DELETE` para excluirr determinado ve�
  - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
  - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
  - Será verificado que uma moto é removida com sucesso;
+
+## Requisitos não avaliativos
 
 ### 24 - Escreva testes para cobrir 100% da camada de model
 
