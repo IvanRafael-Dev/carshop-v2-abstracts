@@ -117,17 +117,17 @@
     },
     {
       "description": "24 - Escreva testes para cobrir 90% da camada de model",
-      "bonus": false,
+      "bonus": true,
       "skill_ids": []
     },
     {
       "description": "25 - Escreva testes para cobrir 90% da camada de service",
-      "bonus": false,
+      "bonus": true,
       "skill_ids": []
     },
     {
       "description": "26 - Escreva testes para cobrir 90% da camada de controller",
-      "bonus": false,
+      "bonus": true,
       "skill_ids": []
     }
   ]
