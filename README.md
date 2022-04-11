@@ -56,10 +56,13 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
     - [21 - Crie uma rota para o endpoint `/motorcycles/id` onde seja possível listar uma única moto através do seu id](#21---crie-uma-rota-para-o-endpoint-motorcyclesid-onde-seja-possível-listar-uma-única-moto-através-do-seu-id)
     - [22 - Crie uma rota para o endpoint `/motorcycles/id`, onde é possível atualizar o registro de uma moto através do seu id](#22---crie-uma-rota-para-o-endpoint-motorcyclesid-onde-é-possível-atualizar-o-registro-de-uma-moto-através-do-seu-id)
     - [23 - Crie uma rota para o endpoint `/motorcycles/id` para excluir os registros de uma moto](#23---crie-uma-rota-para-o-endpoint-motorcyclesid-para-excluir-os-registros-de-uma-moto)
+    - [24 - Escreva testes para cobrir 90% da camada de model](#24---escreva-testes-para-cobrir-90-da-camada-de-model)
+    - [25 - Escreva testes para cobrir 90% da camada de service](#25---escreva-testes-para-cobrir-90-da-camada-de-service)
+    - [26 - Escreva testes para cobrir 90% da camada de controller](#26---escreva-testes-para-cobrir-90-da-camada-de-controller)
   - [Requisitos não avaliativos](#requisitos-não-avaliativos)
-    - [24 - Escreva testes para cobrir 100% da camada de model](#24---escreva-testes-para-cobrir-100-da-camada-de-model)
-    - [25 - Escreva testes para cobrir 100% da camada de service](#25---escreva-testes-para-cobrir-100-da-camada-de-service)
-    - [26 - Escreva testes para cobrir 100% da camada de controller](#26---escreva-testes-para-cobrir-100-da-camada-de-controller)
+    - [27 - Escreva testes para cobrir 100% da camada de model](#27---escreva-testes-para-cobrir-100-da-camada-de-model)
+    - [28 - Escreva testes para cobrir 100% da camada de service](#28---escreva-testes-para-cobrir-100-da-camada-de-service)
+    - [29 - Escreva testes para cobrir 100% da camada de controller](#29---escreva-testes-para-cobrir-100-da-camada-de-controller)
   - [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
 - [Revisando um pull request](#revisando-um-pull-request)
 - [Avisos finais](#avisos-finais)
@@ -540,19 +543,34 @@ Crie uma rota que receba uma requisição `DELETE` para excluirr determinado ve�
  - Será verificado que uma moto é removida com sucesso;
  - Sua API deve responder com status http `204` sem body;
 
+### 24 - Escreva testes para cobrir 90% da camada de model
+
+Escreva testes que cubram 90% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/models`.
+ - Será validado que cobertura total das linhas dos arquivos na pasta `models` é igual a 90%;
+
+### 25 - Escreva testes para cobrir 90% da camada de service
+
+Escreva testes que cubram 90% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`.
+ - Será validado que cobertura total das linhas dos arquivos na pasta `services` é igual a 90%;
+
+### 26 - Escreva testes para cobrir 90% da camada de controller
+
+Escreva testes que cubram 90% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`.
+ - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é igual a 90%;
+
 ## Requisitos não avaliativos
 
-### 24 - Escreva testes para cobrir 100% da camada de model
+### 27 - Escreva testes para cobrir 100% da camada de model
 
 Escreva testes que cubram 100% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/models`.
  - Será validado que cobertura total das linhas dos arquivos na pasta `models` é igual a 100%;
 
-### 25 - Escreva testes para cobrir 100% da camada de service
+### 28 - Escreva testes para cobrir 100% da camada de service
 
 Escreva testes que cubram 100% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`.
  - Será validado que cobertura total das linhas dos arquivos na pasta `services` é igual a 100%;
 
-### 26 - Escreva testes para cobrir 100% da camada de controller
+### 29 - Escreva testes para cobrir 100% da camada de controller
 
 Escreva testes que cubram 100% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`.
  - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é igual a 100%;

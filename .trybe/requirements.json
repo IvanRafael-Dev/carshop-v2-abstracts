@@ -114,6 +114,21 @@
       "description": "23 - Crie uma rota para o endpoint /motorcycles/id para excluir os registros de uma moto",
       "bonus": true,
       "skill_ids": []
+    },
+    {
+      "description": "24 - Escreva testes para cobrir 90% da camada de model",
+      "bonus": false,
+      "skill_ids": []
+    },
+    {
+      "description": "25 - Escreva testes para cobrir 90% da camada de service",
+      "bonus": false,
+      "skill_ids": []
+    },
+    {
+      "description": "26 - Escreva testes para cobrir 90% da camada de controller",
+      "bonus": false,
+      "skill_ids": []
     }
   ]
 }
