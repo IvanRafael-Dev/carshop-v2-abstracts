@@ -339,7 +339,7 @@ Por ser genérica, nossa interface deverá receber um tipo `T` qualquer, e ela d
 
 </details>
 
-### 02 - Crie a interface `Vehicle`
+### 02 - Crie a interface `Vehicle` genérica
 
 Crie a interface `Vehicle`, que será usada para criarmos nossos tipos de carro, moto e caminhão.
 Ela deverá ter todos os atributos comuns de todos os veículos que listaremos aqui. São eles:
@@ -364,7 +364,7 @@ Ela deverá ter todos os atributos comuns de todos os veículos que listaremos a
 
 </details>
 
-### 03 - Crie a interface `Car` a partir da interface `Vehicle`
+### 03 - Crie a interface `Car` a partir da Interface `Vehicle`
 
 Crie a interface `Car`, de modo que ela possua todos os atributos da interface `Vehicle` e, também, os atributos:
 
@@ -580,7 +580,7 @@ Crie uma rota que receba uma requisição `DELETE` para excluir determinado veí
 
 ## Requisitos Bônus
 
-### 18 - Crie a interface `Motorcycle` a partir da interface `Vehicle`
+### 18 - Crie a interface `Motorcycle` a partir da Interface `Vehicle`
 
 Crie a interface `Motorcycle`, de modo que ela possua todos os atributos da interface `Vehicle` e, também, os atributos:
 
