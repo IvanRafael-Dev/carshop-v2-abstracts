@@ -212,9 +212,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
     <strong>🐳 Rodando no Docker vs Localmente</strong>
   </summary><br>
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<details close>
-    <summary><strong>Docker</strong></summary>
-    <br>
+  ## Docker
 
   > Rode os serviços `node` e `mongodb` com o comando `docker-compose up -d`.
   - Lembre-se de parar o `mongo` se estiver usando localmente na porta padrão (`27017`), ou adapte, caso queria fazer uso da aplicação em containers
@@ -236,11 +234,8 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   ✨ **Dica:** A extensão `Remote - Containers` (que estará na seção de extensões recomendadas do VS Code) é indicada para que você possa desenvolver sua aplicação no container Docker direto no VS Code, como você faz com seus arquivos locais.
 
   <img src="images/remote-container.png" width="800px" >
-  </details>
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<details close>
-    <summary><strong>Localmente</strong></summary>
-    <br>
+  ## Localmente
 
   > Instale as dependências [**Caso existam**] com `npm install`
   
@@ -248,8 +243,6 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 
   ✨ **Dica:** Para rodar o projeto desta forma, obrigatoriamente você deve ter o `node` instalado em seu computador.
   ✨ **Dica:** O avaliador espera que a versão do `node` utilizada seja a 16.
-
-  </details>
 
 </details>
 
