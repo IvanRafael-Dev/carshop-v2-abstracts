@@ -212,8 +212,8 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
     <strong>🐳 Rodando no Docker vs Localmente</strong>
   </summary><br>
 
-  <details close>
-    <summary><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker</strong></summary>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<details close>
+    <summary><strong>Docker</strong></summary>
     <br>
 
   > Rode os serviços `node` e `mongodb` com o comando `docker-compose up -d`.
@@ -238,8 +238,8 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   <img src="images/remote-container.png" width="800px" >
   </details>
 
-  <details close>
-    <summary><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Localmente</strong></summary>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<details close>
+    <summary><strong>Localmente</strong></summary>
     <br>
 
   > Instale as dependências [**Caso existam**] com `npm install`
