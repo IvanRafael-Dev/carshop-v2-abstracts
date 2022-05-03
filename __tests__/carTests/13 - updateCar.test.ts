@@ -39,16 +39,22 @@ describe('13 - Crie uma rota para o endpoint /cars/id, onde é possível atualiz
     expect(response.body.error).toBe(errorMsg.error);
   });
 
-  it('É disparado o erro 400 caso o body esteja incompleto', async () => {
-    const response = await request(server.getApp())
-      .put('/cars/99999');
-    expect(response.status).toBe(400);
+  it('É disparado o erro 400 caso o body esteja vazio', async () => {
+    const res = await request(server.getApp())
+      .post('/cars')
+      .send(carMock.validCar);
+
+    const { _id } = res.body;
+
+    const result = await request(server.getApp())
+      .put(`/cars/${_id}`);
+    expect(result.status).toBe(400);
   })
 
   it('Será verificado que um carro é atualizado com sucesso', async () => {
     const res = await request(server.getApp())
       .post('/cars')
-      .send(carMock.validCar)
+      .send(carMock.validCar);
 
     const { _id } = res.body;
 

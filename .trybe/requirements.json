@@ -21,17 +21,17 @@
       "skill_ids": []
     },
     {
-      "description": "05 - Escreva testes para cobrir 15% da camada de model",
+      "description": "05 - Escreva testes para cobrir 15% da camada de Model",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "06 - Escreva testes para cobrir 15% da camada de service",
+      "description": "06 - Escreva testes para cobrir 15% da camada de Service",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "07 - Escreva testes para cobrir 15% da camada de controller",
+      "description": "07 - Escreva testes para cobrir 15% da camada de Controller",
       "bonus": false,
       "skill_ids": []
     },
@@ -46,17 +46,17 @@
       "skill_ids": []
     },
     {
-      "description": "10 - Escreva testes para cobrir 30% da camada de model",
+      "description": "10 - Escreva testes para cobrir 30% da camada de Model",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "11 - Escreva testes para cobrir 30% da camada de service",
+      "description": "11 - Escreva testes para cobrir 30% da camada de Service",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "12 - Escreva testes para cobrir 30% da camada de controller",
+      "description": "12 - Escreva testes para cobrir 30% da camada de Controller",
       "bonus": false,
       "skill_ids": []
     },
@@ -66,17 +66,17 @@
       "skill_ids": []
     },
     {
-      "description": "14 - Escreva testes para cobrir 60% da camada de model",
+      "description": "14 - Escreva testes para cobrir 60% da camada de Model",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "15 - Escreva testes para cobrir 60% da camada de service",
+      "description": "15 - Escreva testes para cobrir 60% da camada de Service",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "16 - Escreva testes para cobrir 60% da camada de controller",
+      "description": "16 - Escreva testes para cobrir 60% da camada de Controller",
       "bonus": false,
       "skill_ids": []
     },
@@ -106,7 +106,7 @@
       "skill_ids": []
     },
     {
-      "description": "22 - Crie uma rota para o endpoint /motorcycles/id, onde é possível atualizar o registro de uma moto através do seu id",
+      "description": "22 - Crie uma rota para o endpoint /motorcycles/id onde é possível atualizar o registro de uma moto através do seu id",
       "bonus": true,
       "skill_ids": []
     },
@@ -116,17 +116,17 @@
       "skill_ids": []
     },
     {
-      "description": "24 - Escreva testes para cobrir 90% da camada de model",
+      "description": "24 - Escreva testes para cobrir 90% da camada de Model",
       "bonus": true,
       "skill_ids": []
     },
     {
-      "description": "25 - Escreva testes para cobrir 90% da camada de service",
+      "description": "25 - Escreva testes para cobrir 90% da camada de Service",
       "bonus": true,
       "skill_ids": []
     },
     {
-      "description": "26 - Escreva testes para cobrir 90% da camada de controller",
+      "description": "26 - Escreva testes para cobrir 90% da camada de Controller",
       "bonus": true,
       "skill_ids": []
     }

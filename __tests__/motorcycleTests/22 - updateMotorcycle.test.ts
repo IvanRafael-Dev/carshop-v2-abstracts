@@ -7,7 +7,7 @@ import * as motorcycleMock from '../utils/MotorcyclesMock';
 
 import server from '../../src/server';
 
-describe('22 - Crie uma rota para o endpoint /motorcycles/id, onde é possível atualizar o registro de uma moto através do seu id', () => {
+describe('22 - Crie uma rota para o endpoint /motorcycles/id onde é possível atualizar o registro de uma moto através do seu id', () => {
   beforeAll(async () => {
     await connection();
   });
@@ -39,16 +39,22 @@ describe('22 - Crie uma rota para o endpoint /motorcycles/id, onde é possível 
     expect(response.body.error).toBe(errorMsg.error);
   });
 
-  it('É disparado o erro 400 caso o body esteja incompleto', async () => {
-    const response = await request(server.getApp())
-      .put('/motorcycles/99999');
-    expect(response.status).toBe(400);
+  it('É disparado o erro 400 caso o body esteja vazio', async () => {
+    const res = await request(server.getApp())
+      .post('/motorcycles')
+      .send(motorcycleMock.validMotorcycle);
+
+    const { _id } = res.body;
+
+    const result = await request(server.getApp())
+      .put(`/motorcycles/${_id}`);
+    expect(result.status).toBe(400);
   })
 
   it('Será verificado que uma moto é atualizada com sucesso', async () => {
     const res = await request(server.getApp())
       .post('/motorcycles')
-      .send(motorcycleMock.validMotorcycle)
+      .send(motorcycleMock.validMotorcycle);
 
     const { _id } = res.body;
 
