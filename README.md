@@ -261,11 +261,10 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 
   Dentro da pasta `src` foram deixados alguns arquivos de exemplo sendo eles:
 
-  - `src/controllers/controller.example.ts`
   - `src/index.example.ts`
-  - `src/server.example.ts`
 
-  ⚠️**Importante**: é muito importante que o arquivo `server.example.ts` seja renomeado para `server.ts` para que os testes funcionem. ⚠️**
+
+  ⚠️**Importante**: Os testes do projeto DEVEM ser de unidade, testando cada camada ⚠️**
 
 </details>
 
@@ -294,15 +293,14 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   - O arquivo `src/app.ts` contém o código necessário para subir o servidor:
 
   ```typescript
-  public startServer(PORT: string | number = 3001): void {
-      connectToDatabase();
-      this.app.listen(
-        PORT,
-        () => console.log(`Server running here 👉 http://localhost:${PORT}`),
-      );
-    }
-  ```
+  import express from 'express';
 
+  const app = express();
+
+  export default app;
+
+  ```
+  ⚠️**Importante**: é muito importante que o arquivo `src/app.ts` exporte uma instância do `app express` para que os testes funcionem. ⚠️**
 </details>
 
 <details>
