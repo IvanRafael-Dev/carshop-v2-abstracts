@@ -5,7 +5,7 @@ import { clearDatabase, closeDatabase } from '../utils/db';
 
 import * as carMock from '../utils/CarsMock';
 
-import server from '../../src/server';
+import app from '../../src/app';
 
 describe('08 - Crie uma rota para o endpoint /cars onde seja possível listar todos os carros registrados', () => {
   beforeAll(async () => {
@@ -21,17 +21,17 @@ describe('08 - Crie uma rota para o endpoint /cars onde seja possível listar to
   });
 
   it('É possível listar os carros com sucesso', async () => {
-    const res = await request(server.getApp())
+    const res = await request(app)
       .post('/cars')
       .send(carMock.validCar)
-    const result = await request(server.getApp())
+    const result = await request(app)
       .get('/cars');
     expect(result.body).toEqual([res.body]);
     expect(result.statusCode).toEqual(200);
   });
 
   it('Retorna uma lista vazia se não houver carros', async () => {
-    const result = await request(server.getApp())
+    const result = await request(app)
       .get('/cars');
     expect(result.body).toEqual([]);
     expect(result.statusCode).toEqual(200);
