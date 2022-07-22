@@ -308,15 +308,18 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
     <strong>🔥⚠️ Tenha atenção para os seguintes pontos: ⚠️🔥</strong>
   </summary><br>
 
-  ➡️ A conexão do banco local contida no arquivo `src/connection.ts` deverá conter o seguinte parâmetro:
+  ➡️ A conexão do banco local contida no arquivo `src/connection.ts` deverá estar na seguinte variável, ou no `.env`:
 
   ```typescript
   const MONGO_DB_URL = 'mongodb://localhost:27017/CarShop';
   ```
-  - Para o avaliador funcionar altere a conexão do banco contida no arquivo `src/connection.ts` para:
+  - Para o avaliador funcionar mantenha a opção padrão com de URI do mongo como `process.env.MOGNO_URI` em `src/connection.ts` :
 
   ```typescript
-  const MONGO_DB_URL = 'mongodb://mongodb:27017/CarShop';
+  const connectToDatabase = (
+    mongoDatabaseURI = process.env.MONGO_URI // mantenha a env aqui
+      || MONGO_DB_URL,
+  ) => mongoose.connect(mongoDatabaseURI);
   ```
 
   ➡️ Lembre-se de não entregar o projeto com nenhum teste ignorado. Testes ignorados serão tratados como testes falhando!
