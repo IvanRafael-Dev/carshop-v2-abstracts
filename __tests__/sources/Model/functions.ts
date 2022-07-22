@@ -1,6 +1,6 @@
-import { Model } from '../../../src/interfaces/ModelInterface';
+import { IModel } from '../../../src/interfaces/IModel';
 
-class TestModelCreateless implements Model<number> {
+class TestModelCreateless implements IModel<number> {
   read = async (): Promise<number[]> =>
     new Promise<number[]>((resolve) => resolve([1, 2, 3]));
 
@@ -14,7 +14,7 @@ class TestModelCreateless implements Model<number> {
     new Promise<number>((resolve) => resolve(1));
 }
 
-class TestModelReadless implements Model<number> {
+class TestModelReadless implements IModel<number> {
   create = async (obj: number): Promise<number> =>
     new Promise<number>((resolve) => resolve(obj));
 
@@ -28,7 +28,7 @@ class TestModelReadless implements Model<number> {
     new Promise<number>((resolve) => resolve(1));
 }
 
-class TestModelReadOneless implements Model<number> {
+class TestModelReadOneless implements IModel<number> {
   create = async (obj: number): Promise<number> =>
     new Promise<number>((resolve) => resolve(obj));
 
@@ -42,7 +42,7 @@ class TestModelReadOneless implements Model<number> {
     new Promise<number>((resolve) => resolve(1));
 }
 
-class TestModelUpdateless implements Model<number> {
+class TestModelUpdateless implements IModel<number> {
   create = async (obj: number): Promise<number> =>
     new Promise<number>((resolve) => resolve(obj));
 
@@ -56,7 +56,7 @@ class TestModelUpdateless implements Model<number> {
     new Promise<number>((resolve) => resolve(1));
 }
 
-class TestModelDeleteless implements Model<number> {
+class TestModelDeleteless implements IModel<number> {
   create = async (obj: number): Promise<number> =>
     new Promise<number>((resolve) => resolve(obj));
 

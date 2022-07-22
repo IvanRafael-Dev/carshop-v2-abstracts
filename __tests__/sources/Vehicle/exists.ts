@@ -1,1 +1,1 @@
-import { Vehicle } from "../../../src/interfaces/VehicleInterface";
+import { IVehicle } from "../../../src/interfaces/IVehicle";

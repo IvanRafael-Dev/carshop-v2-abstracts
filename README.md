@@ -353,9 +353,9 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 
 ## Requisitos Obrigatórios
 
-### 01 - Crie a interface `Model` genérica
+### 01 - Crie a interface `IModel` genérica
 
-Crie a interface `Model`, que será usada para a conexão com o banco de dados. Ela deverá ter, pelo menos, as funções `create()`, `read()`, `readOne()`, `update()` e `delete()`.
+Crie a interface `IModel`, que será usada para a conexão com o banco de dados. Ela deverá ter, pelo menos, as funções `create()`, `read()`, `readOne()`, `update()` e `delete()`.
 
 Por ser genérica, nossa interface deverá receber um tipo `T` qualquer, e ela deve esperar, em cada função, as seguintes especificações:
  - `create()`: deve receber um objeto do tipo `T`e retornar uma Promise do tipo `T`.
@@ -363,22 +363,22 @@ Por ser genérica, nossa interface deverá receber um tipo `T` qualquer, e ela d
  - `readOne()`: deve receber uma string e retornar uma Promise do tipo `T` ou nula.
  - `update()`: deve receber uma string e um objeto do tipo `T` e retornar uma Promise do tipo `T` ou nula.
  - `delete()`: deve receber uma string e retornar uma Promise do tipo `T` ou nula.
- - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `ModelInterface.ts`.
- - A interface deve ser exportada com o nome de `Model` e não deve ser exportada de forma padrão.
+ - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `IModel.ts`.
+ - A interface deve ser exportada com o nome de `IModel` e não deve ser exportada de forma padrão.
 
 <details>
   <summary>Será verificado se:</summary>
 
- - Existe a interface Model;
- - A interface Model possui todas as funções solicitadas;
- - A interface Model pode ser implementada com qualquer tipo;
+ - Existe a interface `IModel`;
+ - A interface `IModel` possui todas as funções solicitadas;
+ - A interface `IModel` pode ser implementada com qualquer tipo;
  - A interface está no local correto, com o nome correto e com a forma de exportação correta;
 
 </details>
 
-### 02 - Crie a interface `Vehicle` genérica
+### 02 - Crie a interface `IVehicle` genérica
 
-Crie a interface `Vehicle`, que será usada para criarmos nossos tipos de carro, moto e caminhão.
+Crie a interface `IVehicle`, que será usada para criarmos nossos tipos de carro, moto e caminhão.
 Ela deverá ter todos os atributos comuns de todos os veículos que listaremos aqui. São eles:
 
  | Atributo | Descrição |
@@ -389,36 +389,36 @@ Ela deverá ter todos os atributos comuns de todos os veículos que listaremos a
  | `status`  | Status que define se um veículo pode ou não ser comprado. Deve receber valores booleanos e deve ser opcional |
  | `buyValue` | Valor de compra do veículo. Deve receber apenas números inteiros |
 
- - O arquivo deve ficar no diretório `/src/interfaces/` e ter o nome de `VehicleInterface.ts`.
- - A interface deve ser exportada com o nome de `Vehicle` e **não deve** ser exportada de forma padrão.
+ - O arquivo deve ficar no diretório `/src/interfaces/` e ter o nome de `IVehicle.ts`.
+ - A interface deve ser exportada com o nome de `IVehicle` e **não deve** ser exportada de forma padrão.
 
 <details>
   <summary>Será verificado se:</summary>
 
-  - A interface Vehicle existe;
+  - A interface `IVehicle` existe;
   - A interface possui os atributos solicitados;
   - A interface está no local correto, com o nome correto e com a forma de exportação correta.
 
 </details>
 
-### 03 - Crie a interface `Car` a partir da Interface `Vehicle`
+### 03 - Crie a interface `ICar` a partir da interface `IVehicle`
 
-Crie a interface `Car`, de modo que ela possua todos os atributos da interface `Vehicle` e, também, os atributos:
+Crie a interface `ICar`, de modo que ela possua todos os atributos da interface `IVehicle` e, também, os atributos:
 
  | Atributo  | Descrição |
  | :--------: | :-------- |
  | `doorsQty` | Quantidade de portas de um carro. Deve ser maior ou igual a 2 e menor ou igual a 4 |
  | `seatsQty` | Quantidade de assentos disponíveis no carro. Deve ser maior ou igual a 2 e menor ou igual a 7 |
  
- - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `CarInterface.ts`.
- - A interface deve ser exportada com o nome de `Car` e não deve ser exportada de forma padrão.
+ - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `ICar.ts`.
+ - A interface deve ser exportada com o nome de `ICar` e não deve ser exportada de forma padrão.
 
 <details>
   <summary>Será verificado se:</summary>
 
-  - A interface `Car` estende a interface `Vehicle`;
-  - É possível criar um objeto do tipo `Car`;
-  - A interface `Car` possui as propriedades `doorsQty` e `seatsQty`;
+  - A interface `ICar` estende a interface `IVehicle`;
+  - É possível criar um objeto do tipo `ICar`;
+  - A interface `ICar` possui as propriedades `doorsQty` e `seatsQty`;
   - A interface está com local, nome e forma de exportação correta.
 
 </details>
@@ -617,25 +617,25 @@ Crie uma rota que receba uma requisição `DELETE` para excluir determinado veí
 
 ## Requisitos Bônus
 
-### 18 - Crie a interface `Motorcycle` a partir da Interface `Vehicle`
+### 18 - Crie a interface `IMotorcycle` a partir da Interface `IVehicle`
 
-Crie a interface `Motorcycle`, de modo que ela possua todos os atributos da interface `Vehicle` e, também, os atributos:
+Crie a interface `IMotorcycle`, de modo que ela possua todos os atributos da interface `IVehicle` e, também, os atributos:
 
  | Atributos        | Descrição |
  | :--------------: | :-------- |
  | `category`       | Categoria da moto. Deve poder ser **apenas** `Street`, `Custom` ou `Trail` |
  | `engineCapacity` | A capacidade do motor. Deve ser um valor inteiro positivo menor ou igual a 2500 |
 
- - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `MotorcycleInterface.ts`.
- - A interface deve ser exportada com o nome de `Motorcycle` e não deve ser exportada de forma padrão.
+ - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `IMotorcycle.ts`.
+ - A interface deve ser exportada com o nome de `IMotorcycle` e não deve ser exportada de forma padrão.
 
 <details>
   <summary>Será verificado se:</summary>
 
-  - A interface `Motorcycle` estende a interface `Vehicle`;
-  - É possível criar um objeto do tipo `Motorcycle`;
-  - A interface `Motorcycle` possui as propriedades `category` e `engineCapacity`;
-  - Não é possível criar um objeto do tipo `Motorcycle` com uma categoria errada;
+  - A interface `IMotorcycle` estende a interface `IVehicle`;
+  - É possível criar um objeto do tipo `IMotorcycle`;
+  - A interface `IMotorcycle` possui as propriedades `category` e `engineCapacity`;
+  - Não é possível criar um objeto do tipo `IMotorcycle` com uma categoria errada;
   - A interface está com local, nome e forma de exportação correta.
   
 </details>

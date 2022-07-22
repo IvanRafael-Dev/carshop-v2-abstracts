@@ -1,6 +1,6 @@
-import { Vehicle } from '../../src/interfaces/VehicleInterface';
+import { IVehicle } from '../../src/interfaces/IVehicle';
 
-export const testVehicleInterface = (obj: Vehicle): boolean =>
+export const testVehicleInterface = (obj: IVehicle): boolean =>
   typeof obj.model === 'string';
 
 export default { testVehicleInterface };
