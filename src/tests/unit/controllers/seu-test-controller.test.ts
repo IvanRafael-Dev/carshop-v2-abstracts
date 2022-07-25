@@ -3,11 +3,6 @@
 
 // import * as sinon from 'sinon';
 // import chai from 'chai';
-// import chaiHttp = require('chai-http');
-
-
-// chai.use(chaiHttp);
-
 // const { expect } = chai;
 
 // describe('Sua descrição', () => {
@@ -19,7 +14,7 @@
 //   });
 
 //   after(()=>{
-//     ().restore();
+//     sinon.restore();
 //   })
 
 //   it('', async () => {});
