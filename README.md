@@ -395,6 +395,8 @@ Ela deverá ter todos os atributos comuns de todos os veículos que listaremos a
  - O arquivo deve ficar no diretório `/src/interfaces/` e ter o nome de `IVehicle.ts`.
  - A interface deve ser exportada com o nome de `IVehicle` e **não deve** ser exportada de forma padrão.
 
+> ⚠️ Apenas os tipos dos atributos serão avaliados nesse requisito
+
 <details>
   <summary>Será verificado se:</summary>
 
@@ -415,6 +417,9 @@ Crie a interface `ICar`, de modo que ela possua todos os atributos da interface 
  
  - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `ICar.ts`.
  - A interface deve ser exportada com o nome de `ICar` e não deve ser exportada de forma padrão.
+
+> ⚠️ Apenas os tipos dos atributos serão avaliados nesse requisito
+
 
 <details>
   <summary>Será verificado se:</summary>
@@ -631,6 +636,8 @@ Crie a interface `IMotorcycle`, de modo que ela possua todos os atributos da int
 
  - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `IMotorcycle.ts`.
  - A interface deve ser exportada com o nome de `IMotorcycle` e não deve ser exportada de forma padrão.
+
+> ⚠️ Apenas os tipos dos atributos serão avaliados nesse requisito
 
 <details>
   <summary>Será verificado se:</summary>
