@@ -1,17 +1,17 @@
 {
   "requirements": [
     {
-      "description": "01 - Crie a Interface Model genérica",
+      "description": "01 - Crie a interface genérica IModel",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "02 - Crie a Interface Vehicle genérica",
+      "description": "02 - Crie a interface IVehicle",
       "bonus": false,
       "skill_ids": []
     },
     {
-      "description": "03 - Crie a interface Car a partir da Interface Vehicle",
+      "description": "03 - Crie a interface ICar a partir da interface IVehicle",
       "bonus": false,
       "skill_ids": []
     },
@@ -86,7 +86,7 @@
       "skill_ids": []
     },
     {
-      "description": "18 - Crie a interface Motorcycle a partir da Interface Vehicle",
+      "description": "18 - Crie a interface IMotorcycle a partir da interface IVehicle",
       "bonus": true,
       "skill_ids": []
     },
