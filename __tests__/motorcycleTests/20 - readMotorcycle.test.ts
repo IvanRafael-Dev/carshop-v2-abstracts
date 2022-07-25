@@ -5,7 +5,7 @@ import { clearDatabase, closeDatabase } from '../utils/db';
 
 import * as motorcycleMock from '../utils/MotorcyclesMock';
 
-import server from '../../src/server';
+import app from '../../src/app';
 
 describe('20 - Crie uma rota para o endpoint /motorcycles onde seja possível listar todas as motos registradas', () => {
   beforeAll(async () => {
@@ -21,17 +21,17 @@ describe('20 - Crie uma rota para o endpoint /motorcycles onde seja possível li
   });
 
   it('É possível listar as motos com sucesso', async () => {
-    const res = await request(server.getApp())
+    const res = await request(app)
       .post('/motorcycles')
       .send(motorcycleMock.validMotorcycle)
-    const result = await request(server.getApp())
+    const result = await request(app)
       .get('/motorcycles');
     expect(result.body).toEqual([res.body]);
     expect(result.statusCode).toEqual(200);
   });
 
   it('Retorna uma lista vazia se não houver motos', async () => {
-    const result = await request(server.getApp())
+    const result = await request(app)
       .get('/motorcycles');
     expect(result.body).toEqual([]);
     expect(result.statusCode).toEqual(200);

@@ -1,6 +1,6 @@
-import { Motorcycle } from '../../../src/interfaces/MotorcycleInterface';
+import { IMotorcycle } from '../../../src/interfaces/IMotorcycle';
 
-const testMotorcycle: Motorcycle = {
+const testMotorcycle: IMotorcycle = {
   model: 'Yamaha NEO',
   year: 2022,
   color: 'Blue',

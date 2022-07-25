@@ -1,211 +1,133 @@
 {
   "requirements": [
     {
+      "description": "01 - Crie a interface genérica IModel",
       "bonus": false,
-      "description": "01 - Crie a Interface Model genérica",
-      "enabled": true,
-      "identifier": null,
-      "order": 1,
       "skill_ids": []
     },
     {
+      "description": "02 - Crie a interface IVehicle",
       "bonus": false,
-      "description": "02 - Crie a Interface Vehicle genérica",
-      "enabled": true,
-      "identifier": null,
-      "order": 2,
       "skill_ids": []
     },
     {
+      "description": "03 - Crie a interface ICar a partir da interface IVehicle",
       "bonus": false,
-      "description": "03 - Crie a interface Car a partir da Interface Vehicle",
-      "enabled": true,
-      "identifier": null,
-      "order": 3,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "04 - Crie uma rota para o endpoint /cars onde seja possível cadastrar um novo carro",
-      "enabled": true,
-      "identifier": null,
-      "order": 4,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "05 - Escreva testes para cobrir 15% da camada de Model",
-      "enabled": true,
-      "identifier": null,
-      "order": 5,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "06 - Escreva testes para cobrir 15% da camada de Service",
-      "enabled": true,
-      "identifier": null,
-      "order": 6,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "07 - Escreva testes para cobrir 15% da camada de Controller",
-      "enabled": true,
-      "identifier": null,
-      "order": 7,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "08 - Crie uma rota para o endpoint /cars onde seja possível listar todos os carros registrados",
-      "enabled": true,
-      "identifier": null,
-      "order": 8,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "09 - Crie uma rota para o endpoint /cars/id onde seja possível listar um único carro através do seu id",
-      "enabled": true,
-      "identifier": null,
-      "order": 9,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "10 - Escreva testes para cobrir 30% da camada de Model",
-      "enabled": true,
-      "identifier": null,
-      "order": 10,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "11 - Escreva testes para cobrir 30% da camada de Service",
-      "enabled": true,
-      "identifier": null,
-      "order": 11,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "12 - Escreva testes para cobrir 30% da camada de Controller",
-      "enabled": true,
-      "identifier": null,
-      "order": 12,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "13 - Crie uma rota para o endpoint /cars/id, onde é possível atualizar o registro de um carro através do seu id",
-      "enabled": true,
-      "identifier": null,
-      "order": 13,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "14 - Escreva testes para cobrir 60% da camada de Model",
-      "enabled": true,
-      "identifier": null,
-      "order": 14,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "15 - Escreva testes para cobrir 60% da camada de Service",
-      "enabled": true,
-      "identifier": null,
-      "order": 15,
+      "bonus": false,
       "skill_ids": []
     },
     {
-      "bonus": false,
       "description": "16 - Escreva testes para cobrir 60% da camada de Controller",
-      "enabled": true,
-      "identifier": null,
-      "order": 16,
-      "skill_ids": []
-    },
-    {
       "bonus": false,
+      "skill_ids": []
+    },
+    {
       "description": "17 - Crie uma rota para o endpoint /cars/id para excluir os registros de um carro",
-      "enabled": true,
-      "identifier": null,
-      "order": 17,
+      "bonus": false,
       "skill_ids": []
     },
     {
+      "description": "18 - Crie a interface IMotorcycle a partir da interface IVehicle",
       "bonus": true,
-      "description": "18 - Crie a interface Motorcycle a partir da Interface Vehicle",
-      "enabled": true,
-      "identifier": null,
-      "order": 18,
       "skill_ids": []
     },
     {
-      "bonus": true,
       "description": "19 - Crie uma rota para o endpoint /motorcycles onde seja possível cadastrar uma nova moto",
-      "enabled": true,
-      "identifier": null,
-      "order": 19,
+      "bonus": true,
       "skill_ids": []
     },
     {
-      "bonus": true,
       "description": "20 - Crie uma rota para o endpoint /motorcycles onde seja possível listar todas as motos registradas",
-      "enabled": true,
-      "identifier": null,
-      "order": 20,
+      "bonus": true,
       "skill_ids": []
     },
     {
-      "bonus": true,
       "description": "21 - Crie uma rota para o endpoint /motorcycles/id onde seja possível listar uma única moto através do seu id",
-      "enabled": true,
-      "identifier": null,
-      "order": 21,
+      "bonus": true,
       "skill_ids": []
     },
     {
-      "bonus": true,
       "description": "22 - Crie uma rota para o endpoint /motorcycles/id onde é possível atualizar o registro de uma moto através do seu id",
-      "enabled": true,
-      "identifier": null,
-      "order": 22,
+      "bonus": true,
       "skill_ids": []
     },
     {
-      "bonus": true,
       "description": "23 - Crie uma rota para o endpoint /motorcycles/id para excluir os registros de uma moto",
-      "enabled": true,
-      "identifier": null,
-      "order": 23,
+      "bonus": true,
       "skill_ids": []
     },
     {
-      "bonus": true,
       "description": "24 - Escreva testes para cobrir 90% da camada de Model",
-      "enabled": true,
-      "identifier": null,
-      "order": 24,
+      "bonus": true,
       "skill_ids": []
     },
     {
-      "bonus": true,
       "description": "25 - Escreva testes para cobrir 90% da camada de Service",
-      "enabled": true,
-      "identifier": null,
-      "order": 25,
+      "bonus": true,
       "skill_ids": []
     },
     {
-      "bonus": true,
       "description": "26 - Escreva testes para cobrir 90% da camada de Controller",
-      "enabled": true,
-      "identifier": null,
-      "order": 26,
+      "bonus": true,
       "skill_ids": []
     }
   ]

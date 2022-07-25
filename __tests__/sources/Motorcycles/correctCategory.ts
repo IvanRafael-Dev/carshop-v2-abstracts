@@ -1,6 +1,6 @@
-import { Motorcycle } from '../../../src/interfaces/MotorcycleInterface';
+import { IMotorcycle } from '../../../src/interfaces/IMotorcycle';
 
-const testMotorcycle1: Motorcycle = {
+const testMotorcycle1: IMotorcycle = {
   model: 'Yamaha NEO',
   year: 2022,
   color: 'Blue',
@@ -9,7 +9,7 @@ const testMotorcycle1: Motorcycle = {
   engineCapacity: 125,
 };
 
-const testMotorcycle2: Motorcycle = {
+const testMotorcycle2: IMotorcycle = {
   model: 'Yamaha NEO',
   year: 2022,
   color: 'Blue',
@@ -18,7 +18,7 @@ const testMotorcycle2: Motorcycle = {
   engineCapacity: 125,
 };
 
-const testMotorcycle3: Motorcycle = {
+const testMotorcycle3: IMotorcycle = {
   model: 'Yamaha NEO',
   year: 2022,
   color: 'Blue',

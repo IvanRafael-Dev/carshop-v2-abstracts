@@ -1,6 +1,6 @@
-import { Vehicle } from "../../../src/interfaces/VehicleInterface";
+import { IVehicle } from "../../../src/interfaces/IVehicle";
 
-const testVehicle: Vehicle = {
+const testVehicle: IVehicle = {
   model: 'Fiat Uno',
   year: 2002,
   color: 'White',

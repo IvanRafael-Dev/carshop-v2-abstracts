@@ -1,4 +1,4 @@
-describe('18 - Crie a interface Motorcycle a partir da Interface Vehicle', () => {
+describe('18 - Crie a interface IMotorcycle a partir da interface IVehicle', () => {
   it('O tipo Motorcycle estende a Interface Vehicle', () => {
     expect('Motorcycles/vehicleInterface').toCompile();
   });

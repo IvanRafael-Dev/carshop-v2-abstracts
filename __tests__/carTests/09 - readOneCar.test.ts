@@ -5,7 +5,7 @@ import { clearDatabase, closeDatabase } from '../utils/db';
 
 import * as carMock from '../utils/CarsMock';
 
-import server from '../../src/server';
+import app from '../../src/app';
 
 describe('09 - Crie uma rota para o endpoint /cars/id onde seja possível listar um único carro através do seu id', () => {
   beforeAll(async () => {
@@ -20,11 +20,11 @@ describe('09 - Crie uma rota para o endpoint /cars/id onde seja possível listar
     await closeDatabase();
   });
   it('É possível listar um carro com sucesso através do id', async () => {
-    const res = await request(server.getApp())
+    const res = await request(app)
       .post('/cars')
       .send(carMock.validCar)
     const { _id } = res.body;
-    const result = await request(server.getApp())
+    const result = await request(app)
       .get(`/cars/${_id}`);
     expect(result.body).toEqual(res.body);
     expect(result.statusCode).toEqual(200);
@@ -34,7 +34,7 @@ describe('09 - Crie uma rota para o endpoint /cars/id onde seja possível listar
     const messageError = {
       error: "Id must have 24 hexadecimal characters",
     };
-    const result = await request(server.getApp())
+    const result = await request(app)
       .get('/cars/999');
     expect(result.body).toEqual(messageError);
     expect(result.statusCode).toEqual(400);
@@ -44,7 +44,7 @@ describe('09 - Crie uma rota para o endpoint /cars/id onde seja possível listar
     const messageError = {
       error: "Object not found",
     };
-    const result = await request(server.getApp())
+    const result = await request(app)
       .get('/cars/999999999999999999999999');
     expect(result.body).toEqual(messageError);
     expect(result.statusCode).toEqual(404);

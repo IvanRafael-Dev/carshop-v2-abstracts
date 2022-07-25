@@ -95,6 +95,8 @@ jobs:
         uses: ./.github/actions/jest-evaluator
         with:
           pr_author_username: ${{ github.event.pull_request.user.login }}
+        env:
+          - MONGO_URI=mongodb://mongodb:27017/CarShop
 
       - name: Run Store evaluation
         uses: ./.github/actions/store-evaluation

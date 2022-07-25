@@ -1,8 +1,8 @@
-import { Model } from "../../../src/interfaces/ModelInterface";
+import { IModel } from "../../../src/interfaces/IModel";
 
 type testModel = { test: string }
 
-class TestModel implements Model<testModel> {
+class TestModel implements IModel<testModel> {
   create = async (obj: testModel): Promise<testModel> =>
     new Promise<testModel>((resolve) => resolve(obj));
 

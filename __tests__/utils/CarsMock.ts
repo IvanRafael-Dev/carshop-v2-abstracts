@@ -1,7 +1,4 @@
-import { Types } from 'mongoose';
-
 export const validCar = {
-  _id: new Types.ObjectId(),
   model: 'Uno da Escada',
   year: 1963,
   color: 'red',
@@ -11,7 +8,6 @@ export const validCar = {
 };
 
 export const updatedCar = {
-  _id: validCar._id.toString(),
   model: 'Uno da Escada',
   year: 1966,
   color: 'blue',

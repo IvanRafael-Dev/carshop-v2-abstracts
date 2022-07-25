@@ -1,7 +1,4 @@
-import { Types } from 'mongoose';
-
 export const validMotorcycle = {
-  _id: new Types.ObjectId(),
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'red',
@@ -11,7 +8,6 @@ export const validMotorcycle = {
 };
 
 export const updatedMotorcycle = {
-  _id: validMotorcycle._id.toString(),
   model: 'Honda CG Titan 125',
   year: 1963,
   color: 'black',

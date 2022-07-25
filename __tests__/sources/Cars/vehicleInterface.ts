@@ -1,9 +1,9 @@
-import { Car } from '../../../src/interfaces/CarInterface';
-import { Vehicle } from '../../../src/interfaces/VehicleInterface';
+import { ICar } from '../../../src/interfaces/ICar';
+import { IVehicle } from '../../../src/interfaces/IVehicle';
 
-const testVehicleInterface = (obj: Vehicle): boolean => true;
+const testVehicleInterface = (obj: IVehicle): boolean => true;
 
-const testCar: Car = {
+const testCar: ICar = {
   model: 'Uno da Escada',
   year: 1963,
   color: 'red',

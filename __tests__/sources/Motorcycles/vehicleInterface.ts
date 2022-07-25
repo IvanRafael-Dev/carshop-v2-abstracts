@@ -1,9 +1,9 @@
-import { Motorcycle } from '../../../src/interfaces/MotorcycleInterface';
-import { Vehicle } from '../../../src/interfaces/VehicleInterface';
+import { IMotorcycle } from '../../../src/interfaces/IMotorcycle';
+import { IVehicle } from '../../../src/interfaces/IVehicle';
 
-const testVehicleInterface = (obj: Vehicle): boolean => true;
+const testVehicleInterface = (obj: IVehicle): boolean => true;
 
-const testMotorcycle: Motorcycle = {
+const testMotorcycle: IMotorcycle = {
   model: 'Yamaha NEO',
   year: 2022,
   color: 'Blue',
