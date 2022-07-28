@@ -183,30 +183,6 @@
       "identifier": null,
       "order": 23,
       "skill_ids": []
-    },
-    {
-      "bonus": true,
-      "description": "24 - Escreva testes para cobrir 90% da camada de Model",
-      "enabled": true,
-      "identifier": null,
-      "order": 24,
-      "skill_ids": []
-    },
-    {
-      "bonus": true,
-      "description": "25 - Escreva testes para cobrir 90% da camada de Service",
-      "enabled": true,
-      "identifier": null,
-      "order": 25,
-      "skill_ids": []
-    },
-    {
-      "bonus": true,
-      "description": "26 - Escreva testes para cobrir 90% da camada de Controller",
-      "enabled": true,
-      "identifier": null,
-      "order": 26,
-      "skill_ids": []
     }
   ]
 }
