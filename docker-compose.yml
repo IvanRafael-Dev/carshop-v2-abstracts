@@ -7,6 +7,8 @@ services:
     image: node:16.14
     # Nome do container para facilitar execução
     container_name: car_shop
+    # Caminho da Dockerfile
+    build: ./ 
     # Mesmo que `docker run -t`
     tty: true
     # Mesmo que `docker run -i`
@@ -31,6 +33,8 @@ services:
     ports:
       # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
       - 3001:3001
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/CarShop
 
   # Serviço que irá rodar o mongodb
   mongodb:
