@@ -10,7 +10,7 @@
     },
     {
       "bonus": false,
-      "description": "02 - Crie a Interface Vehicle genérica",
+      "description": "02 - Crie a interface IVehicle",
       "enabled": true,
       "identifier": null,
       "order": 2,
