@@ -103,4 +103,3 @@ jobs:
         with:
           evaluation-data: ${{ steps.evaluator.outputs.result }}
           environment: production
-          pr-number: ${{ github.event.pull_request.number }}
