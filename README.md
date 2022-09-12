@@ -313,7 +313,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   ```typescript
   const MONGO_DB_URL = 'mongodb://localhost:27017/CarShop';
   ```
-  - Para o avaliador funcionar mantenha a opção padrão com de URI do mongo como `process.env.MOGNO_URI` em `src/models/connection.ts` :
+  - Para o avaliador funcionar mantenha a opção padrão com de URI do mongo como `process.env.MONGO_URI` em `src/models/connection.ts` :
 
   ```typescript
   const connectToDatabase = (
