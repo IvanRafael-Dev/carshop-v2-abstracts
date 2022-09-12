@@ -264,7 +264,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   - `src/index.example.ts`
 
 
-  ⚠️**Importante**: Os testes do projeto DEVEM ser de unidade, testando cada camada ⚠️**
+  ⚠️**Importante**: Os testes do projeto DEVEM ser de unidade, testando cada camada ⚠️
 
 </details>
 
@@ -273,7 +273,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
     <strong>✅ Arquivos prontos para uso</strong>
   </summary><br>
 
-  - O arquivo `src/connection.ts` possui o código necessário para realizar a conexão com o banco de dados:
+  - O arquivo `src/models/connection.ts` possui o código necessário para realizar a conexão com o banco de dados:
 
   ```typescript
   import mongoose from 'mongoose';
@@ -300,7 +300,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   export default app;
 
   ```
-  ⚠️**Importante**: é muito importante que o arquivo `src/app.ts` exporte uma instância do `app express` para que os testes funcionem. ⚠️**
+  ⚠️**Importante**: é muito importante que o arquivo `src/app.ts` exporte uma instância do `app express` para que os testes funcionem. ⚠️
 </details>
 
 <details>
@@ -308,12 +308,12 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
     <strong>🔥⚠️ Tenha atenção para os seguintes pontos: ⚠️🔥</strong>
   </summary><br>
 
-  ➡️ A conexão do banco local contida no arquivo `src/connection.ts` deverá estar na seguinte variável, ou no `.env`:
+  ➡️ A conexão do banco local contida no arquivo `src/models/connection.ts` deverá estar na seguinte variável, ou no `.env`:
 
   ```typescript
   const MONGO_DB_URL = 'mongodb://localhost:27017/CarShop';
   ```
-  - Para o avaliador funcionar mantenha a opção padrão com de URI do mongo como `process.env.MOGNO_URI` em `src/connection.ts` :
+  - Para o avaliador funcionar mantenha a opção padrão com de URI do mongo como `process.env.MOGNO_URI` em `src/models/connection.ts` :
 
   ```typescript
   const connectToDatabase = (
@@ -387,7 +387,7 @@ Ela deverá ter todos os atributos comuns de todos os veículos que listaremos a
  | Atributo | Descrição |
  | :-------: | :-------- |
  | `model`   | Marca e/ou modelo do veículo. Deve ser uma string com, pelo menos, 3 caracteres |
- | `year`    | Ano de fabricação do veículo. Deve ser maior ou igual a 1900, porém menor ou igual a 2022 |
+ | `year`    | Ano de fabricação do veículo. Deve ser um valor inteiro positivo maior ou igual a 1900, porém menor ou igual a 2022 |
  | `color`   | Cor principal do veículo. Deve ser uma string com, pelo menos, 3 caracteres |
  | `status`  | Status que define se um veículo pode ou não ser comprado. Deve receber valores booleanos e deve ser opcional |
  | `buyValue` | Valor de compra do veículo. Deve receber apenas números inteiros |
@@ -412,7 +412,7 @@ Crie a interface `ICar`, de modo que ela possua todos os atributos da interface 
 
  | Atributo  | Descrição |
  | :--------: | :-------- |
- | `doorsQty` | Quantidade de portas de um carro. Deve ser maior ou igual a 2 e menor ou igual a 4 |
+ | `doorsQty` | Quantidade de portas de um carro. Deve ser um valor inteiro positivo maior ou igual a 2 e menor ou igual a 4 |
  | `seatsQty` | Quantidade de assentos disponíveis no carro. Deve ser maior ou igual a 2 e menor ou igual a 7 |
  
  - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `ICar.ts`.
@@ -743,50 +743,16 @@ Crie uma rota que receba uma requisição `DELETE` para excluir determinado veí
   - Sua API responderá com status http `204` sem body, em caso de sucesso;
 
 </details>
-
-### 24 - Escreva testes para cobrir 90% da camada de Model
-
-Escreva testes que cubram 90% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/models`.
-
-<details>
-  <summary>Será verificado se:</summary>
-
-  - A cobertura total das linhas dos arquivos na pasta `models` é igual a 90%.
-  
-</details>
-
-### 25 - Escreva testes para cobrir 90% da camada de Service
-
-Escreva testes que cubram 90% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`.
-
-<details>
-  <summary>Será verificado se:</summary>
-
-  - A cobertura total das linhas dos arquivos na pasta `services` é igual a 90%.
-  
-</details>
-
-### 26 - Escreva testes para cobrir 90% da camada de Controller
-
-Escreva testes que cubram 90% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`.
-
-<details>
-  <summary>Será verificado se:</summary>
-
-  - A cobertura total das linhas dos arquivos na pasta `controllers` é igual a 90%.
-  
-</details>
-
 ## Requisitos não avaliativos
 
-### 27 - Escreva testes para cobrir 100% da camada de Model
+### 24 - Escreva testes para cobrir 100% da camada de Model
 
 Escreva testes que cubram 100% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/models`.
 
-### 28 - Escreva testes para cobrir 100% da camada de service
+### 25 - Escreva testes para cobrir 100% da camada de service
 
 Escreva testes que cubram 100% da camada Service. Seus arquivos de teste deverão estar na pasta `src/tests/unit/services`.
 
-### 29 - Escreva testes para cobrir 100% da camada de controller
+### 26 - Escreva testes para cobrir 100% da camada de controller
 
 Escreva testes que cubram 100% da camada Controller. Seus arquivos de teste deverão estar na pasta `src/tests/unit/controllers`.
