@@ -743,6 +743,7 @@ Crie uma rota que receba uma requisição `DELETE` para excluir determinado veí
   - Sua API responderá com status http `204` sem body, em caso de sucesso;
 
 </details>
+
 ## Requisitos não avaliativos
 
 ### 24 - Escreva testes para cobrir 100% da camada de Model
