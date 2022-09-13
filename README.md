@@ -196,7 +196,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   2. Crie o contêiner do MongoDB:
 
   ```sh
-  docker run --name <nome-do-conteiner> -p 27017:27017 -d mongo
+  docker run --name <nome-do-container> -p 27017:27017 -d mongo
   ```
 
   3. Confira se o contêiner está rodando:
