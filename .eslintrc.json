@@ -60,9 +60,7 @@
         ],
         "max-len": [
         "error",
-        {
-            "code": 100
-        },
+        100,
         {
             "ignoreComments": true
         }

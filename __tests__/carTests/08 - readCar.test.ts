@@ -1,6 +1,6 @@
 import request from 'supertest';
 
-import connection from '../../src/connection';
+import connection from '../../src/models/connection';
 import { clearDatabase, closeDatabase } from '../utils/db';
 
 import * as carMock from '../utils/CarsMock';
