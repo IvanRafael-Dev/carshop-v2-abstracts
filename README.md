@@ -461,7 +461,7 @@ Crie uma rota que receba uma requisição `POST` para cadastrar um veículo do t
 
 ### 05 - Escreva testes para cobrir 15% da camada de Model
 
-Escreva testes que cubram, pelo menos, 15% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/model`.
+Escreva testes que cubram, pelo menos, 15% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/models`.
 
 <details>
   <summary>Será verificado se:</summary>
@@ -521,7 +521,7 @@ Crie uma rota que receba uma requisição `GET` para receber determinado veícul
 
 ### 10 - Escreva testes para cobrir 30% da camada de Model
 
-Escreva testes que cubram, pelo menos, 30% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/model`.
+Escreva testes que cubram, pelo menos, 30% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/models`.
 
 <details>
   <summary>Será verificado se:</summary>
@@ -578,7 +578,7 @@ Crie uma rota que receba uma requisição `PUT` para atualizar determinado veíc
 
 ### 14 - Escreva testes para cobrir 60% da camada de Model
 
-Escreva testes que cubram, pelo menos, 60% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/model`.
+Escreva testes que cubram, pelo menos, 60% da camada Model. Seus arquivos de teste deverão estar na pasta `src/tests/unit/models`.
 
 <details>
   <summary>Será verificado se:</summary>
