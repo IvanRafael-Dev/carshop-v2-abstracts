@@ -646,7 +646,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   <summary>Os seguintes pontos serão avaliados</summary>
 
   - Será validado que os testes escritos por você estão sendo executados sem erros;
-  - Será validado que existe um mínimo de 5 funções em cada arquivo.
+  - Será validado que existe um mínimo de 5 funções na camada `Services`.
   - Será validado que a cobertura total das linhas dos arquivos da camada `Services` é maior ou igual a 60%;
 
   <br>
