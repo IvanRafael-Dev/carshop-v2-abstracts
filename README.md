@@ -177,7 +177,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 <details>
   <summary><strong>🕵🏿 Revisando um pull request</strong></summary>
 
-  Use o conteúdo sobre [Code Review](https://app.betrybe.com/course/real-life-engineer/code-review) para te ajudar a revisar os _Pull Requests_.
+  Use o conteúdo sobre [Code Review](https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/module/f04cdb21-382e-4588-8950-3b1a29afd2dd/section/b3af2f05-08e5-4b4a-9667-6f5f729c351d/lesson/36268865-fc46-40c7-92bf-cbded9af9006) para te ajudar a revisar os _Pull Requests_.
 
   <br>
 </details>
