@@ -1,92 +1,50 @@
-export const validCar = {
+import ICar from '../../src/Interfaces/ICar';
+
+export const validCar: ICar = {
   model: 'Uno da Escada',
-  year: 1963,
-  color: 'red',
-  buyValue: 3500,
+  year: 1960,
+  color: 'Red',
+  buyValue: 1500,
+  doorsQty: 2,
   seatsQty: 2,
-  doorsQty: 2
 };
 
-export const updatedCar = {
+export const validCarWithStatus: ICar = {
   model: 'Uno da Escada',
-  year: 1966,
-  color: 'blue',
-  buyValue: 3500,
+  year: 1960,
+  color: 'Red',
+  status: true,
+  buyValue: 1500,
+  doorsQty: 2,
   seatsQty: 2,
-  doorsQty: 2
 };
 
-export const coverageCar = {
+export const updatedCar: ICar = {
   model: 'Uno da Escada',
-  year: 1963,
-  color: 'red',
+  year: 1979,
+  color: 'Red',
+  status: true,
   buyValue: 3500,
-  seatsQty: 2,
-  doorsQty: 2
+  doorsQty: 2,
+  seatsQty: 4,
 };
 
-export const noModelCar = {
-  year: 1963,
-  color: 'red',
-  buyValue: 3500,
-  seatsQty: 2,
-  doorsQty: 2
-};
-
-export const noYearCar = {
-  model: 'Uno da Escada',
-  color: 'red',
-  buyValue: 3500,
-  seatsQty: 2,
-  doorsQty: 2
-}
-
-export const noColorCar = {
-  model: 'Uno da Escada',
-  year: 1963,
-  buyValue: 3500,
-  seatsQty: 2,
-  doorsQty: 2
-}
-
-export const noBuyValueCar = {
-  model: 'Uno da Escada',
-  year: 1963,
-  color: 'red',
-  seatsQty: 2,
-  doorsQty: 2
-}
-
-export const noSeatsCar = {
-  model: 'Uno da Escada',
-  year: 1963,
-  color: 'red',
-  buyValue: 3500,
-  doorsQty: 2
-}
-
-export const noDoorsCar = {
-  model: 'Uno da Escada',
-  year: 1963,
-  color: 'red',
-  buyValue: 3500,
-  seatsQty: 2,
-}
-
-export const carSeatsLtTwo = {
-  model: 'Uno da Escada',
-  year: 1963,
-  color: 'red',
-  buyValue: 3500,
-  seatsQty: 1,
-  doorsQty: 2
-}
-
-export const carDoorsLtTwo = {
-  model: 'Uno da Escada',
-  year: 1963,
-  color: 'red',
-  buyValue: 3500,
-  seatsQty: 2,
-  doorsQty: 1
-}
+export const carsArray: ICar[] = [
+  {
+    model: 'Marea',
+    year: 2002,
+    color: 'Black',
+    status: true,
+    buyValue: 15.990,
+    doorsQty: 4,
+    seatsQty: 5,
+  },
+  {
+    model: 'Tempra',
+    year: 1995,
+    color: 'Black',
+    buyValue: 39.000,
+    doorsQty: 2,
+    seatsQty: 5,
+  },
+]

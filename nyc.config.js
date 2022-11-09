@@ -1,9 +1,9 @@
 module.exports = {
   "extends": "@istanbuljs/nyc-config-typescript",
   "include": [
-    "src/models",
-    "src/services",
-    "src/controllers"
+    "src/Models",
+    "src/Services",
+    "src/Controllers"
   ],
   "reporter": [
     "text",
@@ -12,4 +12,5 @@ module.exports = {
     "html",
     "lcov"
   ],
+  "all": true
 }
