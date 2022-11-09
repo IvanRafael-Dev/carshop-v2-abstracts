@@ -11,7 +11,8 @@ const PERMANENT_JS_FILES = [
   './node_modules/*',
   './__tests__/setup.js',
   './__tests__/testSequencer.js',
-  './__tests__/unit-coverage.test.js'
+  './__tests__/unit-coverage.test.js',
+  './__tests__/utils/nyc-coverage.js'
 ];
 
 const replaceAll = (text, search, replacement) => {
@@ -47,7 +48,7 @@ expect.extend({
     );
     if (errorDiagnostic) return {
       pass: false,
-      message: () => `Expected ${fileName}.ts to compile successfully`,
+      message: () => `Expected ${fileName}.ts to compile successfully. TS Error: ${errorDiagnostic.messageText}`,
     };
 
     if (emit) program.emit();
