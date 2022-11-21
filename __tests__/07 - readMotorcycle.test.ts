@@ -12,6 +12,10 @@ describe('07 - Crie a rota /motorcycles onde seja possível listar motos', () =>
   beforeAll(async () => {
     await Connection();
     await clearDatabase();
+    //Solução alternativa: trocar nome do model e explicitar a collection no schema:
+    //(para essa solução nao precisa importar models do mongoose)
+    // const schema = new Schema({ }, { strict: false, collection: 'motorcycles' });
+    //const Motorcycle = model('MotorcycleTest', schema);
     const schema = new Schema({ }, { strict: false });
     const Motorcycle = models.Motorcycle || model('Motorcycle', schema);
     let motorcycle = new Motorcycle(motorcyclesArray[0]);
