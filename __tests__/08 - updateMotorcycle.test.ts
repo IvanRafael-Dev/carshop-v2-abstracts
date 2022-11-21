@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { model, Schema } from 'mongoose';
+import { model, Schema, models } from 'mongoose';
 import app from '../src/app';
 import Connection from '../src/Models/Connection';
 import { clearDatabase, closeDatabase } from './utils/db';
@@ -12,8 +12,12 @@ describe('08 - Crie a rota /motorcycles/:id onde seja possível atualizar uma mo
   beforeAll(async () => {
     await Connection();
     await clearDatabase();
+     //Solução alternativa: trocar nome do model e explicitar a collection no schema:
+    //(para essa solução nao precisa importar models do mongoose)
+    // const schema = new Schema({ }, { strict: false, collection: 'motorcycles' });
+    //const Motorcycle = model('MotorcycleTest', schema);
     const schema = new Schema({ }, { strict: false });
-    const Motorcycle = model('Motorcycle', schema);
+    const Motorcycle = models.Motorcycle || model('Motorcycle', schema);
     const motorcycle = new Motorcycle(validMotorcycle);
     const { _id } = await motorcycle.save();
     VALID_ID = _id;

@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { model, Schema } from 'mongoose';
+import { model, Schema, models } from 'mongoose';
 import app from '../src/app';
 import Connection from '../src/Models/Connection';
 import { clearDatabase, closeDatabase } from './utils/db';
@@ -13,7 +13,7 @@ describe('07 - Crie a rota /motorcycles onde seja possível listar motos', () =>
     await Connection();
     await clearDatabase();
     const schema = new Schema({ }, { strict: false });
-    const Motorcycle = model('Motorcycle', schema);
+    const Motorcycle = models.Motorcycle || model('Motorcycle', schema);
     let motorcycle = new Motorcycle(motorcyclesArray[0]);
     await motorcycle.save();
     motorcycle = new Motorcycle(motorcyclesArray[1]);
