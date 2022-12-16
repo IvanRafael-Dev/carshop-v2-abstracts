@@ -12,8 +12,8 @@ describe('04 - Crie a rota /cars/:id onde seja possível atualizar um carro por 
   beforeAll(async () => {
     await Connection();
     await clearDatabase();
-    const schema = new Schema({ }, { strict: false });
-    const Car = model('Car', schema);
+    const schema = new Schema({ }, { strict: false, collection: 'cars' });
+    const Car = model('CarTest', schema);
     const car = new Car(validCar);
     const { _id } = await car.save();
     VALID_ID = _id;

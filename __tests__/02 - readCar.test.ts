@@ -12,8 +12,8 @@ describe('02 - Crie o endpoint para listar carros', () => {
   beforeAll(async () => {
     await Connection();
     await clearDatabase();
-    const schema = new Schema({ }, { strict: false });
-    const Car = model('Car', schema);
+    const schema = new Schema({ }, { strict: false, collection: 'cars' });
+    const Car = model('CarTest', schema);
     let car = new Car(carsArray[0]);
     await car.save();
     car = new Car(carsArray[1]);

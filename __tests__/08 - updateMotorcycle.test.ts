@@ -12,8 +12,8 @@ describe('08 - Crie a rota /motorcycles/:id onde seja possível atualizar uma mo
   beforeAll(async () => {
     await Connection();
     await clearDatabase();
-    const schema = new Schema({ }, { strict: false });
-    const Motorcycle = model('Motorcycle', schema);
+    const schema = new Schema({ }, { strict: false, collection: 'motorcycles' });
+    const Motorcycle = model('MotorcycleTest', schema);
     const motorcycle = new Motorcycle(validMotorcycle);
     const { _id } = await motorcycle.save();
     VALID_ID = _id;

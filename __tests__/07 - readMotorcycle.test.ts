@@ -12,8 +12,8 @@ describe('07 - Crie a rota /motorcycles onde seja possível listar motos', () =>
   beforeAll(async () => {
     await Connection();
     await clearDatabase();
-    const schema = new Schema({ }, { strict: false });
-    const Motorcycle = model('Motorcycle', schema);
+    const schema = new Schema({ }, { strict: false, collection: 'motorcycles' });
+    const Motorcycle = model('MotorcycleTest', schema);
     let motorcycle = new Motorcycle(motorcyclesArray[0]);
     await motorcycle.save();
     motorcycle = new Motorcycle(motorcyclesArray[1]);
