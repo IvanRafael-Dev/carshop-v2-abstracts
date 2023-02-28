@@ -24,9 +24,9 @@ Neste projeto você irá:
 
 ### _Vão ser necessárias para realização do projeto_
 
-- [APIs orientadas a objetos e NoSQL: POO e ODMs](https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/module/94d0e996-1827-4fbc-bc24-c99fb592925b/section/31fdf796-fb5a-4a3f-b1d5-4eadd0ab0147/day/fa158180-d0d0-40d7-83bf-ff7c0c983b10/lesson/453cd880-37f1-4e84-9d69-e31738083558)
+- [ ] [APIs orientadas a objetos e NoSQL: POO e ODMs](https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/module/94d0e996-1827-4fbc-bc24-c99fb592925b/section/31fdf796-fb5a-4a3f-b1d5-4eadd0ab0147/day/fa158180-d0d0-40d7-83bf-ff7c0c983b10/lesson/453cd880-37f1-4e84-9d69-e31738083558)
 
-- [APIs orientadas a objetos e NoSQL: Herança e Abstração](https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/module/94d0e996-1827-4fbc-bc24-c99fb592925b/section/31fdf796-fb5a-4a3f-b1d5-4eadd0ab0147/day/d87d8c3f-23f2-429b-b571-265103e6418d/lesson/0ec9c610-f806-4ae2-9104-a982edbf632b)
+- [ ] [APIs orientadas a objetos e NoSQL: Herança e Abstração](https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/module/94d0e996-1827-4fbc-bc24-c99fb592925b/section/31fdf796-fb5a-4a3f-b1d5-4eadd0ab0147/day/d87d8c3f-23f2-429b-b571-265103e6418d/lesson/0ec9c610-f806-4ae2-9104-a982edbf632b)
 
 ### Conteúdos de Soft Skills
 
