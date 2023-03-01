@@ -12,7 +12,7 @@ Neste projeto você irá:
 
 ## Missão essencial
 
-- [X] PR aberto para entrega do projeto All For One
+- [X] PR aberto para entrega do projeto Car Shop
 
 ## O que preciso saber para fazer o projeto?
 
