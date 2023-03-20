@@ -4,19 +4,19 @@ services:
   # Serviço que irá rodar o node
   node:
     # Imagem base do container
-    image: node:16.14.2
+    # image: node:16.14.2
     # Usuário linux padrão do container
     user: node
     # Nome do container para facilitar execução
     container_name: car_shop
     # Caminho da Dockerfile
-    build: ./ 
+    build: ./
     # Mesmo que `docker run -t`
     tty: true
     # Mesmo que `docker run -i`
     stdin_open: true
     # Substitui o comando padrão da imagem do node
-    command: bash
+    # command: bash
     # Restarta a imagem caso algo a faça parar
     restart: always
     # Diretório padrão de execução
@@ -25,7 +25,7 @@ services:
     volumes:
       # Monta o diretório atual, com todos os dados do projeto, 
       # dentro do diretório /app
-      - ./:/app
+      - ./src:/app/src
     # Lista de serviços do qual este serviço depende
     depends_on:
       # Precisa do mongo funcionando antes de subir o node
@@ -43,7 +43,7 @@ services:
     image: mongo:5.0.7
     container_name: car_shop_db
     volumes:
-      - ./:/app
+      - ./src:/app/src
     restart: always
     ports:
       # Garanta que não haverá conflitos de porta com um mongodb que esteja
