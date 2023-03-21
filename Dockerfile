@@ -12,4 +12,5 @@ RUN chown node:node /app
 
 USER node
 
-CMD ["npm", "run", "dev"]
+ENTRYPOINT [ "npm" ]
+CMD ["run", "dev"]
