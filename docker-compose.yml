@@ -3,6 +3,8 @@ version: "3"
 services:
   # Serviço que irá rodar o node
   app-car-shop:
+    # Nome do container para facilitar execução
+    container_name: car_shop
     # Caminho da Dockerfile
     build: .
     # Restarta a imagem caso algo a faça parar
@@ -26,6 +28,7 @@ services:
 
   # Serviço que irá rodar o mongodb
   mongodb:
+    container_name: car_shop_db
     image: mongo:5.0.7
     restart: always
     ports:

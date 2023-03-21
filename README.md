@@ -47,7 +47,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 
   **⚠ Antes de começar, seu docker-compose precisa estar na versão 1.29 ou superior. [Veja aqui](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04-pt) ou [na documentação](https://docs.docker.com/compose/install/) como instalá-lo. No primeiro artigo, você pode substituir onde está com `1.26.0` por `1.29.2`.**
 
-  > :information_source: Rode os serviços `node` e `db` com o comando `docker-compose up -d`.
+  > :information_source: Renomeie o arquivo `src/server.example.ts`, retirando o `.example`, e descomente o conteúdo do mesmo. Rode os serviços `app-car-shop` e `mongodb` com o comando `docker-compose up -d`.
 
   - Lembre-se de parar o `mongo` se estiver usando localmente na porta padrão (`27017`), ou adapte, caso queria fazer uso da aplicação em containers
   - Esses serviços irão inicializar um container chamado `car_shop` e outro chamado `car_shop_db`.
@@ -56,8 +56,6 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   > :information_source: Use o comando `docker exec -it car_shop bash`.
 
   - Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano.
-
-  > :information_source: Instale as dependências [**Caso existam**] com `npm install` 
   
   - **⚠ Atenção:** Caso opte por utilizar o Docker, **TODOS** os comandos disponíveis no `package.json` (npm start, npm test, npm run dev, ...) devem ser executados **DENTRO** do container, ou seja, no terminal que aparece após a execução do comando `docker exec` citado acima. 
   - **⚠ Atenção:** O **git** dentro do container não vem configurado com suas credenciais. Ou faça os commits fora do container, ou configure as suas credenciais do git dentro do container.
@@ -256,7 +254,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   - `src/serve.example.ts`
   - `src/app.ts`
 
-  Renomeie o arquivo de `server`, removendo o `.example` e use o arquivo de `app.ts` para concentrar os middlewares de sua aplicação.
+  Lembre-se de renomear o arquivo de `server`, removendo o `.example` e use o arquivo de `app.ts` para concentrar os middlewares de sua aplicação.
 
   Dentro da pasta raiz também existe um arquivo `.env.example`, este é o único arquivo que pode ser alterado neste nível. Não altere ou instale novas dependências no arquivo `packages.json`, pois o mesmo está travado para essa avaliação.
 
