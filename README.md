@@ -32,8 +32,8 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   <summary><strong>🗓 Data de Entrega</strong></summary>
   
   - Este projeto é individual;
-  - Serão `X` dias de projeto;
-  - Data de entrega para avaliação regular do projeto: `DD/MM/YYYY - 14:00h`.
+  - Serão `3` dias de projeto;
+  - Data de entrega para avaliação regular do projeto: `18/05/2023 - 14:00h`.
 
   <br>
 </details>

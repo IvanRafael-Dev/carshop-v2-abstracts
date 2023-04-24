@@ -4,49 +4,7 @@ import CarODM from '../../../src/Models/CarODM';
 import CarService from '../../../src/Services/CarService';
 import ICar from '../../../src/Interfaces/ICar';
 import Car from '../../../src/Domains/Car';
-
-const validCarMock: ICar = {
-  model: 'Uno da Escada',
-  year: 1960,
-  color: 'Red',
-  buyValue: 1500,
-  doorsQty: 2,
-  seatsQty: 2,
-};
-
-const validCarMockWithId: ICar = {
-  id: 'any_id',
-  model: 'Marea',
-  year: 2002,
-  color: 'Black',
-  status: true,
-  buyValue: 15.990,
-  doorsQty: 4,
-  seatsQty: 5,
-};
-
-const validCarsMockWithId: ICar [] = [
-  {
-    id: 'any_id',
-    model: 'Marea',
-    year: 2002,
-    color: 'Black',
-    status: true,
-    buyValue: 15.990,
-    doorsQty: 4,
-    seatsQty: 5,
-  },
-  {
-    id: 'any_id_2',
-    model: 'Kadett',
-    year: 1993,
-    color: 'Black',
-    status: true,
-    buyValue: 10.990,
-    doorsQty: 4,
-    seatsQty: 5,
-  },
-];
+import { validCarMock, validCarMockWithId, validCarsMockWithId } from '../../mocks/carsMocks';
 
 const makeSut = () => {
   const carModel = new CarODM();
